@@ -1,13 +1,17 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
-import styles from './Search.module.scss'
+
 
 export default function Search() {
   const roasters = useSelector((state) => state.roasters)
-  console.log(roasters[0])
+  const cafes = useSelector((state) => state.cafes)
 
-  const items = roasters
+  const items = roasters.concat(cafes)
+
+   console.log('items', items)
+  //console.log('cafes', cafes)
+  // console.log('roasters', roasters)
 
   const handleOnSearch = (string, results) => {
     console.log(string, results);
@@ -34,11 +38,10 @@ export default function Search() {
       <div>
         <h1>Search Bar</h1>
         <div style={{ width: 200, margin: 20 }}>
-          <h2>My custom searchbox!</h2>
-          <div style={{ marginBottom: 20 }}>Search cafe/ro</div>
+          <h2>Search</h2>
           <ReactSearchAutocomplete
             items={items}
-            fuseOptions={{ keys: ["name", "description"] }} // Search on both fields
+            fuseOptions={{ keys: ["name"] }} // Search on both fields
             resultStringKeyName="name" // String to display in the results
             onSearch={handleOnSearch}
             onHover={handleOnHover}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
+import { fetchCafes } from '../actions/cafes'
 
 import Map from './Map'
 import Search from './Search'
@@ -11,6 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(fetchRoasters())
+    dispatch(fetchCafes())
   }, [])
 
   return (
