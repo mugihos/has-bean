@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchRoasters } from '../actions/roasters'
 
 import Map from './Map'
 import Search from './Search'
 import SearchResult from './SearchResult'
 
 export default function Home() {
-  // const fruits = useSelector((state) => state.fruits)
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch()
-  // }, [])
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchRoasters())
+  }, [])
 
   return (
     <>
