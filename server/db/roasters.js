@@ -1,10 +1,8 @@
 const connection = require('./connection')
 module.exports = {
-  geRoasters,
+  getRoasters,
 }
 
-function geRoasters(db = connection) {
+function getRoasters(db = connection) {
   return db('roasters').select()
 }
-
-
