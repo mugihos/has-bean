@@ -1,25 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import ReactMapGL from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Map, { Marker } from 'react-map-gl'
 
-// export default function MapShow() {
-//   return (
-//     <div>
-//       <h1>Hi</h1>
-//     </div>
-//   )
-// }
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-export default function MapShow() {
-  const [lng, setLng] = useState(54.378583894)
-  const [lat, setlat] = useState(24.457684785)
-  console.log(lng)
-
+export default function MapShow({ coOrds }) {
+  const roasters = coOrds.roasters
+  const lng = coOrds.lng
+  const lat = coOrds.lat
+  console.log('refresh')
   return (
     <div id="map">
       <Map
         mapboxAccessToken="pk.eyJ1IjoiZ3JlYXNlbGluZyIsImEiOiJjbGIzZHk2ZDMwM3RwM3VzdTZyaHFsOHVsIn0.95-vdWz0ALCMh9EdrPCMuA"
+        container="map"
         style={{
           width: '500px',
           height: '500px',
@@ -32,7 +27,13 @@ export default function MapShow() {
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        <Marker longitude={lng} latitude={lat} />
+        {roasters.map((roasters) => (
+          <Marker
+            key={roasters.id}
+            longitude={roasters.lng}
+            latitude={roasters.lat}
+          />
+        ))}
       </Map>
     </div>
   )

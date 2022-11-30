@@ -14,7 +14,7 @@ export default function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/map" element={<MapShow />} />
+        {/* <Route path="/map" element={<MapShow />} /> */}
         <Route path="/" element={<Home />} />
         <Route path="/roasters" element={<Roasters />} />
         <Route path="/roasters/:id" element={<Roaster />} />
