@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Map from './Map'
+import MapShow from './MapShow'
 import Search from './Search'
 import SearchResult from './SearchResult'
 
@@ -16,10 +16,9 @@ export default function Home() {
     <>
       <div className="#">
         <h1>HOME!!! TO SHOW MAP/SEARCH </h1>
-        <Map />
+        <MapShow />
         <Search />
       </div>
     </>
   )
 }
-
