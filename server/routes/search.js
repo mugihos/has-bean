@@ -1,10 +1,10 @@
 const express = require('express')
-const db = require('../db/roasters.js')
+const db = require('../db/search.js')
 const router = express.Router()
 
-//api/v1/roasters/
+//api/v1/search/
 router.get('/', (req, res) => {
-  db.getRoasters()
+  db.getSearchRoasters()
     .then((result) => {
       res.json(result)
     })
@@ -13,5 +13,7 @@ router.get('/', (req, res) => {
       res.sendStatus(500)
     })
 })
+
+
 
 module.exports = router
