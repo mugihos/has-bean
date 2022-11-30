@@ -8,7 +8,7 @@ exports.up = function (knex) {
     table.string('name')
     table.string('address')
     table.string('city')
-    table.integer('coffee_roastery_id')
+    table.integer('roaster_id').references('roasters.id')
   })
 }
 

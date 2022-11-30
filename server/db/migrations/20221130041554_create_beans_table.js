@@ -5,9 +5,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable('beans', (table) => {
     table.increments('id')
-    table.integer('coffee_roastery_id')
+    table.integer('roaster_id').references('roasters.id')
     table.string('location')
-    table.string('detail')
+    table.string('details')
   })
 }
 
