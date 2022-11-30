@@ -1,6 +1,6 @@
 const initialRequestState = []
 
-const roastersReducer = (state = initialRequestState, action) => {
+const roasters = (state = initialRequestState, action) => {
   const { type, payload } = action
   switch (type) {
     case 'SET_ROASTERS':
@@ -10,4 +10,4 @@ const roastersReducer = (state = initialRequestState, action) => {
   }
 }
 
-export default roastersReducer
+export default roasters
