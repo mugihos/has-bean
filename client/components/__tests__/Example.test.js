@@ -1,4 +1,5 @@
-// Examples from BadgerMatch teacher led project
+// Example component tests from BadgerMatch teacher led project
+// https://github.com/aihe-ahoaho-2022/BadgerMatch/blob/friday-demo/client/components/__tests__/Home.test.js
 import React from 'react'
 import '@testing-library/jest-dom'
 import { Provider } from 'react-redux'
