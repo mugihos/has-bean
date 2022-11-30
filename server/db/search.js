@@ -1,10 +1,9 @@
 const connection = require('./connection')
 module.exports = {
-  getRoasters,
+  getSearch,
 }
 
-function getRoasters(db = connection) {
+function getSearch(db = connection) {
   return db('roasters').select()
+  .join()
 }
-
-
