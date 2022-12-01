@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 //this is where we have individual informaion of the roaster
 export default function Roaster() {
   const params = useParams()
-  const roasterId = params.id
+  const roasterId = Number(params.id)
   //this is where we access the global redux state to access the single roaster
   const roasters = useSelector((state) => state.roasters)
 
@@ -15,9 +15,13 @@ export default function Roaster() {
   return (
     <>
       <div>
-        <h1>{singleRoaster.name}</h1>
-        <h3>{singleRoaster.location}</h3>
-        <p>{singleRoaster.details}</p>{' '}
+        {singleRoaster && (
+          <div>
+            <h1>Single roaster</h1>
+            <h3>{singleRoaster.name}</h3>
+            <p>{singleRoaster.location}</p>
+          </div>
+        )}
       </div>
     </>
   )
