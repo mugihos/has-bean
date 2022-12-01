@@ -1,18 +1,18 @@
-import { getSearch } from '../apis/roasters'
+import { getSearchRoasters } from '../apis/searchRoasters'
 
-export const SET_ROASTERS = 'SET_ROASTERS'
+export const SET_SEARCH_ROASTERS = 'SET_SEARCH_ROASTERS'
 
-export function setRoasters(roasters) {
+export function setSearchRoasters(roasters) {
   return {
-    type: SET_ROASTERS,
+    type: SET_SEARCH_ROASTERS,
     payload: roasters,
   }
 }
 
-export function fetchRoasters() {
+export function fetchSearchRoasters() {
   return (dispatch) => {
-    return getRoasters().then((roasters) => {
-      dispatch(setRoasters(roasters))
+    return getSearchRoasters().then((roasters) => {
+      dispatch(setSearchRoasters(roasters))
     })
   }
 }

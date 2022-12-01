@@ -4,12 +4,15 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 
 export default function Search() {
+  const searchRoasters = useSelector((state) => state.searchRoasters)
   const roasters = useSelector((state) => state.roasters)
   const cafes = useSelector((state) => state.cafes)
 
-  const roastersName = roasters.map((data) => data.name)
-  const cafesName = cafes.map((data) => data.name)
-  console.log('roastersName', roastersName);
+  // const roastersName = roasters.map((data) => data.name)
+  // const cafesName = cafes.map((data) => data.name)
+  // console.log('roastersName', roastersName);
+
+  console.log('searchRoasters', searchRoasters);
   
   const items = roasters.concat(cafes)
 

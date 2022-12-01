@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../db/search.js')
+const db = require('../db/searchRoasters.js')
 const router = express.Router()
 
 //api/v1/searchRoasters/
