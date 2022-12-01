@@ -76,26 +76,22 @@ export default function Home() {
     const latCoOrds = coOrds.map((coOrds) => coOrds.lat)
     const latCentre = (Math.max(...latCoOrds) + Math.min(...latCoOrds)) / 2
     const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
-    console.log(latRange * 111.32, 'Latitude range(km)')
+    const latDist = latRange * 111.32 // Distance in km
 
     const lngCoOrds = coOrds.map((coOrds) => coOrds.lng)
     const lngCentre = (Math.max(...lngCoOrds) + Math.min(...lngCoOrds)) / 2
     const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
-    console.log(
-      (lngRange * 40075 * Math.cos(latRange)) / 360,
-      'longitude range(km)'
-    )
-    // Find zoom by...
-    // Find maximum distance from center to any of the longitude or latitudes
-    // multiple max by 2
-    let screenSize = 500 //px
-    let ratio = 59000 // meters/pixel
+    const lngDist = (lngRange * 40075 * Math.cos(latRange)) / 360 // Dist in km
 
-    // find ratio for zoom
+    // Find zoom by...
+    const screenSize = 256 //px
+    const ratio = 28 // m/pixel at zoom level 1
+    const zommLevel = (ratio * screenSize) / (Math.max(lngDist, latDist) * 1.5)
+
     return {
       longitude: lngCentre,
       latitude: latCentre,
-      zoom: 4.5,
+      zoom: zommLevel,
     }
   }
 
