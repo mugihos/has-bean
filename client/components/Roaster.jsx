@@ -8,9 +8,10 @@ export default function Roaster() {
   const roasterId = Number(params.id)
   //this is where we access the global redux state to access the single roaster
   const roasters = useSelector((state) => state.roasters)
+  const searchRoasters = useSelector((state) => state.searchRoasters)
 
   //select the single roaster by filter
-  const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
+  const singleRoaster = searchRoasters.find((roaster) => roaster.id === roasterId)
 
   return (
     <>
