@@ -62,7 +62,6 @@ export default function Home() {
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
- 
 
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
@@ -75,30 +74,37 @@ export default function Home() {
     //Find center of all points by finding half of max long and lat
     const latCoOrds = coOrds.map((coOrds) => coOrds.lat)
     const latCentre = (Math.max(...latCoOrds) + Math.min(...latCoOrds)) / 2
-    const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
-    const latDist = latRange * 111.32 // Distance in km
 
     const lngCoOrds = coOrds.map((coOrds) => coOrds.lng)
     const lngCentre = (Math.max(...lngCoOrds) + Math.min(...lngCoOrds)) / 2
-    const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
-    const lngDist = (lngRange * 40075 * Math.cos(latRange)) / 360 // Dist in km
 
-    // Find zoom by...
-    const screenSize = 256 //px
-    const ratio = 28 // m/pixel at zoom level 1
-    const zommLevel = (ratio * screenSize) / (Math.max(lngDist, latDist) * 1.5)
-
-    return {
-      longitude: lngCentre,
-      latitude: latCentre,
-      zoom: zommLevel,
+    if (coOrds.length > 1) {
+      const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
+      const latDist = latRange * 111.32 // Distance in km
+      console.log(latDist, 'lng latDist')
+      const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
+      const lngDist = lngRange * 40075 * (Math.cos(latRange) / 360) // Dist in km
+      // Find zoom by...
+      const tileSize = 512 //px !!! Dunno how many tiles ffs
+      const ratio = 30 // km/px at zoom level 1 for values at -40 latitude
+      const zommLevel = (ratio * tileSize) / Math.max(lngDist, latDist)
+      return {
+        longitude: lngCentre,
+        latitude: latCentre,
+        zoom: zommLevel,
+      }
+    } else {
+      return {
+        longitude: lngCentre,
+        latitude: latCentre,
+        zoom: 6,
+      }
     }
   }
 
   return (
     <>
       <div>
-
         <Search />
       </div>
       <div>

@@ -16,7 +16,7 @@ export default function MapShow({ coOrds, moreInfo, viewInfo }) {
           width: '500px',
           height: '500px',
           borderRadius: '15px',
-          border: '2px solid white',
+          border: '5px solid white',
         }}
         initialViewState={{
           longitude: viewInfo?.longitude,
@@ -31,6 +31,7 @@ export default function MapShow({ coOrds, moreInfo, viewInfo }) {
             longitude={roasters.lng}
             latitude={roasters.lat}
             onClick={() => moreInfo(roasters.id)}
+            properties={{marker-symbol:'cafe'}}
           />
         ))}
       </Map>
