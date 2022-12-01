@@ -2,5 +2,10 @@
 
 body {
   background-color: theme.$brown;
+  color: white;
   margin-bottom: 0;
+}
+
+a:link {
+  text-decoration: none;
 }

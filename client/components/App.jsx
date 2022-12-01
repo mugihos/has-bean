@@ -13,8 +13,9 @@ import MapShow from './MapShow'
 export default function App() {
   return (
     <>
+    <Header />
+    <div className="pageWrapper">
     <div className={styles.base}>
-      <Header />
       <Routes>
         {/* <Route path="/map" element={<MapShow />} /> */}
         <Route path="/" element={<Home />} />
@@ -22,8 +23,9 @@ export default function App() {
         <Route path="/roasters/:id" element={<Roaster />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </div>
+    </div>
+    <Footer />
     </>
   )
 }

@@ -4,3 +4,20 @@ html,
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+.pageWrapper {
+  margin: 3vw;
+  display: flex;
+  min-height: 70vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fa {
+  color: white;
+  font-size: 30px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}

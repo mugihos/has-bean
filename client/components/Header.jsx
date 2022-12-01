@@ -30,7 +30,7 @@ export default function Header() {
       <div className={styles.links}>
         <Link to='/roasters'>Roasters</Link>
         <Link to='/beans'>Beans</Link>
-        <Link to='/ivebeen'>I've Been</Link>
+        <Link to='/ivebeen'>I've Bean</Link>
         </div>
         {/* <div>
         <IfAuthenticated>

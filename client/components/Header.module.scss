@@ -13,9 +13,17 @@
   white-space: nowrap;  
 }
 
-.title { font-size: 2rem; }
+.title { 
+  font-size: 2rem;
+  color: white 
+}
 
 .links {
   display: flex; justify-content: space-around; gap: 48px;
   margin-left: 48px;
+}
+
+.links a {
+  text-decoration: none;
+  color: white
 }

@@ -5,14 +5,9 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 export default function Search() {
   const searchRoasters = useSelector((state) => state.searchRoasters)
-  const roasters = useSelector((state) => state.roasters)
-  const cafes = useSelector((state) => state.cafes)
+  // const roasters = useSelector((state) => state.roasters)
+  // const cafes = useSelector((state) => state.cafes)
 
-
-
-  console.log('searchRoasters', searchRoasters)
-  console.log('roasters', roasters)
-  console.log('cafes', cafes)
 
 
   const handleOnSearch = (string, results) => {
@@ -38,9 +33,8 @@ export default function Search() {
   return (
     <>
       <div>
-        <h1>Search Bar</h1>
-        <div style={{ width: 200, margin: 20 }}>
-          <h2>Search</h2>
+        <div style={{ width: 200, margin: 10 }}>
+          <label>Search</label>
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{ keys: ["roasterName", "cafeName"]}} // Search on both fields
@@ -68,7 +62,7 @@ export default function Search() {
               zIndex: 2,
             }}
           />
-          <div style={{ marginTop: 20 }}>This text will be covered!</div>
+         
         </div>
       </div>
     </>

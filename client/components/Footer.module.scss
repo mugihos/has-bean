@@ -1,0 +1,32 @@
+@use '../styles/theme';
+
+a:link {
+  text-decoration: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // margin: 2rem;
+}
+
+.footerItem {
+  font-size: 1.2rem;
+  font-weight: bold;
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.vertical {
+  display: block;
+}
+
+ul{
+  display:inline-block
+}
+
+li{
+  list-style-type: none;
+}
