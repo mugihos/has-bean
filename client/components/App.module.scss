@@ -1,0 +1,6 @@
+@use '../styles/theme';
+
+body {
+  background-color: theme.$brown;
+  margin-bottom: 0;
+}

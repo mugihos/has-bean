@@ -54,8 +54,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="#">
-        <h1>HOME!!! TO SHOW MAP/SEARCH </h1>
+      <div>
+
         <Search />
       </div>
       <div>

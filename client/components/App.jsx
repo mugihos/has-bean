@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import styles from './App.module.scss'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -12,6 +13,7 @@ import MapShow from './MapShow'
 export default function App() {
   return (
     <>
+    <div className={styles.base}>
       <Header />
       <Routes>
         {/* <Route path="/map" element={<MapShow />} /> */}
@@ -21,6 +23,7 @@ export default function App() {
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
+    </div>
     </>
   )
 }
