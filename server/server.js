@@ -4,13 +4,13 @@ const server = express()
 const request = require('superagent')
 
 const roastersRoutes = require('./routes/roasters')
-const beansRoutes = require('./routes')
+// const beansRoutes = require('./routes')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/api/v1/roasters', roastersRoutes)
-server.use('api/v1/beans', beansRoutes)
+// server.use('api/v1/beans', beansRoutes)
 
 server.get('/api/v1/coffeeimage', (req, res) => {
   request
