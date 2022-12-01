@@ -6,5 +6,3 @@ module.exports = {
 function getRoasters(db = connection) {
   return db('roasters').select()
 }
-
-
