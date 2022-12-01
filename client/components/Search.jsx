@@ -8,7 +8,7 @@ export default function Search() {
   // const roasters = useSelector((state) => state.roasters)
   // const cafes = useSelector((state) => state.cafes)
 
-
+  console.log('searchRoaster in Search.jsx', searchRoasters);
 
   const handleOnSearch = (string, results) => {
     console.log(string, results);
