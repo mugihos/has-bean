@@ -5,12 +5,8 @@ import Map, { Marker } from 'react-map-gl'
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-export default function MapShow({ coOrds, moreInfo }) {
-  console.log(moreInfo)
+export default function MapShow({ coOrds, moreInfo, viewInfo }) {
   const roasters = coOrds.roasters
-  const lng = coOrds.lng
-  const lat = coOrds.lat
-  console.log('refresh')
   return (
     <div id="map">
       <Map
@@ -23,8 +19,9 @@ export default function MapShow({ coOrds, moreInfo }) {
           border: '2px solid red',
         }}
         initialViewState={{
-          longitude: lng,
-          latitude: lat,
+          longitude: viewInfo?.longitude,
+          latitude: viewInfo?.latitude,
+          zoom: viewInfo?.zoom,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
