@@ -48,12 +48,8 @@ export default function Home() {
       },
     ],
   })
-  function newLocation() {
-    console.log('New Cords')
-    setCoOrds({
-      lng: '50.827483279857349',
-      lat: '-30.827483279857349',
-    })
+  function moreInfo(id) {
+    console.log('New Cords ', id)
   }
 
   return (
@@ -63,8 +59,7 @@ export default function Home() {
         <Search />
       </div>
       <div>
-        <MapShow coOrds={coOrds} />
-        <button onClick={newLocation}>Hit me</button>
+        <MapShow coOrds={coOrds} moreInfo={moreInfo} />
       </div>
     </>
   )

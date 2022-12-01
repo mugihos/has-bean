@@ -5,7 +5,8 @@ import Map, { Marker } from 'react-map-gl'
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-export default function MapShow({ coOrds }) {
+export default function MapShow({ coOrds, moreInfo }) {
+  console.log(moreInfo)
   const roasters = coOrds.roasters
   const lng = coOrds.lng
   const lat = coOrds.lat
@@ -32,6 +33,7 @@ export default function MapShow({ coOrds }) {
             key={roasters.id}
             longitude={roasters.lng}
             latitude={roasters.lat}
+            onClick={() => moreInfo(roasters.id)}
           />
         ))}
       </Map>
