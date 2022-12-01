@@ -2,28 +2,20 @@ const connection = require('./connection')
 module.exports = {
   getSearchRoasters,
 }
-
-//WILL FIX UP LATER...MIGHT NEED TO ASK FOR HELP
  
 function getSearchRoasters(db = connection) {
   return db('roasters')
   .join('cafes', 'roasters.id', 'cafes.roaster_id')
   .select(
+    'roasters.id as roasterId',
     'roasters.name as roasterName',
-    'cafes.name as cafeName'
+    'roasters.location as location',
+    'roasters.details as details',
+    'cafe.id as cafeId',
+    'cafes.name as cafeName',
+    'cafes.address as address',
+    'cafes.city as city',
+    // 'cafes.lat as latitude',
+    // 'cafes.lng as longitude'
     )
 }
-
-// function getSearchRoasters(db = connection) {
-//   return db('roasters')
-//   .select(
-//     'roasters.name as roasterName',
-//     )
-// }
-
-// function getSearchCafe(db = connection) {
-//   return db('cafes')
-//   .select(
-//     'cafes.name as cafeName',
-//     )
-//   }

@@ -7,18 +7,11 @@ export default function Search() {
   const searchRoasters = useSelector((state) => state.searchRoasters)
   const roasters = useSelector((state) => state.roasters)
   const cafes = useSelector((state) => state.cafes)
-  const simpleArray = [{name: 1},{name: 2}]
-  // const roastersName = roasters.map((data) => data.name)
-  // const cafesName = cafes.map((data) => data.name)
-  // console.log('roastersName', roastersName);
 
-  // console.log('searchRoasters', searchRoasters);
-  
   const items = searchRoasters.concat(cafes)
 
-   console.log('items', items)
-  //console.log('cafes', cafes)
-  // console.log('roasters', roasters)
+  console.log('items', items)
+
 
   const handleOnSearch = (string, results) => {
     console.log(string, results);
@@ -47,7 +40,7 @@ export default function Search() {
         <div style={{ width: 200, margin: 20 }}>
           <h2>Search</h2>
           <ReactSearchAutocomplete
-            items={cafes}
+            items={items}
             // fuseOptions={{ keys: ["name"]}} // Search on both fields
             resultStringKeyName="name" // String to display in the results
             onSearch={handleOnSearch}
