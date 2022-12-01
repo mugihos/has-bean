@@ -7,6 +7,10 @@ export default function Search() {
   const roasters = useSelector((state) => state.roasters)
   const cafes = useSelector((state) => state.cafes)
 
+  const roastersName = roasters.map((data) => data.name)
+  const cafesName = cafes.map((data) => data.name)
+  console.log('roastersName', roastersName);
+  
   const items = roasters.concat(cafes)
 
    console.log('items', items)
@@ -41,7 +45,7 @@ export default function Search() {
           <h2>Search</h2>
           <ReactSearchAutocomplete
             items={items}
-            fuseOptions={{ keys: ["name"] }} // Search on both fields
+            fuseOptions={{ keys: ["name"]}} // Search on both fields
             resultStringKeyName="name" // String to display in the results
             onSearch={handleOnSearch}
             onHover={handleOnHover}

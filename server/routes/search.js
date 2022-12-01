@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('../db/search.js')
 const router = express.Router()
 
-//api/v1/search/
+//api/v1/searchRoasters/
 router.get('/', (req, res) => {
   db.getSearchRoasters()
     .then((result) => {
