@@ -9,6 +9,13 @@ import Search from './Search'
 import SearchResult from './SearchResult'
 
 export default function Home() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchRoasters())
+    dispatch(fetchCafes())
+    dispatch(fetchSearchRoasters())
+  }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -54,13 +61,7 @@ export default function Home() {
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchRoasters())
-    dispatch(fetchCafes())
-    dispatch(fetchSearchRoasters())
-  }, [])
+ 
 
   return (
     <>

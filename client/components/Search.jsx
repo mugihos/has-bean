@@ -8,9 +8,11 @@ export default function Search() {
   const roasters = useSelector((state) => state.roasters)
   const cafes = useSelector((state) => state.cafes)
 
-  const items = searchRoasters.concat(cafes)
 
-  console.log('items', items)
+
+  console.log('searchRoasters', searchRoasters)
+  console.log('roasters', roasters)
+  console.log('cafes', cafes)
 
 
   const handleOnSearch = (string, results) => {
@@ -40,9 +42,9 @@ export default function Search() {
         <div style={{ width: 200, margin: 20 }}>
           <h2>Search</h2>
           <ReactSearchAutocomplete
-            items={items}
-            // fuseOptions={{ keys: ["name"]}} // Search on both fields
-            resultStringKeyName="name" // String to display in the results
+            items={searchRoasters}
+            fuseOptions={{ keys: ["roasterName", "cafeName"]}} // Search on both fields
+            resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
             onHover={handleOnHover}
             onSelect={handleOnSelect}
