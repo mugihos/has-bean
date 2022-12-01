@@ -1,0 +1,36 @@
+@use '../styles/theme';
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 4vw;
+  // align-items: center;
+}
+
+.footerItem {
+  font-size: 1rem;
+  font-weight: bold;
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.vertical {
+  display: block;
+}
+
+ul{
+  display:inline-block
+}
+
+li{
+  list-style-type: none;
+}

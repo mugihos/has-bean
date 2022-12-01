@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import styles from './App.module.scss'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -12,7 +13,9 @@ import MapShow from './MapShow'
 export default function App() {
   return (
     <>
-      <Header />
+    <Header />
+    <div className="pageWrapper">
+    <div className={styles.base}>
       <Routes>
         {/* <Route path="/map" element={<MapShow />} /> */}
         <Route path="/" element={<Home />} />
@@ -20,7 +23,9 @@ export default function App() {
         <Route path="/roasters/:id" element={<Roaster />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      <Footer />
+    </div>
+    </div>
+    <Footer />
     </>
   )
 }

@@ -7,6 +7,7 @@ exports.seed = async function (knex) {
       process: 'Washed',
       roast_degree: 'value',
       flavour_profile: 'Milk Chocolate & Citrus | Sweet & Complex',
+      name: 'Holiday blend',
     },
   ])
 }
