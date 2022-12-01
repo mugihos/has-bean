@@ -48,8 +48,44 @@ export default function Home() {
       },
     ],
   })
+  // Function for onClick for markers on map
   function moreInfo(id) {
     console.log('New Cords ', id)
+  }
+
+  const [viewInfo, setViewInfo] = useState()
+  useEffect(() => {
+    setViewInfo(zoomAndCenterInfo(coOrds.roasters))
+  }, [])
+
+  function zoomAndCenterInfo(coOrds) {
+    // add if statement if there is length =1 for coOrds to set zoom
+    // around the marker and cet centre
+    //Find center of all points by finding half of max long and lat
+    const latCoOrds = coOrds.map((coOrds) => coOrds.lat)
+    const latCentre = (Math.max(...latCoOrds) + Math.min(...latCoOrds)) / 2
+    const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
+    console.log(latRange * 111.32, 'Latitude range(km)')
+
+    const lngCoOrds = coOrds.map((coOrds) => coOrds.lng)
+    const lngCentre = (Math.max(...lngCoOrds) + Math.min(...lngCoOrds)) / 2
+    const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
+    console.log(
+      (lngRange * 40075 * Math.cos(latRange)) / 360,
+      'longitude range(km)'
+    )
+    // Find zoom by...
+    // Find maximum distance from center to any of the longitude or latitudes
+    // multiple max by 2
+    let screenSize = 500 //px
+    let ratio = 59000 // meters/pixel
+
+    // find ratio for zoom
+    return {
+      longitude: lngCentre,
+      latitude: latCentre,
+      zoom: 4.5,
+    }
   }
 
   return (
@@ -59,7 +95,9 @@ export default function Home() {
         <Search />
       </div>
       <div>
-        <MapShow coOrds={coOrds} moreInfo={moreInfo} />
+        {viewInfo && (
+          <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
+        )}
       </div>
     </>
   )
