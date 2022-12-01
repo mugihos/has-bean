@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchRoasters } from '../actions/roasters'
+import { fetchCafes } from '../actions/cafes'
+import { fetchSearchRoasters } from '../actions/searchRoasters'
 
 import MapShow from './MapShow'
 import Search from './Search'
 import SearchResult from './SearchResult'
 
 export default function Home() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchRoasters())
+    dispatch(fetchCafes())
+    dispatch(fetchSearchRoasters())
+  }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -52,6 +62,7 @@ export default function Home() {
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
+ 
 
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
@@ -90,8 +101,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="#">
-        <h1>HOME!!! TO SHOW MAP/SEARCH </h1>
+      <div>
+
         <Search />
       </div>
       <div>
