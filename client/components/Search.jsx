@@ -43,7 +43,7 @@ export default function Search() {
           <h2>Search</h2>
           <ReactSearchAutocomplete
             items={searchRoasters}
-            fuseOptions={{ keys: ["roasterName", "cafeName"]}} // Search on both fields
+            fuseOptions={{ threshold:'0.4', keys: ["roasterName", "cafeName"]} } // Search on both fields
             resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
             onHover={handleOnHover}
