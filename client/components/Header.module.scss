@@ -15,12 +15,14 @@
 
 .title { 
   font-size: 2rem;
-  color: white 
+  color: white; 
+  margin-left: 2vw;
 }
 
 .links {
   display: flex; justify-content: space-around; gap: 48px;
   margin-left: 48px;
+  margin-right: 2vw;
 }
 
 .links a {
