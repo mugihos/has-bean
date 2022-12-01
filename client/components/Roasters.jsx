@@ -16,7 +16,11 @@ export default function Roasters() {
     <>
       <div>
         <h2>Welcome Home</h2>
-        {console.log(roasters)}
+        <ul>
+          {roasters.map(({ name, id }) => (
+            <li key={id}>{name}</li>
+          ))}
+        </ul>
         {/* <img src="img/foxathome.jpeg" alt="Fox img" /> */}
         {/* <Link to="/forest">Go hunting your fox</Link> */}
       </div>
