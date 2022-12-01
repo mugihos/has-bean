@@ -11,19 +11,38 @@ export default function Roaster() {
   const searchRoasters = useSelector((state) => state.searchRoasters)
 
   //select the single roaster by filter
-  const singleRoaster = searchRoasters.find((roaster) => roaster.id === roasterId)
+  const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
+
+  console.log('searchRoaster in Roaster.jsx', searchRoasters);
+
+  function mapRoasterCafes(query) {
+    const filteredRoasters = searchRoasters.filter( ({roasterName}) => roasterName.toLowerCase().includes(query.toLowerCase()));
+   return filteredRoasters?.map((oneCafe) => {
+      const { id, cafeName, address, city } = oneCafe
+      return (
+        <div key={id}>
+          <ul>
+            <li>{cafeName}</li>
+            <li>{address}</li>
+            <li>{city}</li>
+          </ul>
+        </div>
+      )
+      })
+  }
 
   return (
     <>
       <div>
         {singleRoaster && (
           <div>
-            <h1>Single roaster</h1>
             <h3>{singleRoaster.name}</h3>
-            <p>{singleRoaster.location}</p>
+            <p>Roastery location: {singleRoaster.location}</p>
+            <p>{singleRoaster.details}</p>
           </div>
         )}
       </div>
+      {mapRoasterCafes(singleRoaster?.name)}
     </>
   )
 }
