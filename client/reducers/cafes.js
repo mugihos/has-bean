@@ -1,13 +1,13 @@
 const initialRequestState = []
 
-const roasters = (state = initialRequestState, action) => {
+const cafes = (state = initialRequestState, action) => {
   const { type, payload } = action
   switch (type) {
-    case 'SET_ROASTERS':
+    case 'SET_CAFES':
       return payload
     default:
       return state
   }
 }
 
-export default roasters
+export default cafes

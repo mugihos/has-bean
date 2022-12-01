@@ -1,0 +1,31 @@
+@use '../styles/theme';
+
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  gap: 8px; 
+  padding: 24px; 
+  background-color: theme.$brown; 
+  color: theme.$black;
+  font-size: 1.2rem; 
+  font-weight: bolder; 
+  white-space: nowrap;  
+}
+
+.title { 
+  font-size: 2rem;
+  color: white; 
+  margin-left: 2vw;
+}
+
+.links {
+  display: flex; justify-content: space-around; gap: 48px;
+  margin-left: 48px;
+  margin-right: 2vw;
+}
+
+.links a {
+  text-decoration: none;
+  color: white
+}

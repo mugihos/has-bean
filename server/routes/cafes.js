@@ -1,10 +1,10 @@
 const express = require('express')
-const db = require('../db/roasters.js')
+const db = require('../db/cafes.js')
 const router = express.Router()
 
-//api/v1/roasters/
+//api/v1/cafes/
 router.get('/', (req, res) => {
-  db.getRoasters()
+  db.getCafes()
     .then((result) => {
       res.json(result)
     })
