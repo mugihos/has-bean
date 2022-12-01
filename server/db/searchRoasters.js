@@ -15,8 +15,7 @@ function getSearchRoasters(db = connection) {
     'roasters.details as details',
     'roasters.id as roasterId',
     'cafes.id as id',
+    'cafes.lat as lat',
+    'cafes.lng as lng'
     )
 }
-
-    // 'cafes.lat as latitude',
-    // 'cafes.lng as longitude'
