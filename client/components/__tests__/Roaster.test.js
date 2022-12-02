@@ -85,7 +85,6 @@ describe('/Roaster', () => {
       wrapper: AppProvider,
     })
     const li = screen.getAllByRole('listitem')
-    screen.debug()
     expect(li[0].innerHTML).toContain('Thunderbird Cafe')
     expect(li[3].innerHTML).toContain('Meshino')
   })
