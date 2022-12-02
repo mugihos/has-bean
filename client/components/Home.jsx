@@ -23,24 +23,6 @@ export default function Home() {
     lat: '-45.827483279857349',
     roasters: [
       {
-        id: 1,
-        name: 'Thunderbird Cafe',
-        lng: '174.7766539',
-        lat: '-41.2835619',
-        address: '154 Featherston Street, CBD, Wellington 6011',
-        city: 'Wellington',
-        roaster_id: 1,
-      },
-      {
-        id: 2,
-        name: 'Daily Daily Coffeemakers',
-        lng: '174.7630935',
-        lat: '-36.8582608',
-        address: '452 Karangahape Road, Auckland CBD, Auckland 1010',
-        city: 'Auckland',
-        roaster_id: 1,
-      },
-      {
         id: 3,
         name: 'Global Byte Cafe',
         lng: '168.3469571',
@@ -76,23 +58,36 @@ export default function Home() {
     //Find center of all points by finding half of max long and lat
     const latCoOrds = coOrds.map((coOrds) => coOrds.lat)
     const latCentre = (Math.max(...latCoOrds) + Math.min(...latCoOrds)) / 2
-    const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
-    const latDist = latRange * 111.32 // Distance in km
 
     const lngCoOrds = coOrds.map((coOrds) => coOrds.lng)
     const lngCentre = (Math.max(...lngCoOrds) + Math.min(...lngCoOrds)) / 2
-    const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
-    const lngDist = (lngRange * 40075 * Math.cos(latRange)) / 360 // Dist in km
 
-    // Find zoom by...
-    const screenSize = 256 //px
-    const ratio = 28 // m/pixel at zoom level 1
-    const zommLevel = (ratio * screenSize) / (Math.max(lngDist, latDist) * 1.5)
+    if (coOrds.length > 1) {
+      const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
+      const latDist = latRange * 111.32 // Distance in km
 
-    return {
-      longitude: lngCentre,
-      latitude: latCentre,
-      zoom: zommLevel,
+      const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
+      const lngDist = lngRange * 40075 * (Math.cos(latRange) / 360) // Dist in km
+
+      // Find zoom by...
+      const tileSize = 512 //px !!! Dunno how many tiles ffs
+      const ratio = 30 // km/px at zoom level 1 for values at -40 latitude
+      const zoomLevel =
+        Math.log10(
+          (tileSize * ratio) / Math.max(Math.abs(lngDist), Math.abs(latDist))
+        ) / Math.log10(1.81)
+
+      return {
+        longitude: lngCentre,
+        latitude: latCentre,
+        zoom: zoomLevel,
+      }
+    } else {
+      return {
+        longitude: lngCentre,
+        latitude: latCentre,
+        zoom: 6,
+      }
     }
   }
 
