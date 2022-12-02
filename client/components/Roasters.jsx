@@ -14,7 +14,7 @@ export default function Roasters() {
   }, [])
 
   if (!roasters) {
-    return <div></div>
+    return <div>David is best</div>
   }
 
   return (
