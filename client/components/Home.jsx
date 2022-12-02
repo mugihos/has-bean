@@ -44,7 +44,7 @@ export default function Home() {
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
-
+  console.log('testing')
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
     setViewInfo(zoomAndCenterInfo(coOrds.roasters))
