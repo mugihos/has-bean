@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
 import { fetchCafes } from '../actions/cafes'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
 
 import MapShow from './MapShow'
 import Search from './Search'
-import SearchResult from './SearchResult'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -44,11 +43,13 @@ export default function Home() {
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
-  console.log('testing')
+
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
     setViewInfo(zoomAndCenterInfo(coOrds.roasters))
   }, [])
+
+  const imageIcon = '/img/coffee.png'
 
   function zoomAndCenterInfo(coOrds) {
     // add if statement if there is length =1 for coOrds to set zoom
@@ -73,7 +74,7 @@ export default function Home() {
       const zoomLevel =
         Math.log10(
           (tileSize * ratio) / Math.max(Math.abs(lngDist), Math.abs(latDist))
-        ) / Math.log10(1.81)
+        ) / Math.log10(1.81) // Dimesnionless exponential equation to find zoom
 
       return {
         longitude: lngCentre,
@@ -84,7 +85,7 @@ export default function Home() {
       return {
         longitude: lngCentre,
         latitude: latCentre,
-        zoom: 6,
+        zoom: 7.5,
       }
     }
   }
@@ -96,7 +97,12 @@ export default function Home() {
       </div>
       <div>
         {viewInfo && (
-          <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
+          <MapShow
+            coOrds={coOrds}
+            moreInfo={moreInfo}
+            viewInfo={viewInfo}
+            imageIcon={imageIcon}
+          />
         )}
       </div>
     </>

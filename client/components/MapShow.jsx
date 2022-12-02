@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 // import ReactMapGL from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Map, { Marker } from 'react-map-gl'
-
+import styles from './MapShow.module.scss'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-export default function MapShow({ coOrds, moreInfo, viewInfo }) {
+export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
   const roasters = coOrds.roasters
   return (
     <div id="map">
@@ -31,7 +31,9 @@ export default function MapShow({ coOrds, moreInfo, viewInfo }) {
             longitude={roasters.lng}
             latitude={roasters.lat}
             onClick={() => moreInfo(roasters.id)}
-          />
+          >
+            <img src={imageIcon} alt="img_lost" className={styles.icon} />
+          </Marker>
         ))}
       </Map>
     </div>
