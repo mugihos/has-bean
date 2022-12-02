@@ -9,7 +9,6 @@ export default function Home() {
   //useSelector to use the result redux
   //will use hardcoded info for now to make this state work
   const selectedResult = useSelector((state) => state.searchResult)
-  const jointTable = useSelector((state) => state.searchRoasters)
 
   // const selectedResult = [
   //   {
@@ -110,9 +109,7 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.map}>
-          {viewInfo && (
-            <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
-          )}
+          {viewInfo && <MapShow moreInfo={moreInfo} viewInfo={viewInfo} />}
         </div>
         <div className={styles.right}>
           <h1>Find where your favrouites coffee are!</h1>
@@ -134,3 +131,6 @@ export default function Home() {
 }
 
 //can change where selectedResult to a map function once we introduce search via roaster
+{
+  /* <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} /> */
+}
