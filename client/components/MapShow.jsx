@@ -31,7 +31,6 @@ export default function MapShow({ coOrds, moreInfo, viewInfo }) {
             longitude={roasters.lng}
             latitude={roasters.lat}
             onClick={() => moreInfo(roasters.id)}
-            properties={{marker-symbol:'cafe'}}
           />
         ))}
       </Map>
