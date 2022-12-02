@@ -13,7 +13,7 @@ export default function Roaster() {
   //select the single roaster by filter
   const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
 
-  console.log('searchRoaster in Roaster.jsx', searchRoasters)
+  // console.log('searchRoaster in Roaster.jsx', searchRoasters)
 
   function mapRoasterCafes(query) {
     const filteredRoasters = searchRoasters.filter(({ roasterName }) =>
