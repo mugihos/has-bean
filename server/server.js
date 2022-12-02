@@ -6,7 +6,7 @@ const request = require('superagent')
 const roastersRoutes = require('./routes/roasters')
 const cafesRoutes = require('./routes/cafes')
 const searchRoastersRoutes = require('./routes/searchRoasters')
-// const beansRoutes = require('./routes')
+const beansRoutes = require('./routes/beans')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
@@ -14,7 +14,7 @@ server.use(express.static(path.join(__dirname, 'public')))
 server.use('/api/v1/roasters', roastersRoutes)
 server.use('/api/v1/cafes', cafesRoutes)
 server.use('/api/v1/searchroasters', searchRoastersRoutes)
-// server.use('api/v1/beans', beansRoutes)
+server.use('/api/v1/beans', beansRoutes)
 
 server.get('/api/v1/coffeeimage', (req, res) => {
   request
