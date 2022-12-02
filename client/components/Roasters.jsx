@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
 
 export default function Roasters() {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   let roasters = useSelector((state) => state.roasters)
 
-  useEffect(() => {
-    dispatch(fetchRoasters())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchRoasters())
+  // }, [])
 
   if (!roasters) {
     return <div>David is best</div>
@@ -37,6 +37,7 @@ export default function Roasters() {
     <div>
       <h2>Welcome Home</h2>
       <ul>
+        {console.log(roasters.length)}
         {roasters?.map((roaster) => {
           return (
             <div key={roaster.id}>
