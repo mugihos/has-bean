@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
 import { fetchCafes } from '../actions/cafes'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
-
+import styles from './Home.module.scss'
 import MapShow from './MapShow'
 import Search from './Search'
-import SearchResult from './SearchResult'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -91,13 +90,16 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <Search />
-      </div>
-      <div>
-        {viewInfo && (
-          <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
-        )}
+      <div className={styles.container}>
+        <div className={styles.map}>
+          {viewInfo && (
+            <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
+          )}
+        </div>
+        <div className={styles.right}>
+          <h1>Find where your favrouites coffee are!</h1>
+          <Search />
+        </div>
       </div>
     </>
   )

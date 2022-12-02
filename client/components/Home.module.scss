@@ -1,0 +1,9 @@
+@use '../styles/theme';
+
+.container {
+  display: flex;
+}
+
+.map, .right {
+  flex: 1;
+}
