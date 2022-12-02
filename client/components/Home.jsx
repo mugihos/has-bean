@@ -1,21 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRoasters } from '../actions/roasters'
-import { fetchCafes } from '../actions/cafes'
-import { fetchSearchRoasters } from '../actions/searchRoasters'
-
+import { useSelector } from 'react-redux'
+import styles from './Home.module.scss'
 import MapShow from './MapShow'
 import Search from './Search'
-import SearchResult from './SearchResult'
+// import Result from './Result'
 
 export default function Home() {
-  const dispatch = useDispatch()
+  //useSelector to use the result redux
+  //will use hardcoded info for now to make this state work
+  const selectedResult = useSelector((state) => state.searchResult)
+  const jointTable = useSelector((state) => state.searchRoasters)
 
-  useEffect(() => {
-    dispatch(fetchRoasters())
-    dispatch(fetchCafes())
-    dispatch(fetchSearchRoasters())
-  }, [])
+  // const selectedResult = [
+  //   {
+  //     cafeName: 'Global Byte Cafe',
+  //     address: '150 Dee Street, Invercargill 9810',
+  //     city: 'Invercargill',
+  //     roasterName: 'Supreme',
+  //     location: 'Wellington',
+  //     details: 'yum',
+  //     roasterId: 1,
+  //     id: 1342,
+  //     lng: '168.3469571',
+  //     lat: '-46.4085996',
+  //   },
+  // ]
+
+  // useEffect(() => {
+  //   dispatch(fetchRoasters())
+  //   dispatch(fetchCafes())
+  //   dispatch(fetchSearchRoasters())
+  //   dispatch(fetchBeans())
+  // }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -40,11 +56,12 @@ export default function Home() {
       },
     ],
   })
-  // Function for onClick for markers on map
+
+  // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
-  console.log('testing')
+
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
     setViewInfo(zoomAndCenterInfo(coOrds.roasters))
@@ -91,14 +108,29 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <Search />
-      </div>
-      <div>
-        {viewInfo && (
-          <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
-        )}
+      <div className={styles.container}>
+        <div className={styles.map}>
+          {viewInfo && (
+            <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
+          )}
+        </div>
+        <div className={styles.right}>
+          <h1>Find where your favrouites coffee are!</h1>
+          <Search />
+          <div>
+            This is there the selected result data goes!
+            {selectedResult && (
+              <div className={styles.detail}>
+                <h2>{selectedResult.cafeName}</h2>
+                <p>{selectedResult.address}</p>
+                <h3>Roaster: {selectedResult.roasterName}</h3>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   )
 }
+
+//can change where selectedResult to a map function once we introduce search via roaster
