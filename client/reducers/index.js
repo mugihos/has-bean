@@ -4,10 +4,12 @@ import roasters from './roasters'
 import cafes from './cafes'
 import searchRoasters from './searchRoasters'
 import searchResult from './searchResult'
+import beans from './beans'
 
 export default combineReducers({
   roasters: roasters,
-  cafes:cafes,
+  cafes: cafes,
   searchRoasters: searchRoasters,
-  searchResult: searchResult
+  searchResult: searchResult,
+  beans: beans,
 })
