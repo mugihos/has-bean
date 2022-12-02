@@ -60,46 +60,30 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('/Roaster', () => {
-  it('renders without crashing', () => {
-    render(
-      <Provider store={fakeStore}>
-        <MemoryRouter initialEntries={['/roasters/1']}>
-          <Routes>
-            <Route path="/roasters/:id" element={<Roaster />}></Route>
-          </Routes>
-        </MemoryRouter>
-      </Provider>
-    )
-    expect(screen.getByText(/Roastery location:/i)).toBeInTheDocument()
-  })
+function AppProvider({ children }) {
+  return (
+    <Provider store={fakeStore}>
+      <MemoryRouter initialEntries={['/roasters/1']}>
+        <Routes>{children}</Routes>
+      </MemoryRouter>
+    </Provider>
+  )
+}
 
-  it('display the roaster name, location and detail', () => {
-    render(
-      <Provider store={fakeStore}>
-        <MemoryRouter initialEntries={['/roasters/1']}>
-          <Routes>
-            <Route path="/roasters/:id" element={<Roaster />}></Route>
-          </Routes>
-        </MemoryRouter>
-      </Provider>
-    )
+describe('/Roaster', () => {
+  it('renders without crashing and displays the roaster name', () => {
+    render(<Route path="/roasters/:id" element={<Roaster />} />, {
+      wrapper: AppProvider,
+    })
+    expect(screen.getByText(/Roastery location:/i)).toBeInTheDocument()
     const roasterName = screen.getByRole('heading')
     expect(roasterName.textContent).toBe('Supreme')
   })
 
   it('filters and displays cafes correctly', () => {
-    render(
-      <Provider store={fakeStore}>
-        <MemoryRouter initialEntries={['/roasters/1']}>
-          <Routes>
-            <Route path="/roasters/:id" element={<Roaster />}></Route>
-          </Routes>
-        </MemoryRouter>
-      </Provider>
-    )
-
-    // expect(mapRoasterCafes).toHaveBeenCalled()
+    render(<Route path="/roasters/:id" element={<Roaster />} />, {
+      wrapper: AppProvider,
+    })
     const li = screen.getAllByRole('listitem')
     screen.debug()
     expect(li[0].innerHTML).toContain('Thunderbird Cafe')
