@@ -6,7 +6,6 @@ import styles from './Beans.module.scss'
 export default function Beans() {
   const dispatch = useDispatch()
   let beans = useSelector((state) => state.beans)
-
   useEffect(() => {
     dispatch(fetchBeans())
   }, [])
