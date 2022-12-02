@@ -31,7 +31,7 @@ exports.seed = async function (knex) {
     {
       id: 5,
       name: 'Flight Coffee',
-      location: 'Auckland',
+      location: 'Wellington',
       details:
         'Flight Coffee is a family of driven people that work together to produce amazing coffee, while always aiming to have the best impact we can on the industry and the lives it connects',
     },
@@ -44,7 +44,7 @@ exports.seed = async function (knex) {
     {
       id: 7,
       name: 'Raglan Roast',
-      location: 'Wellington',
+      location: 'Raglan',
       details:
         'Each coffee shop has organically developed its own feel and flavour thanks to the staff and community that call it home. Raglan Roast has an incredibly diverse loyal following and we are stoked to provide a space to facilitate genuine generosity, collaboration and sharing, our community are one epic bunch.',
     },
