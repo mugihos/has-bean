@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
 import { fetchCafes } from '../actions/cafes'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
+import { fetchBeans } from '../actions/beans'
 
 import MapShow from './MapShow'
 import Search from './Search'
@@ -15,6 +16,7 @@ export default function Home() {
     dispatch(fetchRoasters())
     dispatch(fetchCafes())
     dispatch(fetchSearchRoasters())
+    dispatch(fetchBeans())
   }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
@@ -62,7 +64,6 @@ export default function Home() {
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
- 
 
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
@@ -98,7 +99,6 @@ export default function Home() {
   return (
     <>
       <div>
-
         <Search />
       </div>
       <div>
