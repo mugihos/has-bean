@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import Roatser from '../Roaster'
+import Roaster from '../Roaster'
 import { BrowserRouter } from 'react-router-dom'
-import { INTERNAL } from 'sqlite3'
+import { fetchRoasters } from '../../actions/roasters'
 
 const singleRoaster = {
   id: 1,
@@ -16,7 +16,7 @@ const fakeStore = {
   subscribe: jest.fn(),
   dispatch: jest.fn(),
   getState: jest.fn(() => {
-    return { roaster: fakeRoaster }
+    return { roaster: singleRoaster }
   }),
 }
 
