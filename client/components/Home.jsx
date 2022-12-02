@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './Home.module.scss'
-import MapShow from './MapShow'
+import { fetchBeans } from '../actions/beans'
+
+mport MapShow from './MapShow'
 import Search from './Search'
 // import Result from './Result'
 
@@ -26,6 +28,12 @@ export default function Home() {
     },
   ]
 
+  useEffect(() => {
+    dispatch(fetchRoasters())
+    dispatch(fetchCafes())
+    dispatch(fetchSearchRoasters())
+    dispatch(fetchBeans())
+  }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -56,7 +64,6 @@ export default function Home() {
     console.log('New Cords ', id)
   }
 
-  console.log('testing')
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
     setViewInfo(zoomAndCenterInfo(coOrds.roasters))

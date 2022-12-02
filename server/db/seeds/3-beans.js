@@ -5,7 +5,7 @@ exports.seed = async function (knex) {
       roaster_id: 1,
       region: 'Central American',
       process: 'Washed',
-      roast_degree: 'value',
+      roast_degree: 'medium',
       flavour_profile: 'Milk Chocolate & Citrus | Sweet & Complex',
       name: 'Supreme blend',
     },

@@ -11,6 +11,7 @@ import Home from './Home'
 import Roasters from './Roasters'
 import Roaster from './Roaster'
 import NotFound from './NotFound'
+import Beans from './Beans'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -31,6 +32,21 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/roasters" element={<Roasters />} />
             <Route path="/roasters/:id" element={<Roaster />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </div>
+      <Footer />
+      <Header />
+      <div className="pageWrapper">
+        <div className={styles.base}>
+          <Routes>
+            {/* <Route path="/map" element={<MapShow />} /> */}
+            <Route path="/" element={<Home />} />
+            <Route path="/roasters" element={<Roasters />} />
+            <Route path="/beans" element={<Beans />} />
+            <Route path="/roasters/:id" element={<Roaster />} />
+
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
