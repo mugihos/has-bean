@@ -35,7 +35,7 @@ export default function Roasters() {
     // )
 
     <div>
-      <h2>Welcome Home</h2>
+      <h2>Roasters</h2>
       <ul>
         {roasters?.map((roaster) => {
           return (
