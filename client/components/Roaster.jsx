@@ -17,13 +17,12 @@ export default function Roaster() {
       roasterName.toLowerCase().includes(query.toLowerCase())
     )
     return filteredRoasters?.map((oneCafe) => {
-      const { id, cafeName, address, city } = oneCafe
+      const { id, cafeName, address } = oneCafe
       return (
         <div key={id}>
           <ul>
-            <li>{cafeName}</li>
-            <li>{address}</li>
-            <li>{city}</li>
+            <h2>{cafeName}</h2>
+            <p>{address}</p>
           </ul>
         </div>
       )
@@ -36,6 +35,7 @@ export default function Roaster() {
         {singleRoaster && (
           <div>
             <h2>Roastery {singleRoaster.name}</h2>
+            <img src={singleRoaster.image_url} alt="" />
             <p>Location: {singleRoaster.location}</p>
             <p>{singleRoaster.details}</p>
           </div>

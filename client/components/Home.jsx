@@ -99,7 +99,7 @@ export default function Home() {
               <div className={styles.detail}>
                 <h2>{selectedResult.cafeName}</h2>
                 <p>{selectedResult.address}</p>
-                <h3>Roaster: {selectedResult.roasterName}</h3>
+                <p>Roaster: {selectedResult.roasterName}</p>
               </div>
             )}
           </div>
