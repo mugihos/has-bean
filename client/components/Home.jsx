@@ -1,43 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRoasters } from '../actions/roasters'
-import { fetchCafes } from '../actions/cafes'
-import { fetchSearchRoasters } from '../actions/searchRoasters'
-
+import { useSelector } from 'react-redux'
+import styles from './Home.module.scss'
 import MapShow from './MapShow'
 import Search from './Search'
-import SearchResult from './SearchResult'
+// import Result from './Result'
 
 export default function Home() {
-  const dispatch = useDispatch()
+  //useSelector to use the result redux
+  //will use hardcoded info for now to make this state work
+  const selectedResult = useSelector((state) => state.searchResult)
 
-  useEffect(() => {
-    dispatch(fetchRoasters())
-    dispatch(fetchCafes())
-    dispatch(fetchSearchRoasters())
-  }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
     roasters: [
-      {
-        id: 1,
-        name: 'Thunderbird Cafe',
-        lng: '174.7766539',
-        lat: '-41.2835619',
-        address: '154 Featherston Street, CBD, Wellington 6011',
-        city: 'Wellington',
-        roaster_id: 1,
-      },
-      {
-        id: 2,
-        name: 'Daily Daily Coffeemakers',
-        lng: '174.7630935',
-        lat: '-36.8582608',
-        address: '452 Karangahape Road, Auckland CBD, Auckland 1010',
-        city: 'Auckland',
-        roaster_id: 1,
-      },
       {
         id: 3,
         name: 'Global Byte Cafe',
@@ -49,20 +25,20 @@ export default function Home() {
       },
       {
         id: 4,
-        name: 'Creel Tackle House & Cafe',
-        lng: '175.8132631',
-        lat: '-38.9934239',
-        address: '189 Taupahi Road, Tūrangi 3334',
-        city: 'Tūrangi',
+        name: 'The Baker Man Cafe',
+        lng: '173.26744090990596',
+        lat: ' -34.95715117036878',
+        address: '8 State Highway 10, Awanui 0486',
+        city: 'Awanui',
         roaster_id: 1,
       },
     ],
   })
-  // Function for onClick for markers on map
+
+  // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
- 
 
   const [viewInfo, setViewInfo] = useState()
   useEffect(() => {
@@ -75,37 +51,65 @@ export default function Home() {
     //Find center of all points by finding half of max long and lat
     const latCoOrds = coOrds.map((coOrds) => coOrds.lat)
     const latCentre = (Math.max(...latCoOrds) + Math.min(...latCoOrds)) / 2
-    const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
-    const latDist = latRange * 111.32 // Distance in km
 
     const lngCoOrds = coOrds.map((coOrds) => coOrds.lng)
     const lngCentre = (Math.max(...lngCoOrds) + Math.min(...lngCoOrds)) / 2
-    const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
-    const lngDist = (lngRange * 40075 * Math.cos(latRange)) / 360 // Dist in km
 
-    // Find zoom by...
-    const screenSize = 256 //px
-    const ratio = 28 // m/pixel at zoom level 1
-    const zommLevel = (ratio * screenSize) / (Math.max(lngDist, latDist) * 1.5)
+    if (coOrds.length > 1) {
+      const latRange = Math.abs(Math.max(...latCoOrds) - Math.min(...latCoOrds))
+      const latDist = latRange * 111.32 // Distance in km
 
-    return {
-      longitude: lngCentre,
-      latitude: latCentre,
-      zoom: zommLevel,
+      const lngRange = Math.abs(Math.max(...lngCoOrds) - Math.min(...lngCoOrds))
+      const lngDist = lngRange * 40075 * (Math.cos(latRange) / 360) // Dist in km
+
+      // Find zoom by...
+      const tileSize = 512 //px !!! Dunno how many tiles ffs
+      const ratio = 30 // km/px at zoom level 1 for values at -40 latitude
+      const zoomLevel =
+        Math.log10(
+          (tileSize * ratio) / Math.max(Math.abs(lngDist), Math.abs(latDist))
+        ) / Math.log10(1.81)
+
+      return {
+        longitude: lngCentre,
+        latitude: latCentre,
+        zoom: zoomLevel,
+      }
+    } else {
+      return {
+        longitude: lngCentre,
+        latitude: latCentre,
+        zoom: 6,
+      }
     }
   }
 
   return (
     <>
-      <div>
-
-        <Search />
-      </div>
-      <div>
-        {viewInfo && (
-          <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
-        )}
+      <div className={styles.container}>
+        <div className={styles.map}>
+          {viewInfo && <MapShow moreInfo={moreInfo} viewInfo={viewInfo} />}
+        </div>
+        <div className={styles.right}>
+          <h1>Find where your favrouites coffee are!</h1>
+          <Search />
+          <div>
+            This is there the selected result data goes!
+            {selectedResult && (
+              <div className={styles.detail}>
+                <h2>{selectedResult.cafeName}</h2>
+                <p>{selectedResult.address}</p>
+                <h3>Roaster: {selectedResult.roasterName}</h3>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   )
+}
+
+//can change where selectedResult to a map function once we introduce search via roaster
+{
+  /* <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} /> */
 }
