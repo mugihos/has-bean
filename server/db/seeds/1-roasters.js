@@ -38,8 +38,9 @@ exports.seed = async function (knex) {
     {
       id: 6,
       name: 'Peoples Coffee',
-      location: '161B Willis Street, Te Aro',
-      details: 'Wellington',
+      location: 'Wellington',
+      details:
+        'As a company that exists to create meaningful change in this world, Peoples advocates for sustainable systems to protect the fragility of our climate, and ensure sustainable growth for coffee farmers through the fair trade system.',
     },
     {
       id: 7,

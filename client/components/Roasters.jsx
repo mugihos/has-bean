@@ -17,6 +17,14 @@ export default function Roasters() {
     return <div>Loading Roasters... ps. David is best</div>
   }
 
+  const cities = new Set()
+  roasters.map((roaster) =>
+    roaster.location.split(',').map((location) => cities.add(location.trim()))
+  )
+  const locations = Array.from(cities)
+  console.log(locations)
+  // locations = ArrayFrom(locations)
+
   return (
     //   <>
     //     <div>
@@ -37,13 +45,23 @@ export default function Roasters() {
     <div>
       <h2>Roasters</h2>
       <ul>
-        {roasters?.map((roaster) => {
+        {locations.map((location) => {
           return (
-            <div key={roaster.id}>
-              <Link to={`/roasters/${roaster.id}`}>
-                <li>{roaster.name}</li>
-              </Link>
-            </div>
+            <>
+              {' '}
+              <h1>{location}</h1>
+              {roasters
+                ?.filter((roaster) => roaster.location.includes(location))
+                .map((roaster) => {
+                  return (
+                    <div key={roaster.id}>
+                      <Link to={`/roasters/${roaster.id}`}>
+                        <li>{roaster.name}</li>
+                      </Link>
+                    </div>
+                  )
+                })}
+            </>
           )
         })}
       </ul>
