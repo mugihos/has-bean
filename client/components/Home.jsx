@@ -9,29 +9,7 @@ export default function Home() {
   //useSelector to use the result redux
   //will use hardcoded info for now to make this state work
   const selectedResult = useSelector((state) => state.searchResult)
-  const jointTable = useSelector((state) => state.searchRoasters)
 
-  // const selectedResult = [
-  //   {
-  //     cafeName: 'Global Byte Cafe',
-  //     address: '150 Dee Street, Invercargill 9810',
-  //     city: 'Invercargill',
-  //     roasterName: 'Supreme',
-  //     location: 'Wellington',
-  //     details: 'yum',
-  //     roasterId: 1,
-  //     id: 1342,
-  //     lng: '168.3469571',
-  //     lat: '-46.4085996',
-  //   },
-  // ]
-
-  // useEffect(() => {
-  //   dispatch(fetchRoasters())
-  //   dispatch(fetchCafes())
-  //   dispatch(fetchSearchRoasters())
-  //   dispatch(fetchBeans())
-  // }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -47,11 +25,11 @@ export default function Home() {
       },
       {
         id: 4,
-        name: 'Creel Tackle House & Cafe',
-        lng: '175.8132631',
-        lat: '-38.9934239',
-        address: '189 Taupahi Road, Tūrangi 3334',
-        city: 'Tūrangi',
+        name: 'The Baker Man Cafe',
+        lng: '173.26744090990596',
+        lat: ' -34.95715117036878',
+        address: '8 State Highway 10, Awanui 0486',
+        city: 'Awanui',
         roaster_id: 1,
       },
     ],
@@ -110,9 +88,7 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.map}>
-          {viewInfo && (
-            <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
-          )}
+          {viewInfo && <MapShow moreInfo={moreInfo} viewInfo={viewInfo} />}
         </div>
         <div className={styles.right}>
           <h1>Find where your favrouites coffee are!</h1>
@@ -134,3 +110,6 @@ export default function Home() {
 }
 
 //can change where selectedResult to a map function once we introduce search via roaster
+{
+  /* <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} /> */
+}
