@@ -9,11 +9,8 @@ export default function Roaster() {
   //this is where we access the global redux state to access the single roaster
   const roasters = useSelector((state) => state.roasters)
   const searchRoasters = useSelector((state) => state.searchRoasters)
-
   //select the single roaster by filter
   const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
-
-  // console.log('searchRoaster in Roaster.jsx', searchRoasters)
 
   function mapRoasterCafes(query) {
     const filteredRoasters = searchRoasters.filter(({ roasterName }) =>
@@ -38,8 +35,8 @@ export default function Roaster() {
       <div>
         {singleRoaster && (
           <div>
-            <h3>{singleRoaster.name}</h3>
-            <p>Roastery location: {singleRoaster.location}</p>
+            <h2>Roastery {singleRoaster.name}</h2>
+            <p>Location: {singleRoaster.location}</p>
             <p>{singleRoaster.details}</p>
           </div>
         )}
