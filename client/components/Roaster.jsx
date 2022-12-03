@@ -13,11 +13,13 @@ export default function Roaster() {
   //select the single roaster by filter
   const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
 
-  console.log('searchRoaster in Roaster.jsx', searchRoasters);
+  console.log('searchRoaster in Roaster.jsx', searchRoasters)
 
   function mapRoasterCafes(query) {
-    const filteredRoasters = searchRoasters.filter( ({roasterName}) => roasterName.toLowerCase().includes(query.toLowerCase()));
-   return filteredRoasters?.map((oneCafe) => {
+    const filteredRoasters = searchRoasters.filter(({ roasterName }) =>
+      roasterName.toLowerCase().includes(query.toLowerCase())
+    )
+    return filteredRoasters?.map((oneCafe) => {
       const { id, cafeName, address, city } = oneCafe
       return (
         <div key={id}>
@@ -28,7 +30,7 @@ export default function Roaster() {
           </ul>
         </div>
       )
-      })
+    })
   }
 
   return (
@@ -37,6 +39,7 @@ export default function Roaster() {
         {singleRoaster && (
           <div>
             <h3>{singleRoaster.name}</h3>
+            <img src={singleRoaster.image_url} alt="" />
             <p>Roastery location: {singleRoaster.location}</p>
             <p>{singleRoaster.details}</p>
           </div>

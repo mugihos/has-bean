@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // import { getRoasters } from '../apis/roasters'
-// import styles from './Roasters.module.scss'
+import styles from './Roasters.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
 
@@ -35,13 +35,18 @@ export default function Roasters() {
     // )
 
     <div>
-      <h2>Welcome Home</h2>
-      <ul>
+      <h2>Welcome to Roasters</h2>
+      <ul className={styles.container}>
         {roasters?.map((roaster) => {
           return (
-            <div key={roaster.id}>
+            <div key={roaster.id} className={styles.beanItem}>
               <Link to={`/roasters/${roaster.id}`}>
                 <li>{roaster.name}</li>
+                <img
+                  className={styles.roasterImg}
+                  src={roaster.image_url}
+                  alt={roaster.name}
+                />
               </Link>
             </div>
           )
