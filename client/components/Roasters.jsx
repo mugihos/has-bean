@@ -14,7 +14,7 @@ export default function Roasters() {
   // }, [])
 
   if (!roasters) {
-    return <div>David is best</div>
+    return <div>Loading Roasters... ps. David is best</div>
   }
 
   return (
@@ -37,7 +37,6 @@ export default function Roasters() {
     <div>
       <h2>Welcome Home</h2>
       <ul>
-        {console.log(roasters.length)}
         {roasters?.map((roaster) => {
           return (
             <div key={roaster.id}>
