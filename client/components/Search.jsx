@@ -21,7 +21,7 @@ export default function Search() {
   return (
     <>
       <div>
-        <div style={{ width: 200, margin: 10 }}>
+        <div style={{ width: 300, margin: 10 }}>
           <label>Search</label>
           <ReactSearchAutocomplete
             items={searchRoasters}
@@ -33,6 +33,7 @@ export default function Search() {
             onSearch={handleOnSearch}
             onSelect={handleOnSelect}
             showIcon={false}
+            placeholder='Search your favourite coffee'
             styling={{
               height: '34px',
               border: '1px solid darkgreen',
@@ -45,7 +46,7 @@ export default function Search() {
               fontFamily: 'Courier',
               iconColor: 'green',
               lineColor: 'lightgreen',
-              placeholderColor: 'darkgreen',
+              placeholderColor: '#e8ebce',
               clearIconMargin: '3px 8px 0 0',
               zIndex: 2,
             }}
