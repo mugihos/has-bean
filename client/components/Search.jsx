@@ -7,32 +7,15 @@ import { setSearchResult } from '../actions/searchResult'
 export default function Search() {
   const dispatch = useDispatch()
   const searchRoasters = useSelector((state) => state.searchRoasters)
-  const searchResult = useSelector((state) => state.searchResult)
-  // const roasters = useSelector((state) => state.roasters)
-  // const cafes = useSelector((state) => state.cafes)
 
-  console.log('searchResult', searchResult)
-  console.log('searchRoaster in Search.jsx', searchRoasters)
-
-  const handleOnSearch = (string, results) => {
-    console.log(string, results)
+  const handleOnSearch = (result) => {
+    console.log(result)
   }
 
-  const handleOnHover = (result) => {
-    console.log(result, 'onHover result')
-  }
   //this is the dispatch for redux setting the selected result to state
   const handleOnSelect = (item) => {
-    console.log(item, 'onSelect item')
+    console.log('result', item)
     dispatch(setSearchResult(item))
-  }
-
-  const handleOnFocus = () => {
-    console.log('Focused')
-  }
-
-  const handleOnClear = () => {
-    console.log('Cleared')
   }
 
   return (
@@ -48,10 +31,7 @@ export default function Search() {
             }} // Search on both fields
             resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
-            onHover={handleOnHover}
             onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
-            onClear={handleOnClear}
             showIcon={false}
             styling={{
               height: '34px',

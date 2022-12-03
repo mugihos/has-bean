@@ -6,10 +6,14 @@ import Map, { Marker } from 'react-map-gl'
 
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-export default function MapShow({ coOrds, moreInfo, viewInfo }) {
+export default function MapShow({
+  //coOrds,
+  moreInfo,
+  viewInfo,
+}) {
   // const roasters = coOrds.roasters
   const searchResult = useSelector((state) => state.searchResult)
-  console.log
+
   return (
     <div id="map">
       <Map
@@ -28,14 +32,12 @@ export default function MapShow({ coOrds, moreInfo, viewInfo }) {
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        {searchResult.map((result) => (
-          <Marker
-            key={result.id}
-            longitude={result.lng}
-            latitude={result.lat}
-            onClick={() => moreInfo(result.id)}
-          />
-        ))}
+        <Marker
+          key={searchResult.id}
+          longitude={searchResult?.lng || ''}
+          latitude={searchResult?.lat || ''}
+          onClick={() => moreInfo(searchResult.id)}
+        />
       </Map>
     </div>
   )
