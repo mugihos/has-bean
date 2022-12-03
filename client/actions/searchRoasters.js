@@ -14,5 +14,6 @@ export function fetchSearchRoasters() {
     return getSearchRoasters().then((roasters) => {
       dispatch(setSearchRoasters(roasters))
     })
+    .catch((err) => console.error(err.message))
   }
 }
