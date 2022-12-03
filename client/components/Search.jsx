@@ -21,21 +21,21 @@ export default function Search() {
   return (
     <>
       <div>
-        <div style={{ width: 200, margin: 10 }}>
+        <div style={{ width: 350, margin: 10 }}>
           <label>Search</label>
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{
               threshold: '0.4',
-              keys: ['roasterName', 'cafeName'],
-            }} // Search on both fields
+              keys: ['cafeName'],
+            }}
             resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
             onSelect={handleOnSelect}
             showIcon={false}
             styling={{
               height: '34px',
-              border: '1px solid darkgreen',
+              // border: '1px solid darkgreen',
               borderRadius: '4px',
               backgroundColor: 'white',
               boxShadow: 'none',
