@@ -3,7 +3,6 @@ module.exports = {
   getRoasters,
   addRoaster,
   editRoaster,
-  deleteRoaster,
   getRoasterById,
 }
 
@@ -21,8 +20,4 @@ function addRoaster(roaster, db = connection) {
 
 function editRoaster(id, newInfo, db = connection) {
   return db('roasters').where({ id }).update(newInfo)
-}
-
-function deleteRoaster(id, db = connection) {
-  return db('roasters').where({ id }).del()
 }

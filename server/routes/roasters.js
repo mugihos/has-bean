@@ -45,20 +45,4 @@ router.patch('/:id/edit', (req, res) => {
     })
 })
 
-//DELETE api/v1/roasters/:id
-router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  db.deleteRoaster(id)
-    .then(() => {
-      return db.getRoasters()
-    })
-    .then((roasters) => {
-      res.json(roasters)
-    })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).json({ message: 'Something went wrong' })
-    })
-})
-
 module.exports = router

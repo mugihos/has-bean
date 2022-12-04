@@ -34,10 +34,3 @@ export function editRoaster(id, newInfo) {
       return res.body
     })
 }
-
-//DELETE remove existing roaster
-export function deleteRoaster(id) {
-  return request.delete(`${rootUrl}/roasters/${id}`).then((res) => {
-    return res.body
-  })
-}
