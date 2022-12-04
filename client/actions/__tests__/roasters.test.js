@@ -1,12 +1,18 @@
-import { getRoasters, postRoaster, getRoasters } from '../../apis/roasters'
+import { getRoasters, postRoaster } from '../../apis/roasters'
 import {
   fetchRoasters,
   SET_ROASTERS,
   submitRoaster,
   ADD_ROASTER,
-  fetchRoasters,
-  SET_ROASTERS,
 } from '../roasters'
+
+const fakeDispatch = jest.fn()
+
+jest.mock('../../apis/roasters')
+
+beforeEach(() => {
+  jest.clearAllMocks()
+})
 
 const fakeGetData = [
   {
@@ -38,16 +44,8 @@ const fakeNewData = {
     'https://cdn.shopify.com/s/files/1/0104/2682/files/logo_gold-06_395x.png?v=1638386421',
 }
 
-jest.mock('../../apis/roasters')
-
-const fakeDispatch = jest.fn()
-
-beforeEach(() => {
-  jest.clearAllMocks()
-})
-
 describe('fetchRoasters', () => {
-  it('dispatches the SET_ROASTER action', () => {
+  it('dispatches the SET_ROASTERS action.', () => {
     expect.assertions(1)
     getRoasters.mockReturnValue(Promise.resolve(fakeGetData))
     return fetchRoasters()(fakeDispatch).then(() => {
@@ -55,18 +53,6 @@ describe('fetchRoasters', () => {
         type: SET_ROASTERS,
         payload: fakeGetData,
       })
-    })
-  })
-  it('should error when api request fails', () => {
-    expect.assertions(1)
-    jest.spyOn(console, 'error')
-    console.error.mockImplementation(() => {})
-    getRoasters.mockImplementation(() =>
-      Promise.reject(new Error('no roasters returned'))
-    )
-
-    return fetchRoasters()(fakeDispatch).then(() => {
-      expect(console.error).toHaveBeenCalledWith('no roasters returned')
     })
   })
 })
@@ -91,27 +77,8 @@ describe('submitRoasters', () => {
       Promise.reject(new Error('no new roaster posted'))
     )
 
-    return submitRoaster(fakeNewData)(fakeDispatch).then(() => {
+    return submitRoaster()(fakeDispatch).then(() => {
       expect(console.error).toHaveBeenCalledWith('no new roaster posted')
-    })
-  })
-})
-import roasters from '../../../server/db/seeds/1-roasters'
-jest.mock('../../apis/roasters')
-
-const fakeDispatch = jest.fn()
-
-beforeEach(() => {
-  jest.clearAllMocks()
-})
-describe('fetchRoasters', () => {
-  it('dispatches the SET_ROASTERS action.', () => {
-    getRoasters.mockReturnValue(Promise.resolve(roasters))
-    return fetchRoasters()(fakeDispatch).then(() => {
-      expect(fakeDispatch).toHaveBeenCalledWith({
-        type: SET_ROASTERS,
-        payload: roasters,
-      })
     })
   })
 })
