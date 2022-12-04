@@ -3,16 +3,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Map, { Marker } from 'react-map-gl'
-
+import styles from './MapShow.module.scss'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-export default function MapShow({
-  //coOrds,
-  moreInfo,
-  viewInfo,
-}) {
-  const searchResult = useSelector((state) => state.searchResult)
 
+export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
+  const searchResult = useSelector((state) => state.searchResult)
   return (
     <div id="map">
       <Map
@@ -40,7 +36,9 @@ export default function MapShow({
                   longitude={lng || ''}
                   latitude={lat || ''}
                   onClick={() => moreInfo(id)}
-                />
+                >
+                 <img src={imageIcon} alt="img_lost" className={styles.icon} />
+                 </Marker>
               )
             })}
           </div>
@@ -50,7 +48,9 @@ export default function MapShow({
             longitude={searchResult?.lng || ''}
             latitude={searchResult?.lat || ''}
             onClick={() => moreInfo(searchResult.id)}
-          />
+            >
+            <img src={imageIcon} alt="img_lost" className={styles.icon} />
+            </Marker>
         )}
       </Map>
     </div>

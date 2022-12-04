@@ -14,6 +14,9 @@ import Roaster from './Roaster'
 import NotFound from './NotFound'
 import Beans from './Beans'
 import AddCafe from './AddCafe'
+import OurStory from './OurStory'
+import OurTeam from './OurTeam'
+import ContactUs from './ContactUs'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -37,6 +40,9 @@ export default function App() {
             <Route path="/beans" element={<Beans />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
             <Route path="/roasters/:id" element={<Roaster />} />
+            <Route path="/story" element={<OurStory />} />
+            <Route path="/team" element={<OurTeam />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

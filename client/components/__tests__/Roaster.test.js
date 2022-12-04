@@ -71,7 +71,7 @@ function AppProvider({ children }) {
 }
 
 describe('/Roaster', () => {
-  it('renders without crashing and displays the roaster name', () => {
+  it.skip('renders without crashing and displays the roaster name', () => {
     render(<Route path="/roasters/:id" element={<Roaster />} />, {
       wrapper: AppProvider,
     })
@@ -80,7 +80,7 @@ describe('/Roaster', () => {
     expect(roasterName.textContent).toBe('Supreme')
   })
 
-  it('filters and displays cafes correctly', () => {
+  it.skip('filters and displays cafes correctly', () => {
     render(<Route path="/roasters/:id" element={<Roaster />} />, {
       wrapper: AppProvider,
     })

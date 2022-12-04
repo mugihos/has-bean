@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react'
+
+// import { useDispatch } from 'react-redux'
+// import { fetchRoasters } from '../actions/roasters'
+// import { fetchCafes } from '../actions/cafes'
+// import { fetchSearchRoasters } from '../actions/searchRoasters'
+
+import MapShow from './MapShow'
+import Search from './Search'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
-import MapShow from './MapShow'
-import Search from './Search'
+// import Result from './Result'
 
 export default function Home() {
   //useSelector to use the result redux
@@ -45,6 +52,8 @@ export default function Home() {
     setViewInfo(zoomAndCenterInfo(coOrds.roasters))
   }, [])
 
+  const imageIcon = '/img/coffee.png'
+
   function zoomAndCenterInfo(coOrds) {
     // add if statement if there is length =1 for coOrds to set zoom
     // around the marker and cet centre
@@ -68,7 +77,7 @@ export default function Home() {
       const zoomLevel =
         Math.log10(
           (tileSize * ratio) / Math.max(Math.abs(lngDist), Math.abs(latDist))
-        ) / Math.log10(1.81)
+        ) / Math.log10(1.81) // Dimesnionless exponential equation to find zoom
 
       return {
         longitude: lngCentre,
@@ -79,7 +88,7 @@ export default function Home() {
       return {
         longitude: lngCentre,
         latitude: latCentre,
-        zoom: 6,
+        zoom: 7.5,
       }
     }
   }
@@ -88,10 +97,17 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.map}>
-          {viewInfo && <MapShow moreInfo={moreInfo} viewInfo={viewInfo} />}
+          {viewInfo && (
+            <MapShow
+              moreInfo={moreInfo}
+              viewInfo={viewInfo}
+              imageIcon={imageIcon}
+              coOrds={coOrds}
+            />
+          )}
         </div>
         <div className={styles.right}>
-          <h1>Find where your favrouites coffee are!</h1>
+          <h1>Find where your favourite coffee is served!</h1>
           <Search />
           <div>
             {selectedResult == '' ? (
