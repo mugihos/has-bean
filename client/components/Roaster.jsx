@@ -9,24 +9,20 @@ export default function Roaster() {
   //this is where we access the global redux state to access the single roaster
   const roasters = useSelector((state) => state.roasters)
   const searchRoasters = useSelector((state) => state.searchRoasters)
-
   //select the single roaster by filter
   const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
-
-  // console.log('searchRoaster in Roaster.jsx', searchRoasters)
 
   function mapRoasterCafes(query) {
     const filteredRoasters = searchRoasters.filter(({ roasterName }) =>
       roasterName.toLowerCase().includes(query.toLowerCase())
     )
     return filteredRoasters?.map((oneCafe) => {
-      const { id, cafeName, address, city } = oneCafe
+      const { id, cafeName, address } = oneCafe
       return (
         <div key={id}>
           <ul>
-            <li>{cafeName}</li>
-            <li>{address}</li>
-            <li>{city}</li>
+            <h2>{cafeName}</h2>
+            <p>{address}</p>
           </ul>
         </div>
       )
@@ -38,8 +34,9 @@ export default function Roaster() {
       <div>
         {singleRoaster && (
           <div>
-            <h3>{singleRoaster.name}</h3>
-            <p>Roastery location: {singleRoaster.location}</p>
+            <h2>Roastery {singleRoaster.name}</h2>
+            <img src={singleRoaster.image_url} alt="" />
+            <p>Location: {singleRoaster.location}</p>
             <p>{singleRoaster.details}</p>
           </div>
         )}

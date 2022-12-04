@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRoasters } from '../actions/roasters'
-import { fetchCafes } from '../actions/cafes'
-import { fetchSearchRoasters } from '../actions/searchRoasters'
-import { fetchBeans } from '../actions/beans'
+
+// import { useDispatch } from 'react-redux'
+// import { fetchRoasters } from '../actions/roasters'
+// import { fetchCafes } from '../actions/cafes'
+// import { fetchSearchRoasters } from '../actions/searchRoasters'
 
 import MapShow from './MapShow'
 import Search from './Search'
-import SearchResult from './SearchResult'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import styles from './Home.module.scss'
+// import Result from './Result'
 
 export default function Home() {
-  const dispatch = useDispatch()
+  //useSelector to use the result redux
+  //will use hardcoded info for now to make this state work
+  const selectedResult = useSelector((state) => state.searchResult)
 
-  useEffect(() => {
-    dispatch(fetchRoasters())
-    dispatch(fetchCafes())
-    dispatch(fetchSearchRoasters())
-    dispatch(fetchBeans())
-  }, [])
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -33,16 +32,17 @@ export default function Home() {
       },
       {
         id: 4,
-        name: 'Creel Tackle House & Cafe',
-        lng: '175.8132631',
-        lat: '-38.9934239',
-        address: '189 Taupahi Road, Tūrangi 3334',
-        city: 'Tūrangi',
+        name: 'The Baker Man Cafe',
+        lng: '173.26744090990596',
+        lat: ' -34.95715117036878',
+        address: '8 State Highway 10, Awanui 0486',
+        city: 'Awanui',
         roaster_id: 1,
       },
     ],
   })
-  // Function for onClick for markers on map
+
+  // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
   function moreInfo(id) {
     console.log('New Cords ', id)
   }
@@ -51,6 +51,8 @@ export default function Home() {
   useEffect(() => {
     setViewInfo(zoomAndCenterInfo(coOrds.roasters))
   }, [])
+
+  const imageIcon = '/img/coffee.png'
 
   function zoomAndCenterInfo(coOrds) {
     // add if statement if there is length =1 for coOrds to set zoom
@@ -75,7 +77,7 @@ export default function Home() {
       const zoomLevel =
         Math.log10(
           (tileSize * ratio) / Math.max(Math.abs(lngDist), Math.abs(latDist))
-        ) / Math.log10(1.81)
+        ) / Math.log10(1.81) // Dimesnionless exponential equation to find zoom
 
       return {
         longitude: lngCentre,
@@ -86,20 +88,56 @@ export default function Home() {
       return {
         longitude: lngCentre,
         latitude: latCentre,
-        zoom: 6,
+        zoom: 7.5,
       }
     }
   }
 
   return (
     <>
-      <div>
-        <Search />
-      </div>
-      <div>
-        {viewInfo && (
-          <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} />
-        )}
+      <div className={styles.container}>
+        <div className={styles.map}>
+          {viewInfo && (
+            <MapShow
+              moreInfo={moreInfo}
+              viewInfo={viewInfo}
+              imageIcon={imageIcon}
+              coOrds={coOrds}
+            />
+          )}
+        </div>
+        <div className={styles.right}>
+          <h1>Find where your favourite coffee is served!</h1>
+          <Search />
+          <div>
+            {selectedResult == '' ? (
+              <div></div>
+            ) : selectedResult.length > 1 ? (
+              <div className={styles.detail}>
+                {selectedResult?.map(
+                  ({ id, cafeName, address, roasterName }) => {
+                    return (
+                      <div key={id}>
+                        <h2>{cafeName}</h2>
+                        <p>{address}</p>
+                        <p>Roaster: {roasterName}</p>
+                      </div>
+                    )
+                  }
+                )}
+              </div>
+            ) : (
+              <>
+                <h2>{selectedResult.cafeName}</h2>
+                <p>{selectedResult.address}</p>
+                <p>Roaster: {selectedResult.roasterName}</p>
+              </>
+            )}
+            <Link to={`/addNewCafe`}>
+              <button>ADD NEW CAFE</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   )

@@ -77,7 +77,7 @@ describe('/Roaster', () => {
     })
     expect(screen.getByText(/location:/i)).toBeInTheDocument()
     const roasterName = screen.getAllByRole('heading')
-    expect(roasterName[0].textContent).toBe('Supreme')
+    expect(roasterName[0].textContent).toBe('Roastery Supreme')
   })
 
   it('filters and displays cafes correctly', () => {

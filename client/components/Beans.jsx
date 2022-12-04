@@ -6,7 +6,6 @@ import styles from './Beans.module.scss'
 export default function Beans() {
   const dispatch = useDispatch()
   let beans = useSelector((state) => state.beans)
-
   useEffect(() => {
     dispatch(fetchBeans())
   }, [])
@@ -18,20 +17,22 @@ export default function Beans() {
   return (
     <div>
       <h2>Bean Collection</h2>
-      <ul>
-        {beans?.map((bean) => {
-          return (
-            <div key={bean.id}>
-              <h2>{bean.beanName}</h2>
-              <li>REGION: {bean.region}</li>
-              <li>PROCESS: {bean.process}</li>
-              <li>RANGE OF ROAST: {bean.roast_degree}</li>
-              <li>FLAVOR: {bean.flavour_profile}</li>
-              <li>THE ROASTER: {bean.roasterName}</li>
-            </div>
-          )
-        })}
-      </ul>
+      <div>
+        <ul className={styles.ul}>
+          {beans?.map((bean) => {
+            return (
+              <div key={bean.id} className={styles.beanItem}>
+                <h2 className={styles.h2}>{bean.beanName}</h2>
+                <li>REGION: {bean.region}</li>
+                <li>PROCESS: {bean.process}</li>
+                <li>RANGE OF ROAST: {bean.roast_degree}</li>
+                <li>FLAVOR: {bean.flavour_profile}</li>
+                <li>THE ROASTER: {bean.roasterName}</li>
+              </div>
+            )
+          })}
+        </ul>
+      </div>
     </div>
   )
 }

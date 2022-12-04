@@ -6,11 +6,13 @@
   align-items: center;
   gap: 8px; 
   padding: 24px; 
-  background-color: theme.$brown; 
+  background-color: #463727;
   color: theme.$black;
   font-size: 1.2rem; 
   font-weight: bolder; 
   white-space: nowrap;  
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 .title { 
@@ -28,4 +30,16 @@
 .links a {
   text-decoration: none;
   color: white
+}
+
+.auth {
+  color: white; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 10px;
+  margin-left: 0;
+  margin-right: 2vw;
+  margin-top: 10px;
+  // padding-right: 24px;
 }

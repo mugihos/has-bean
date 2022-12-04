@@ -8,6 +8,7 @@ exports.seed = async function (knex) {
       roast_degree: 'medium',
       flavour_profile: 'Milk Chocolate & Citrus | Sweet & Complex',
       name: 'Supreme blend',
+      image_url: '',
     },
     {
       id: 1002,
@@ -17,6 +18,7 @@ exports.seed = async function (knex) {
       roast_degree: 'value',
       flavour_profile: 'Forest fruit | Cacao',
       name: 'Aotea blend',
+      image_url: '',
     },
     {
       id: 1003,
@@ -26,6 +28,7 @@ exports.seed = async function (knex) {
       roast_degree: 'medium',
       flavour_profile: 'Chocolate | Caramel | Spice',
       name: 'Mahana blend',
+      image_url: '',
     },
     {
       id: 1004,
@@ -35,6 +38,7 @@ exports.seed = async function (knex) {
       roast_degree: 'value',
       flavour_profile: 'Maltesers & Caramel | Smooth & Creamy',
       name: 'South blend',
+      image_url: '',
     },
     {
       id: 1005,
@@ -44,6 +48,7 @@ exports.seed = async function (knex) {
       roast_degree: 'value',
       flavour_profile: 'Sweet, balanced and complex.',
       name: 'Allpress Espresso Blend',
+      image_url: '',
     },
     {
       id: 1006,
@@ -53,6 +58,7 @@ exports.seed = async function (knex) {
       roast_degree: 'value',
       flavour_profile: 'Orange | Caramel | Cacao nib',
       name: 'Bomber - Original blend',
+      image_url: '',
     },
     {
       id: 1007,
@@ -62,6 +68,7 @@ exports.seed = async function (knex) {
       roast_degree: 'dark',
       flavour_profile: 'Big, fat and chocolatey',
       name: 'A.R.T. Espresso Roast',
+      image_url: '',
     },
     {
       id: 1008,
@@ -71,6 +78,7 @@ exports.seed = async function (knex) {
       roast_degree: 'value',
       flavour_profile: 'Orange | Caramel | Cacao nib',
       name: 'Bomber - Original blend',
+      image_url: '',
     },
     {
       id: 1009,
@@ -80,6 +88,7 @@ exports.seed = async function (knex) {
       roast_degree: 'dark',
       flavour_profile: 'Buttercream | Brown sugar | Macadamia nut',
       name: 'B2 - Milk blend',
+      image_url: '',
     },
     {
       id: 1010,
@@ -89,6 +98,7 @@ exports.seed = async function (knex) {
       roast_degree: 'dark',
       flavour_profile: 'Chocolate | Wild berry | Chocolate',
       name: 'Hodson blend',
+      image_url: '',
     },
   ])
 }
