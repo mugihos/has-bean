@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // import { getRoasters } from '../apis/roasters'
 import styles from './Roasters.module.scss'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRoasters } from '../actions/roasters'
+import { useSelector } from 'react-redux'
 
 export default function Roasters() {
   // const dispatch = useDispatch()
