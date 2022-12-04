@@ -21,8 +21,8 @@ router.post('/add', (req, res) => {
     .then(() => {
       return db.getRoasters()
     })
-    .then((roasters) => {
-      res.json(roasters)
+    .then((ids) => {
+      res.json(ids[0])
     })
     .catch((err) => {
       console.log(err)

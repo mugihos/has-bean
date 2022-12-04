@@ -8,8 +8,15 @@ export function getRoasters() {
   })
 }
 
+// GET roaster by id
+export function getRoasterById(id) {
+  return request.get(`${rootUrl}/roasters/${id}`).then((res) => {
+    return res.body
+  })
+}
+
 //POST add new roaster
-export function addRoaster(newRoaster) {
+export function postRoaster(newRoaster) {
   return request
     .post(rootUrl + '/roasters/add')
     .send(newRoaster)

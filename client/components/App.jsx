@@ -13,6 +13,7 @@ import Roasters from './Roasters'
 import Roaster from './Roaster'
 import NotFound from './NotFound'
 import Beans from './Beans'
+import AddRoaster from './AddRoaster'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="/roasters" element={<Roasters />} />
             <Route path="/beans" element={<Beans />} />
             <Route path="/roasters/:id" element={<Roaster />} />
+            <Route path="/addroaster" element={<AddRoaster />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
