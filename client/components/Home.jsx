@@ -94,8 +94,9 @@ export default function Home() {
           <h1>Find where your favrouites coffee are!</h1>
           <Search />
           <div>
-            This is there the selected result data goes!
-            {selectedResult && (
+            {selectedResult == '' ? (
+              <div></div>
+            ) : (
               <div className={styles.detail}>
                 <h2>{selectedResult.cafeName}</h2>
                 <p>{selectedResult.address}</p>
