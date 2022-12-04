@@ -6,7 +6,7 @@ import App from '../App'
 import store from '../../store'
 import { fetchRoasters } from '../../actions/roasters'
 
-jest.mock('../actions')
+jest.mock('../../actions')
 
 fetchRoasters.mockImplementation(() => () => {})
 
