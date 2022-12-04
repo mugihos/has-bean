@@ -36,7 +36,7 @@ export default function Roasters() {
 
     <div>
       <h2>Welcome to Roasters</h2>
-      <ul className={styles.container}>
+      <ul className={styles.ul}>
         {roasters?.map((roaster) => {
           return (
             <div key={roaster.id} className={styles.beanItem}>

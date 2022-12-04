@@ -18,7 +18,7 @@ export default function Beans() {
     <div>
       <h2>Bean Collection</h2>
       <div>
-        <ul className={styles.container}>
+        <ul className={styles.ul}>
           {beans?.map((bean) => {
             return (
               <div key={bean.id} className={styles.beanItem}>
