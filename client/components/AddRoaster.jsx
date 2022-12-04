@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { submitRoaster } from '../actions/roasters'
-// import styles from './AddRoaster.module.scss'
+import styles from './AddRoaster.module.scss'
 
 export default function AddRoaster() {
   const dispatch = useDispatch()
