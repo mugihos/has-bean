@@ -9,7 +9,7 @@ describe('GET /api/v1/roasters', () => {
         results: [
           { id: 1, name: 'Coffee Supreme' },
           { id: 2, name: 'Allpress Espresso' },
-          { id: 3, name: 'Allpress Espresso' },
+          { id: 3, name: 'KoKōkako Organic Coffee' },
           { id: 4, name: 'Mojo Coffee Roasters' },
         ],
       })
