@@ -35,14 +35,10 @@ export default function Header() {
 
         <div className={styles.auth}>
         <IfAuthenticated>
-          <div>
-            <div>Hello {user?.nickname}</div>
-            <div>
+            Hello {user?.nickname} &nbsp;|&nbsp; 
               <Link to='/' onClick={handleLogOff}>
                 Sign out
               </Link>
-            </div>
-          </div>
         </IfAuthenticated>
 
         <IfNotAuthenticated>
