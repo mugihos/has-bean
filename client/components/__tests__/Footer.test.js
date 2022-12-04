@@ -24,7 +24,7 @@ const fakeStore = {
   }),
 }
 
-describe('<Search />', () => {
+describe('<Footer />', () => {
   it('displays text from Footer on page', () => {
     expect.assertions(2)
     render(
