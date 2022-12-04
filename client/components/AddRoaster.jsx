@@ -16,6 +16,7 @@ export default function AddRoaster() {
   })
 
   const location = [
+    'Please select',
     'Auckland',
     'Wellington',
     'Christchurch',

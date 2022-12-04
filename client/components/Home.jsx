@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
 import MapShow from './MapShow'
 import Search from './Search'
@@ -105,6 +106,9 @@ export default function Home() {
             )}
           </div>
         </div>
+        <Link to="/addroaster">
+          <button>Add Roaster</button>
+        </Link>
       </div>
     </>
   )
