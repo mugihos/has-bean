@@ -98,14 +98,5 @@
     "semi": false,
     "singleQuote": true
   },
-<<<<<<< HEAD
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
-  },
-=======
->>>>>>> cfb460f3d033ac532af3cce1f10130ca14d63a07
   "browserslist": "> 2%, not dead"
 }

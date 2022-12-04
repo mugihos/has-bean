@@ -6,6 +6,9 @@ const config = {
     '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
   },
   testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+  },
   coveragePathIgnorePatterns: [
     'node_modules',
     '.module.scss',
