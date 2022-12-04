@@ -8,8 +8,6 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 
 export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
-  const roasters = coOrds.roasters
-  // const roasters = coOrds.roasters
   const searchResult = useSelector((state) => state.searchResult)
   return (
     <div id="map">
@@ -29,22 +27,31 @@ export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        {roasters.map((roasters) => (
+        {searchResult.length > 1 ? (
+          <div>
+            {searchResult?.map(({ id, lat, lng }) => {
+              return (
+                <Marker
+                  key={id}
+                  longitude={lng || ''}
+                  latitude={lat || ''}
+                  onClick={() => moreInfo(id)}
+                >
+                 <img src={imageIcon} alt="img_lost" className={styles.icon} />
+                 </Marker>
+              )
+            })}
+          </div>
+        ) : (
           <Marker
-            key={roasters.id}
-            longitude={roasters.lng}
-            latitude={roasters.lat}
-            onClick={() => moreInfo(roasters.id)}
-          >
+            key={searchResult.id}
+            longitude={searchResult?.lng || ''}
+            latitude={searchResult?.lat || ''}
+            onClick={() => moreInfo(searchResult.id)}
+            >
             <img src={imageIcon} alt="img_lost" className={styles.icon} />
-          </Marker>
-        ))}
-        <Marker
-          key={searchResult.id}
-          longitude={searchResult?.lng || ''}
-          latitude={searchResult?.lat || ''}
-          onClick={() => moreInfo(searchResult.id)}
-        />
+            </Marker>
+        )}
       </Map>
     </div>
   )

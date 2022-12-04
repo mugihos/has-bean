@@ -112,12 +112,26 @@ export default function Home() {
           <div>
             {selectedResult == '' ? (
               <div></div>
-            ) : (
+            ) : selectedResult.length > 1 ? (
               <div className={styles.detail}>
+                {selectedResult?.map(
+                  ({ id, cafeName, address, roasterName }) => {
+                    return (
+                      <div key={id}>
+                        <h2>{cafeName}</h2>
+                        <p>{address}</p>
+                        <p>Roaster: {roasterName}</p>
+                      </div>
+                    )
+                  }
+                )}
+              </div>
+            ) : (
+              <>
                 <h2>{selectedResult.cafeName}</h2>
                 <p>{selectedResult.address}</p>
                 <p>Roaster: {selectedResult.roasterName}</p>
-              </div>
+              </>
             )}
             <Link to={`/addNewCafe`}>
               <button>ADD NEW CAFE</button>
@@ -127,9 +141,4 @@ export default function Home() {
       </div>
     </>
   )
-}
-
-//can change where selectedResult to a map function once we introduce search via roaster
-{
-  /* <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} /> */
 }
