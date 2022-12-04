@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import App from './components/App'
+import ScrollToTop from "./scrollToTop"
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   >
       <Provider store={store}>
         <Router>
+          <ScrollToTop />
           <App />
         </Router>
       </Provider>,
