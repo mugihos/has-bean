@@ -98,7 +98,7 @@ export default function AddCafe() {
         </div>
         <div>
           <label htmlFor="lng">
-            About:
+            lng:
             <input
               id="lng"
               onChange={handleChange}
