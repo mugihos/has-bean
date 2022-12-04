@@ -49,7 +49,7 @@ export default function Roasters() {
           return (
             <>
               {' '}
-              <h1>{location}</h1>
+              <h3 key={location.id}>{location}</h3>
               {roasters
                 ?.filter((roaster) => roaster.location.includes(location))
                 .map((roaster) => {
