@@ -1,13 +1,13 @@
 const initialRequestState = []
 
-const beans = (state = initialRequestState, action) => {
+const searchResult = (state = initialRequestState, action) => {
   const { type, payload } = action
   switch (type) {
-    case 'SET_BEANS':
+    case 'SET_SEARCH_RESULT':
       return payload
     default:
       return state
   }
 }
 
-export default beans
+export default searchResult
