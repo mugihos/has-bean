@@ -7,3 +7,30 @@ export function getRoasters() {
     return res.body
   })
 }
+
+//POST add new roaster
+export function addRoaster(newRoaster) {
+  return request
+    .post(rootUrl + '/roasters/add')
+    .send(newRoaster)
+    .then((res) => {
+      return res.body
+    })
+}
+
+//UPDATE edit existing roaster info
+export function editRoaster(id, newInfo) {
+  return request
+    .patch(`${rootUrl}/roasters/${id}/edit`)
+    .send(newInfo)
+    .then((res) => {
+      return res.body
+    })
+}
+
+//DELETE remove existing roaster
+export function deleteRoaster(id) {
+  return request.delete(`${rootUrl}/roasters/${id}`).then((res) => {
+    return res.body
+  })
+}
