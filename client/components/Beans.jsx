@@ -22,7 +22,7 @@ export default function Beans() {
           {beans?.map((bean) => {
             return (
               <div key={bean.id} className={styles.beanItem}>
-                <h2>{bean.beanName}</h2>
+                <h2 className={styles.h2}>{bean.beanName}</h2>
                 <li>REGION: {bean.region}</li>
                 <li>PROCESS: {bean.process}</li>
                 <li>RANGE OF ROAST: {bean.roast_degree}</li>
