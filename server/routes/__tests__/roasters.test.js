@@ -1,14 +1,8 @@
 const request = require('supertest')
 const server = require('../../server')
 const { getRoasters, addRoaster } = require('../../db/roasters')
-
 jest.mock('../../db/roasters')
-
 jest.spyOn(console, 'error').mockImplementation(() => {})
-
-beforeEach(() => {
-  jest.resetAllMocks()
-})
 
 const fakeGetData = [
   {
@@ -41,25 +35,25 @@ const fakeNewData = {
 }
 
 describe('GET /api/v1/roasters', () => {
-  it('return status200 and roaster when db is succssful', () => {
+  it('renders all roasters', () => {
     expect.assertions(3)
     getRoasters.mockReturnValue(Promise.resolve(fakeGetData))
     return request(server)
       .get('/api/v1/roasters')
       .then((res) => {
         expect(res.status).toBe(200)
-        expect(res.body).toEqual(fakeGetData)
+        expect(res.text).toContain('Coffee Supreme')
         expect(res.body).toHaveLength(2)
       })
   })
-  it('return status 500 and error message when route fail', () => {
+  it('should return status 500 and an error message when database fails.', () => {
     expect.assertions(3)
-    getRoasters.mockImplementation(() => Promise.reject('GET failed'))
+    getRoasters.mockImplementation(() => Promise.reject('No roasters found'))
     return request(server)
-      .get('/api/v1/roasters')
+      .get('/api/v1/roasters/')
       .then((res) => {
         expect(res.status).toBe(500)
-        expect(console.error).toHaveBeenCalledWith('GET failed')
+        expect(console.error).toHaveBeenCalledWith('No roasters found')
         expect(res.text).toContain('Something went wrong')
       })
   })
