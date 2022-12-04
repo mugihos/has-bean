@@ -42,7 +42,7 @@ export default function Footer() {
 
           <div className={styles.vertical}>
           <h3>About</h3>
-          <p><Link to="/purpose">Our Purpose</Link></p>
+          <p><Link to="/story">Our Story</Link></p>
           <p><Link to="/team">Our Team</Link></p>
           </div>
 
@@ -52,8 +52,8 @@ export default function Footer() {
           </div>
 
           <ul>
-          <li className={styles.footerItem}><Link to="#"  className="fa fa-instagram"></Link></li>
-          <li className={styles.footerItem}><Link to="#" className="fa fa-facebook" alt='facebook icon'></Link></li>
+          <li className={styles.footerItem}><Link to="/"  className="fa fa-instagram"></Link></li>
+          <li className={styles.footerItem}><Link to="/" className="fa fa-facebook" alt='facebook icon'></Link></li>
           </ul>
 
         </footer>
