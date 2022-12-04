@@ -26,14 +26,14 @@ export default function Search() {
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{
-              threshold: '0.3',
+              threshold: '0.4',
               keys: ['cafeName', 'roasterName'],
             }}
             resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
             onSelect={handleOnSelect}
             showIcon={false}
-            placeholder='Search your favourite coffee'
+            placeholder="Search your favourite coffee"
             styling={{
               height: '34px',
               // border: '1px solid darkgreen',

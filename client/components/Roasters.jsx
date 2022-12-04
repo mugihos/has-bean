@@ -6,16 +6,24 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchRoasters } from '../actions/roasters'
 
 export default function Roasters() {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   let roasters = useSelector((state) => state.roasters)
 
-  useEffect(() => {
-    dispatch(fetchRoasters())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchRoasters())
+  // }, [])
 
   if (!roasters) {
-    return <div>David is best</div>
+    return <div>Loading Roasters... ps. David is best</div>
   }
+
+  const cities = new Set()
+  roasters.map((roaster) =>
+    roaster.location.split(',').map((location) => cities.add(location.trim()))
+  )
+  const locations = Array.from(cities)
+  console.log(locations)
+  // locations = ArrayFrom(locations)
 
   return (
     //   <>
@@ -37,18 +45,28 @@ export default function Roasters() {
     <div>
       <h2>Welcome to Roasters</h2>
       <ul className={styles.ul}>
-        {roasters?.map((roaster) => {
+        {locations.map((location) => {
           return (
-            <div key={roaster.id} className={styles.beanItem}>
-              <Link to={`/roasters/${roaster.id}`}>
-                <li>{roaster.name}</li>
-                <img
-                  className={styles.roasterImg}
-                  src={roaster.image_url}
-                  alt={roaster.name}
-                />
-              </Link>
-            </div>
+            <>
+              {' '}
+              <h1>{location}</h1>
+              {roasters
+                ?.filter((roaster) => roaster.location.includes(location))
+                .map((roaster) => {
+                  return (
+                    <div key={roaster.id} className={styles.beanItem}>
+                      <Link to={`/roasters/${roaster.id}`}>
+                        <li>{roaster.name}</li>
+                        <img
+                          className={styles.roasterImg}
+                          src={roaster.image_url}
+                          alt={roaster.name}
+                        />
+                      </Link>
+                    </div>
+                  )
+                })}
+            </>
           )
         })}
       </ul>
