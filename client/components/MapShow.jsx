@@ -11,7 +11,6 @@ export default function MapShow({
   moreInfo,
   viewInfo,
 }) {
-  // const roasters = coOrds.roasters
   const searchResult = useSelector((state) => state.searchResult)
 
   return (
@@ -32,12 +31,27 @@ export default function MapShow({
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        <Marker
-          key={searchResult.id}
-          longitude={searchResult?.lng || ''}
-          latitude={searchResult?.lat || ''}
-          onClick={() => moreInfo(searchResult.id)}
-        />
+        {searchResult.length > 1 ? (
+          <div>
+            {searchResult?.map(({ id, lat, lng }) => {
+              return (
+                <Marker
+                  key={id}
+                  longitude={lng || ''}
+                  latitude={lat || ''}
+                  onClick={() => moreInfo(id)}
+                />
+              )
+            })}
+          </div>
+        ) : (
+          <Marker
+            key={searchResult.id}
+            longitude={searchResult?.lng || ''}
+            latitude={searchResult?.lat || ''}
+            onClick={() => moreInfo(searchResult.id)}
+          />
+        )}
       </Map>
     </div>
   )
