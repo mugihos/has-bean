@@ -8,11 +8,12 @@ export default function Search() {
   const dispatch = useDispatch()
   const searchRoasters = useSelector((state) => state.searchRoasters)
   let roasters = useSelector((state) => state.roasters)
+  let cafes = useSelector((state) => state.cafes)
 
-  //this is the dispatch for redux setting the selected result to state
   const handleOnSelect = (item) => {
     dispatch(setSearchResult(item))
   }
+
   const onSelectRoaster = (e) => {
     const id = e.target.value
     const cafes = searchRoasters.filter(
@@ -20,6 +21,15 @@ export default function Search() {
     )
     dispatch(setSearchResult(cafes))
   }
+
+  const onSelectCity = (e) => {
+    const id = e.target.value
+    const cafes = searchRoasters.filter(
+      (searchRoaster) => id == searchRoaster.roasterId
+    )
+    dispatch(setSearchResult(cafes))
+  }
+
   return (
     <>
       <div>
@@ -55,11 +65,24 @@ export default function Search() {
         <div>
           <label htmlFor="id">Roaster:</label>
           <select id="id" onChange={onSelectRoaster} name="id">
-            <option value="0">--Please select--</option>
+            <option value="0">--Select the roaster--</option>
             {roasters.map(({ id, name }) => {
               return (
                 <option key={id} value={id}>
                   {name}
+                </option>
+              )
+            })}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="city">City:</label>
+          <select id="city" onChange={onSelectCity} name="city">
+            <option value="0">--Select the city--</option>
+            {cafes.map(({ id, city }) => {
+              return (
+                <option key={id} value={id}>
+                  {city}
                 </option>
               )
             })}
