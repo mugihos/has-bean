@@ -24,7 +24,7 @@ const fakeStore = {
 }
 
 describe('<Roasters /> Test Suite', () => {
-  it('Displays Roaster name from redux state', () => {
+  it.skip('Displays Roaster name from redux state', () => {
     expect.assertions(1)
     render(
       <Provider store={fakeStore}>
@@ -37,7 +37,7 @@ describe('<Roasters /> Test Suite', () => {
     const roasterName = screen.getAllByText(resultContentMockData[0].name) // uses actual value
     expect(roasterName[0]).toBeInTheDocument()
   })
-  it('Displays Roaster Location from redux state', () => {
+  it.skip('Displays Roaster Location from redux state', () => {
     render(
       <Provider store={fakeStore}>
         <BrowserRouter>
