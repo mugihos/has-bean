@@ -14,4 +14,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  const newCafe = req.body
+  db.addCafe(newCafe)
+    .then(() => {
+      return db.getCafes()
+    })
+    .then((cafes) => {
+      res.json(cafes)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.sendStatus(500)
+    })
+})
 module.exports = router
