@@ -2,28 +2,7 @@ const knex = require('knex')
 const { test } = require('../knexfile')
 const testConfig = require('../knexfile').test
 const testDb = knex(testConfig)
-const { getRoasters, addRoaster, editRoaster } = require('../roasters')
-
-// const fakeData = [
-//   {
-//     id: 1,
-//     name: 'Coffee Supreme',
-//     location: 'Wellington, Auckland, Christchurch',
-//     details:
-//       "Better coffee for all is a constant. It's matter of doing things better than the time before and ensuring it's a better experience for all involved.",
-//     url: 'https://coffeesupreme.com/',
-//     image_url: 'https://tinyurl.com/3afx7e7m',
-//   },
-//   {
-//     id: 2,
-//     name: 'Allpress Espresso',
-//     location: 'Auckland',
-//     details:
-//       'We invest in flavour - from our green bean selection to our roasting method and blending, all the way down to training the baristas that use our coffee in their cafes.',
-//     url: 'https://www.allpressespresso.com/',
-//     image_url: 'https://tinyurl.com/3e73p5we',
-//   },
-// ]
+const { getRoasters, addRoaster } = require('../roasters')
 
 beforeAll(() => {
   return testDb.migrate.latest()
@@ -43,6 +22,20 @@ describe('getRosters', () => {
     return getRoasters(testDb).then((roaster) => {
       expect(roaster).toHaveLength(20)
       expect(roaster[0].name).toBe('Coffee Supreme')
+    })
+  })
+  it('add a new roaster to the roatser table in db', () => {
+    expect.assertions(1)
+    const fakeData = {
+      id: 1,
+      name: 'Coffee Test',
+      location: 'Wellington',
+      details: 'Better coffee for all',
+      url: 'https://coffeesupreme.com/',
+      image_url: 'https://tinyurl.com/3afx7e7m',
+    }
+    return addRoaster(fakeData, testDb).then((id) => {
+      expect(id[0]).toBe(21)
     })
   })
 })

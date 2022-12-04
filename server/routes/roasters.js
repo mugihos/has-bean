@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
       res.json(result)
     })
     .catch((err) => {
-      console.error(err.message)
-      res.sendStatus(500)
+      console.error(err)
+      res.status(500).json({ message: 'Something went wrong' })
     })
 })
 
@@ -18,14 +18,12 @@ router.get('/', (req, res) => {
 router.post('/add', (req, res) => {
   const newRoaster = req.body
   db.addRoaster(newRoaster)
-    .then(() => {
-      return db.getRoasters()
-    })
+
     .then((ids) => {
       res.json(ids[0])
     })
     .catch((err) => {
-      console.log(err)
+      console.error(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
