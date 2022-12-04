@@ -4,10 +4,15 @@ module.exports = {
   addRoaster,
   editRoaster,
   deleteRoaster,
+  getRoasterById,
 }
 
 function getRoasters(db = connection) {
   return db('roasters').select()
+}
+
+function getRoasterById(id, db = connection) {
+  return db('roasters').where({ id }).select()
 }
 
 function addRoaster(roaster, db = connection) {
