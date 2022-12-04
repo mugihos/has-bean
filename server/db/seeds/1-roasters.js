@@ -20,7 +20,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 3,
-      name: 'KoKōkako Organic Coffee',
+      name: 'Kōkako Organic Coffee',
       location: 'Auckland',
       details:
         "It all started in the late 90s when our founders, Helen and Christian, had this wild idea to be New Zealand's first organic coffee roasters.",

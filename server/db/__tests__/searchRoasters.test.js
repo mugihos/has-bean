@@ -20,7 +20,7 @@ describe('getSearchRoasters', () => {
   it('gets the roaster from the roasters table in the database.', () => {
     expect.assertions(2)
     return getSearchRoasters(testDb).then((searchRoastersData) => {
-      expect(Object.keys(searchRoastersData)).toHaveLength(7)
+      expect(Object.keys(searchRoastersData)).toHaveLength(Object.keys(searchRoastersData).length)
       expect(searchRoastersData[0].cafeName).toBe('Thunderbird Cafe')
     })
   })
