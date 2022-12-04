@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
-import { useDispatch } from 'react-redux'
-import { fetchRoasters } from '../actions/roasters'
-import { fetchCafes } from '../actions/cafes'
-import { fetchSearchRoasters } from '../actions/searchRoasters'
+// import { useDispatch } from 'react-redux'
+// import { fetchRoasters } from '../actions/roasters'
+// import { fetchCafes } from '../actions/cafes'
+// import { fetchSearchRoasters } from '../actions/searchRoasters'
 
 import MapShow from './MapShow'
 import Search from './Search'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
-import MapShow from './MapShow'
-import Search from './Search'
 // import Result from './Result'
 
 export default function Home() {
@@ -99,7 +97,14 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.map}>
-          {viewInfo && <MapShow moreInfo={moreInfo} viewInfo={viewInfo} imageIcon={imageIcon} coOrds={coOrds} />}
+          {viewInfo && (
+            <MapShow
+              moreInfo={moreInfo}
+              viewInfo={viewInfo}
+              imageIcon={imageIcon}
+              coOrds={coOrds}
+            />
+          )}
         </div>
         <div className={styles.right}>
           <h1>Find where your favourite coffee is served!</h1>
