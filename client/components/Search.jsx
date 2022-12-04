@@ -26,8 +26,8 @@ export default function Search() {
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{
-              threshold: '0.4',
-              keys: ['cafeName'],
+              threshold: '0.3',
+              keys: ['cafeName', 'roasterName'],
             }}
             resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
