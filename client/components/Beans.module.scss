@@ -1,1 +1,21 @@
 @use '../styles/theme';
+
+.ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.beanItem {
+  border: solid;
+  border-width: 1px;
+  border-color: antiquewhite;
+  color: antiquewhite;
+  margin: 1rem;
+  width: 15rem;
+}
+
+h2 {
+  text-align: center;
+}
