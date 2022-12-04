@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { submitRoaster } from '../actions/roasters'
+// import styles from './AddRoaster.module.scss'
 
 export default function AddRoaster() {
   const dispatch = useDispatch()
@@ -47,35 +48,49 @@ export default function AddRoaster() {
 
   return (
     <>
+      <div>
+        <h2>Add your favourite coffee roaster</h2>
+        <p>please fill in the below information</p>
+      </div>
       <form>
-        <label htmlFor="roaster-name">Roaster name</label>
-        <input type="text" name="name" id="name" onChange={handleChange} />
-        <label htmlFor="roaster-location">Location</label>
-        <select onChange={handleChange} name="location">
-          {location.map((name, i) => {
-            return (
-              <option value={name} key={i}>
-                {name}
-              </option>
-            )
-          })}
-        </select>
-        <label htmlFor="roaster-detail">Details</label>
-        <input
-          type="text"
-          name="details"
-          id="details"
-          onChange={handleChange}
-        />
-        <label htmlFor="roaster-name">Website link</label>
-        <input type="text" name="url" id="url" onChange={handleChange} />
-        <label htmlFor="roaster-image">Image link</label>
-        <input
-          type="text"
-          name="image_url"
-          id="image_url"
-          onChange={handleChange}
-        />
+        <div>
+          <label htmlFor="roaster-name">Roaster name</label>
+          <input type="text" name="name" id="name" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="roaster-location">Location</label>
+          <select onChange={handleChange} name="location">
+            {location.map((name, i) => {
+              return (
+                <option value={name} key={i}>
+                  {name}
+                </option>
+              )
+            })}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="roaster-detail">Details</label>
+          <textarea
+            type="text"
+            name="details"
+            id="details"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="roaster-name">Website link</label>
+          <input type="text" name="url" id="url" onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="roaster-image">Image link</label>
+          <input
+            type="text"
+            name="image_url"
+            id="image_url"
+            onChange={handleChange}
+          />
+        </div>
       </form>
       <button onClick={handleSubmit}>Add roaster</button>
     </>
