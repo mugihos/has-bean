@@ -2,21 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Header.module.scss'
 
-
-// import { IfAuthenticated, IfNotAuthenticated } from './isAuthenticated'
-// import { useAuth0 } from '@auth0/auth0-react'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Header() {
-  // const { logout, loginWithRedirect, user } = useAuth0()
+  const { logout, loginWithRedirect, user } = useAuth0()
 
-  // const handleLogOff = (e) => {
-  //   e.preventDefault()
-  //   logout()
-  // }
+  const handleLogOff = (e) => {
+    e.preventDefault()
+    logout()
+  }
 
-  // const handleSignIn = (e) => {
-  //   e.preventDefault()
-  //   loginWithRedirect()
+  const handleSignIn = (e) => {
+    e.preventDefault()
+    loginWithRedirect()
+  }
 
   return (
     <>
@@ -32,9 +32,10 @@ export default function Header() {
         <Link to='/beans'>Beans</Link>
         <Link to='/ivebeen'>I've Bean</Link>
         </div>
-        {/* <div>
+
+        <div className={styles.auth}>
         <IfAuthenticated>
-          <div className={styles.auth}>
+          <div>
             <div>Hello {user?.nickname}</div>
             <div>
               <Link to='/' onClick={handleLogOff}>
@@ -45,11 +46,11 @@ export default function Header() {
         </IfAuthenticated>
 
         <IfNotAuthenticated>
-          <Link className={styles.auth} to='/' onClick={handleSignIn}>
+          <Link to='/' onClick={handleSignIn}>
             Register | Login
           </Link>
         </IfNotAuthenticated>
-      </div> */}
+      </div>
 
     </nav>
     </>
