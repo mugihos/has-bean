@@ -35,6 +35,12 @@ const fakeNewData = {
     'https://cdn.shopify.com/s/files/1/0104/2682/files/logo_gold-06_395x.png?v=1638386421',
 }
 
+jest.mock('../../actions/roasters')
+
+beforeEach(() => {
+  jest.clearAllMocks()
+})
+
 const fakeStore = {
   subscribe: jest.fn(),
   dispatch: jest.fn(),
