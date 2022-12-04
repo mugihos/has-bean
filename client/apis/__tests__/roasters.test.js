@@ -1,5 +1,15 @@
 import nock from 'nock'
-import { getRoasters } from '../roasters'
+import { getRoasters, postRoaster } from '../roasters'
+
+const fakeNewData = {
+  name: 'Flight Coffee',
+  location: 'Wellington',
+  details:
+    'Flight Coffee is a family of driven people that work together to produce amazing coffee, while always aiming to have the best impact we can on the industry and the lives it connects',
+  image_url:
+    'https://cdn.shopify.com/s/files/1/0104/2682/files/logo_gold-06_395x.png?v=1638386421',
+}
+const returnedId = { id: 21 }
 
 describe('GET /api/v1/roasters', () => {
   it('gets roasters from api', async () => {
@@ -20,5 +30,18 @@ describe('GET /api/v1/roasters', () => {
       expect(roasters.results[3].name).toBe('Mojo Coffee Roasters')
       expect(scope1.isDone()).toBe(true)
     })
+  })
+})
+
+describe('POST /api/v1/roasters/add', () => {
+  it('adds new roaster and gets a new id back', async () => {
+    expect.assertions(1)
+    const scope = nock('http://localhost')
+      .post('/api/v1/roasters/add')
+      .reply(200, returnedId)
+
+    const newResult = await postRoaster(fakeNewData)
+    expect(newResult).toEqual(returnedId)
+    scope.done()
   })
 })
