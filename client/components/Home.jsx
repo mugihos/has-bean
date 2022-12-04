@@ -91,7 +91,7 @@ export default function Home() {
           {viewInfo && <MapShow moreInfo={moreInfo} viewInfo={viewInfo} />}
         </div>
         <div className={styles.right}>
-          <h1>Find where your favrouites coffee are!</h1>
+          <h1>Find where your favourite coffee is served!</h1>
           <Search />
           <div>
             {selectedResult == '' ? (
