@@ -29,7 +29,10 @@ describe('get roasters', () => {
     it('test for Null names in roasters', () => {
       return getRoasters(testDb).then((roasters) => {
         //console.log(cafes)
-        expect(roasters).not.toEqual(null)
+        expect(roasters).not.toBeNull()
+        roasters.map((roaster) => {
+          expect(roaster.url).not.toBeNull()
+        })
       })
     })
 })
