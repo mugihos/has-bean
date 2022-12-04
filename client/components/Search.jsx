@@ -21,21 +21,22 @@ export default function Search() {
   return (
     <>
       <div>
-        <div style={{ width: 200, margin: 10 }}>
+        <div style={{ width: 350, margin: 10 }}>
           <label>Search</label>
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{
               threshold: '0.4',
-              keys: ['roasterName', 'cafeName'],
-            }} // Search on both fields
+              keys: ['cafeName', 'roasterName'],
+            }}
             resultStringKeyName="cafeName" // String to display in the results
             onSearch={handleOnSearch}
             onSelect={handleOnSelect}
             showIcon={false}
+            placeholder="Search your favourite coffee"
             styling={{
               height: '34px',
-              border: '1px solid darkgreen',
+              // border: '1px solid darkgreen',
               borderRadius: '4px',
               backgroundColor: 'white',
               boxShadow: 'none',
@@ -45,7 +46,7 @@ export default function Search() {
               fontFamily: 'Courier',
               iconColor: 'green',
               lineColor: 'lightgreen',
-              placeholderColor: 'darkgreen',
+              placeholderColor: '#e8ebce',
               clearIconMargin: '3px 8px 0 0',
               zIndex: 2,
             }}
