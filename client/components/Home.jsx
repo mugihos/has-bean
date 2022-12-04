@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
 import MapShow from './MapShow'
 import Search from './Search'
-// import Result from './Result'
 
 export default function Home() {
   //useSelector to use the result redux
@@ -103,6 +103,9 @@ export default function Home() {
                 <p>Roaster: {selectedResult.roasterName}</p>
               </div>
             )}
+            <Link to={`/addNewCafe`}>
+              <button>ADD NEW CAFE</button>
+            </Link>
           </div>
         </div>
       </div>
