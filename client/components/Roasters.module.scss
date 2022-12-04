@@ -23,7 +23,37 @@ li {
 .roasterImg {
   width: 13rem;
   height: auto;
+  border-radius: 50%; 
+  position: relative; 
+  width: 200px; 
+  height: 200px; 
+  overflow: hidden;
+  border-radius: 50%; 
+  background-color: white;
+  
+} 
+  
+
+.roastersRow{
+  display: flexbox;
+  background-color: blue;
 }
+
+.flexcontainer {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
   // .container {
   //   max-width: 100vw;
   //   display: grid;
