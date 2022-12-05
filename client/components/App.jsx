@@ -17,6 +17,7 @@ import AddCafe from './AddCafe'
 import OurStory from './OurStory'
 import OurTeam from './OurTeam'
 import ContactUs from './ContactUs'
+import AddRoaster from './AddRoaster'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/addroaster" element={<AddRoaster />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

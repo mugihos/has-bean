@@ -6,10 +6,3 @@ export function setSearchResult(result) {
     payload: result,
   }
 }
-
-// not used on website, written to examine test
-export function updateSearchResult(result) {
-  return (dispatch) => {
-    return dispatch(setSearchResult(result))
-  }
-}

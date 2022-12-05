@@ -71,21 +71,21 @@ function AppProvider({ children }) {
 }
 
 describe('/Roaster', () => {
-  it.skip('renders without crashing and displays the roaster name', () => {
+  it('renders without crashing and displays the roaster name', () => {
     render(<Route path="/roasters/:id" element={<Roaster />} />, {
       wrapper: AppProvider,
     })
-    expect(screen.getByText(/Roastery location:/i)).toBeInTheDocument()
-    const roasterName = screen.getByRole('heading')
-    expect(roasterName.textContent).toBe('Supreme')
+    expect(screen.getByText(/location:/i)).toBeInTheDocument()
+    const roasterName = screen.getAllByRole('heading')
+    expect(roasterName[0].textContent).toBe('Roastery Supreme')
   })
 
-  it.skip('filters and displays cafes correctly', () => {
+  it('filters and displays cafes correctly', () => {
     render(<Route path="/roasters/:id" element={<Roaster />} />, {
       wrapper: AppProvider,
     })
-    const li = screen.getAllByRole('listitem')
-    expect(li[0].innerHTML).toContain('Thunderbird Cafe')
-    expect(li[3].innerHTML).toContain('Meshino')
+    const cafeName = screen.getAllByRole('heading')
+    expect(cafeName[1].textContent).toBe('Thunderbird Cafe')
+    expect(cafeName[2].textContent).toContain('Meshino')
   })
 })

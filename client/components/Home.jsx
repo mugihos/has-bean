@@ -133,6 +133,9 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <Link to="/addroaster">
+          <button>Add Roaster</button>
+        </Link>
       </div>
     </>
   )
