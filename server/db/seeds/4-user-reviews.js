@@ -12,5 +12,15 @@ exports.seed = async function (knex) {
       comment: 'I had a lovely coffee here',
       rating: 4,
     },
+    {
+      id: 2,
+      auth_user_id: 2,
+      roaster_id: 4,
+      cafe_id: 204,
+      bean_id: 1008,
+      date: new Date(Date.now()),
+      comment: 'Great coffee',
+      rating: 5,
+    },
   ])
 }
