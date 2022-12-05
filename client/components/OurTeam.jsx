@@ -10,7 +10,6 @@ export default function OurTeam() {
     <h2>Our Team</h2>
     <h3>Meet us! We are...</h3>
     <h1>Mugi, Gus, Ingrid, Clinton, Sarah and Eq</h1>
-    (maybe our github links and profile pics)
     </>
   )
 }
