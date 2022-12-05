@@ -31,7 +31,6 @@ export default function AddCafe() {
     event.preventDefault()
     const token = await getAccessTokenSilently()
     dispatch(addMoreCafe(newCafe, token))
-    dispatch(fetchCafes())
     setNewCafe('')
     navigate('/')
   }

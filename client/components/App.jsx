@@ -44,12 +44,12 @@ export default function App() {
             {/* <Route path="/map" element={<MapShow />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="/roasters" element={<Roasters />} />
+            <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/beans" element={<Beans />} />
             <Route path="/beans/:id" element={<Bean />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
             <Route path="/reviews" element={<UserPage />} />
             <Route path="/reviews/add" element={<SubmitReview />} />
-            <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />
             <Route path="/contact" element={<ContactUs />} />

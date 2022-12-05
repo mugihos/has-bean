@@ -1,6 +1,4 @@
-import { setSearchResult, updateSearchResult, SET_SEARCH_RESULT } from '../searchResult'
-
-const fakeDispatch = jest.fn()
+import { setSearchResult, SET_SEARCH_RESULT } from '../searchResult'
 
 beforeEach(() => {
   jest.clearAllMocks()
@@ -11,10 +9,9 @@ const mockData = {
 }
 
 describe('setSearchResult', () => {
-  // TODO: write a test where the action doesn't use a thunk
-  it.skip('dispatches the SET_SEARCH_RESULT action. v2', () => {
-    setSearchResult(mockData)
-    expect(mockData).toHaveBeenCalledWith({
+  it('dispatches the SET_SEARCH_RESULT action', () => {
+    const result = setSearchResult(mockData)
+    expect(result).toEqual({
         type: SET_SEARCH_RESULT,
         payload: mockData,
       })

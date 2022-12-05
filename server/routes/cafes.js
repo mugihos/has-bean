@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     })
     .catch((err) => {
       console.error(err.message)
-      res.sendStatus(500)
+      res.sendStatus(500).json({ message: 'Something went wrong' })
     })
 })
 
@@ -36,7 +36,7 @@ router.post('/', checkJwt, (req, res) => {
     })
     .catch((err) => {
       console.error(err.message)
-      res.sendStatus(500)
+      res.sendStatus(500).json({ message: 'Something went wrong' })
     })
 })
 module.exports = router
