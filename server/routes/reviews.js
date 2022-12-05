@@ -27,6 +27,19 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// Get api/v1/reviews/:bean_id/bean
+router.get('/:bean_id/bean', (req, res) => {
+  const bean_id = req.params.id
+  db.getReviewByBeanId(bean_id)
+    .then((result) => {
+      res.json(result)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
 // POST api/v1/reviews/add
 router.post('/add', (req, res) => {
   const newReview = req.body
