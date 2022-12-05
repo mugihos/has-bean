@@ -6,7 +6,7 @@ import { getNotFound } from '../../apis/notFound'
 
 jest.mock('../../apis/notFound')
 
-const notFoundMockData = ['/images/fake-coffee-mock-image.jpg']
+const notFoundMockData = ['https://coffee.alexflipnote.dev/fake-coffee-mock-image.jpg']
 
 jest.spyOn(console, 'error').mockImplementation(() => {})
 
@@ -18,9 +18,11 @@ describe('<NotFound />', () => {
   it('displays image from api.', async () => {
     getNotFound.mockReturnValue(Promise.resolve(notFoundMockData))
     expect.assertions(1)
-    render(<NotFound coffee={notFoundMockData} />)
+    render(<NotFound />)
     return waitFor(() => getNotFound.mock.calls.length > 0).then(() => {
+      console.log(notFoundMockData[0], 'notFoundMockData[0]')
       const image = screen.getByRole('img')
+      console.log(image.src, 'image')
       expect(image.src).toContain(notFoundMockData[0])
     })
   })
