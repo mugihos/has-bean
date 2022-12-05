@@ -36,3 +36,38 @@ describe('get reviews', () => {
     })
   })
 })
+
+describe('add reviews', () => {
+  it('add review and return new id', () => {
+    expect.assertions(1)
+    const fakeData = {
+      auth_user_id: 1,
+      roaster_id: 2,
+      cafe_id: 201,
+      bean_id: 1001,
+      date: 1670202135627,
+      comment: 'I had a lovely coffee here',
+      rating: 4,
+    }
+    return addReviews(fakeData, testDb).then((id) => {
+      expect(id[0]).toBe(3)
+    })
+  })
+})
+
+describe('delete review by id', () => {
+  it('delete review and return updated record', () => {
+    expect.assertions(1)
+    return getReviews(testDb)
+      .then(() => {
+        const id = 2
+        deleteReview(id)
+      })
+      .then(() => {
+        getReviews()
+      })
+      .then((reviews) => {
+        expect(reviews).toHaveLength(1)
+      })
+  })
+})

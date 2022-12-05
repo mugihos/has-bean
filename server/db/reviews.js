@@ -20,7 +20,7 @@ function addReviews(newReview, db = connection) {
 }
 
 function editReviews(id, newContent, db = connection) {
-  return db('reviews').where({ id }).insert(newContent)
+  return db('reviews').where({ id }).update(newContent)
 }
 
 function deleteReview(id, db = connection) {

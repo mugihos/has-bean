@@ -14,6 +14,19 @@ router.get('/', (req, res) => {
     })
 })
 
+// GET api/v1/reviews/:id
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getReviewById(id)
+    .then((result) => {
+      res.json(result)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.status(500).json({ message: 'Something went wrong' })
+    })
+})
+
 // POST api/v1/reviews/add
 router.post('/add', (req, res) => {
   const newReview = req.body
