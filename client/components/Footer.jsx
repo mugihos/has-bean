@@ -9,11 +9,13 @@ export default function Footer() {
   const { logout, loginWithRedirect, user } = useAuth0()
 
   const handleLogOff = (e) => {
+   // change links to buttons to remove prevent default
     e.preventDefault()
     logout()
   }
 
   const handleSignIn = (e) => {
+    // change links to buttons to remove prevent default
     e.preventDefault()
     loginWithRedirect()
   }
@@ -28,6 +30,7 @@ export default function Footer() {
           <p><Link to="/roasters">Roasters</Link></p>
           <p><Link to="/beans">Beans</Link></p>
           <p><Link to="/ivebeen">I&apos;ve Bean</Link></p>
+     {/* change to buttons! so we can remove prevent default  */}
           <IfAuthenticated>
             <Link to='/' onClick={handleLogOff}>
               Sign out
