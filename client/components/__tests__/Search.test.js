@@ -34,6 +34,36 @@ const roasterMockData = [
   },
 ]
 
+const cafeMockData = [
+  {
+    id: 201,
+    name: 'Thunderbird Cafe',
+    address: '154 Featherston Street, CBD, Wellington 6011',
+    city: 'Wellington',
+    roaster_id: 1,
+    lat: '-41.2835619',
+    lng: '174.7766539',
+  },
+  {
+    id: 202,
+    name: 'Meshino',
+    address: '75 Rutland Street, St Albans, Chirstchurch, 8014',
+    city: 'Christchurch',
+    roaster_id: 2,
+    lat: '-43.50606418686944',
+    lng: '172.62842349325345',
+  },
+  {
+    id: 203,
+    name: 'Shore Road Cafe',
+    address: '13 Shore Road, Remuera, Auckland, 1050',
+    city: 'Auckland',
+    roaster_id: 2,
+    lat: '-36.86518025285166',
+    lng: '174.78895079325343',
+  },
+]
+
 jest.mock('../../actions/searchResult')
 
 beforeEach(() => {
@@ -44,7 +74,7 @@ const fakeStore = {
   subscribe: jest.fn(),
   dispatch: jest.fn(),
   getState: jest.fn(() => {
-    return { roasters: roasterMockData }
+    return { roasters: roasterMockData, cafes: cafeMockData }
   }),
 }
 
