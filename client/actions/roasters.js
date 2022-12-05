@@ -1,6 +1,9 @@
-import { getRoasters } from '../apis/roasters'
+import { getRoasters, postRoaster, editRoaster } from '../apis/roasters'
 
 export const SET_ROASTERS = 'SET_ROASTERS'
+export const ADD_ROASTER = 'ADD_ROASTER'
+export const UPDATE_ROASTER = 'UPDATE_ROASTER'
+export const DELETE_ROASTER = 'DELETE_ROASTER'
 
 export function setRoasters(roasters) {
   return {
@@ -9,10 +12,44 @@ export function setRoasters(roasters) {
   }
 }
 
+// -- add new roaster --
+export function addRoaster(newRoaster) {
+  return {
+    type: ADD_ROASTER,
+    payload: newRoaster,
+  }
+}
+
+// -- update roaster --
+export function updateRoaster(newInfo) {
+  return {
+    type: UPDATE_ROASTER,
+    payload: newInfo,
+  }
+}
+
+// GET all roasters data
 export function fetchRoasters() {
   return (dispatch) => {
-    return getRoasters().then((roasters) => {
-      dispatch(setRoasters(roasters))
-    })
+    return getRoasters()
+      .then((roasters) => {
+        dispatch(setRoasters(roasters))
+      })
+      .catch((error) => {
+        console.error(error.message)
+      })
+  }
+}
+
+// POST new roasters
+export function submitRoaster(newRoaster) {
+  return (dispatch) => {
+    return postRoaster(newRoaster)
+      .then((newId) => {
+        dispatch(addRoaster({ ...newRoaster, id: newId }))
+      })
+      .catch((error) => {
+        console.error(error.message)
+      })
   }
 }
