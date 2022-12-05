@@ -5,6 +5,7 @@ export const ADD_ROASTER = 'ADD_ROASTER'
 export const UPDATE_ROASTER = 'UPDATE_ROASTER'
 export const DELETE_ROASTER = 'DELETE_ROASTER'
 
+// -- get roaster data --
 export function setRoasters(roasters) {
   return {
     type: SET_ROASTERS,

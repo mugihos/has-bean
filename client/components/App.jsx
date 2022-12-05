@@ -17,7 +17,7 @@ import AddCafe from './AddCafe'
 import OurStory from './OurStory'
 import OurTeam from './OurTeam'
 import ContactUs from './ContactUs'
-import IveBean from './IveBean'
+import UserPage from './UserPage'
 import AddRoaster from './AddRoaster'
 
 export default function App() {
@@ -41,7 +41,7 @@ export default function App() {
             <Route path="/roasters" element={<Roasters />} />
             <Route path="/beans" element={<Beans />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
-            <Route path="/ivebeen" element={<IveBean />} />
+            <Route path="/userpage" element={<UserPage />} />
             <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />
