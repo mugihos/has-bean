@@ -7,8 +7,12 @@ import { setSearchResult } from '../actions/searchResult'
 export default function Search() {
   const dispatch = useDispatch()
   const searchRoasters = useSelector((state) => state.searchRoasters)
-  let roasters = useSelector((state) => state.roasters)
-  let cafes = useSelector((state) => state.cafes)
+  const roasters = useSelector((state) => state.roasters)
+  const cafes = useSelector((state) => state.cafes)
+
+  const cities = new Set()
+  cafes.map((cafe) => cities.add(cafe.city))
+  const citiesArr = Array.from(cities)
 
   const handleOnSelect = (item) => {
     dispatch(setSearchResult(item))
@@ -23,9 +27,10 @@ export default function Search() {
   }
 
   const onSelectCity = (e) => {
-    const id = e.target.value
+    const city = e.target.value
+    console.log('target', city)
     const cafes = searchRoasters.filter(
-      (searchRoaster) => id == searchRoaster.roasterId
+      (searchRoaster) => city == searchRoaster.city
     )
     dispatch(setSearchResult(cafes))
   }
@@ -79,9 +84,9 @@ export default function Search() {
           <label htmlFor="city">City:</label>
           <select id="city" onChange={onSelectCity} name="city">
             <option value="0">--Select the city--</option>
-            {cafes.map(({ id, city }) => {
+            {citiesArr.map((city) => {
               return (
-                <option key={id} value={id}>
+                <option key={city.id} value={city}>
                   {city}
                 </option>
               )

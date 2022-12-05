@@ -16,7 +16,6 @@ export default function Home() {
   //useSelector to use the result redux
   //will use hardcoded info for now to make this state work
   const selectedResult = useSelector((state) => state.searchResult)
-
   const [coOrds, setCoOrds] = useState({
     lng: '45.827483279857349',
     lat: '-45.827483279857349',
@@ -112,7 +111,7 @@ export default function Home() {
           <div>
             {selectedResult == '' ? (
               <div></div>
-            ) : selectedResult.length > 1 ? (
+            ) : selectedResult.length >= 1 ? (
               <div className={styles.detail}>
                 {selectedResult?.map(
                   ({ id, cafeName, address, roasterName }) => {
@@ -127,11 +126,7 @@ export default function Home() {
                 )}
               </div>
             ) : (
-              <>
-                <h2>{selectedResult.cafeName}</h2>
-                <p>{selectedResult.address}</p>
-                <p>Roaster: {selectedResult.roasterName}</p>
-              </>
+              <div></div>
             )}
             <Link to={`/addNewCafe`}>
               <button>ADD NEW CAFE</button>
