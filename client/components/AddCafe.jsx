@@ -28,7 +28,6 @@ export default function AddCafe() {
   function handleSubmit(event) {
     event.preventDefault()
     dispatch(addMoreCafe(newCafe))
-    dispatch(fetchCafes())
     setNewCafe('')
     navigate('/')
   }
