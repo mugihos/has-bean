@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { Provider } from 'react-redux'
 import { screen, render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import Beans from '../Roasters'
+import Beans from '../Beans'
 
 const resultContentMockData = [
   {
@@ -13,7 +13,7 @@ const resultContentMockData = [
     process: 'Washed',
     roast_degree: 'value',
     flavour_profile: 'Forest fruit | Cacao',
-    name: 'Aotea blend',
+    beanName: 'Aotea blend',
   },
 ]
 
@@ -32,7 +32,7 @@ const fakeStore = {
 }
 
 describe('<Beans />', () => {
-  it.skip('Displays list of Beans from Redux State', () => {
+  it('Displays list of Beans from Redux State', () => {
     expect.assertions(1)
     render(
       <Provider store={fakeStore}>
@@ -42,7 +42,7 @@ describe('<Beans />', () => {
       </Provider>
     )
 
-    const roasterName = screen.getAllByText(resultContentMockData[0].name) // uses actual value
+    const roasterName = screen.getAllByText(resultContentMockData[0].beanName) // uses actual value
     expect(roasterName[0]).toBeInTheDocument()
   })
 })
