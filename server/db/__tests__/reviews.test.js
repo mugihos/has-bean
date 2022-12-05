@@ -61,7 +61,7 @@ describe('add reviews', () => {
       rating: 4,
     }
     return addReviews(fakeData, testDb).then((id) => {
-      expect(id[0]).toBe(3)
+      expect(id[0]).toBe(4)
     })
   })
 })

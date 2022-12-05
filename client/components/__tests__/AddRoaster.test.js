@@ -49,7 +49,7 @@ const fakeStore = {
   }),
 }
 
-describe('<AddBoard />', () => {
+describe('<AddRoaster />', () => {
   it('dispatch the submitRoaster thunk', () => {
     expect.assertions(1)
     const addRoasterThunkResult = () => 'mockReturnFunctionsReturnValue'

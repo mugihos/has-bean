@@ -5,6 +5,7 @@ module.exports = {
   addReviews,
   editReviews,
   deleteReview,
+  getReviewByBeanId,
 }
 
 function getReviews(db = connection) {
@@ -13,6 +14,9 @@ function getReviews(db = connection) {
 
 function getReviewById(id, db = connection) {
   return db('reviews').where({ id }).select()
+}
+function getReviewByBeanId(bean_id, db = connection) {
+  return db('reviews').where({ bean_id }).select()
 }
 
 function addReviews(newReview, db = connection) {
