@@ -3,6 +3,7 @@ import request from 'superagent'
 const rootUrl = '/api/v1/ivebean'
 
 export function getReviews() {
+  console.log('sup API')
   return request.get(rootUrl).then((res) => {
     return res.body
   })

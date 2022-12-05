@@ -22,7 +22,6 @@ import IveBean from './IveBean'
 import AddRoaster from './AddRoaster'
 import Drinks from './Drinks'
 import SubmitReview from './SubmitReview'
-import { fetchReviews } from '../actions/iveBean'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -32,7 +31,6 @@ export default function App() {
     dispatch(fetchCafes())
     dispatch(fetchSearchRoasters())
     dispatch(fetchBeans())
-    dispatch(fetchReviews())
   }, [])
 
   return (

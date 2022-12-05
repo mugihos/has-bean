@@ -5,6 +5,7 @@ import cafes from './cafes'
 import searchRoasters from './searchRoasters'
 import searchResult from './searchResult'
 import beans from './beans'
+import reviews from './iveBean'
 
 export default combineReducers({
   roasters: roasters,
@@ -12,4 +13,5 @@ export default combineReducers({
   searchRoasters: searchRoasters,
   searchResult: searchResult,
   beans: beans,
+  reviews: reviews,
 })

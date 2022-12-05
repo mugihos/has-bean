@@ -7,6 +7,7 @@ export const DEL_REVIEW = 'DEL_REVIEW'
 export const UPDATE_REVIEW = 'UPDATE_REVIEW'
 
 export function setReviews(reviews) {
+  console.log('actions')
   return {
     type: SET_REVIEWS,
     payload: reviews,
