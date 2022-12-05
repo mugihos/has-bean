@@ -8,5 +8,5 @@ server/public/styles.css.map
 .env
 coverage
 tags
-*.bundle.js
-*.bundle.js.map
+server/public/*.bundle.js
+server/public/*.bundle.js.map
