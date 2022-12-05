@@ -15,12 +15,10 @@ export default function NotFound() {
       })
   }, [])
 
-  console.log('funImage', funImage);
-
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.heading} {...styles.text}>
+        <h1 className={styles.heading}>
           404 NOT FOUND
         </h1>
         {funImage && (
