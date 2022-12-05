@@ -3,7 +3,6 @@ const testConfig = require('../knexfile').test
 const testDb = knex(testConfig)
 const {
   getReviews,
-  getReviewById,
   addReviews,
   editReviews,
   deleteReview,
@@ -26,13 +25,25 @@ describe('get reviews', () => {
     expect.assertions(2)
     return getReviews(testDb).then((reviews) => {
       expect(reviews).toHaveLength(reviews.length)
-      expect(reviews[0].comment).toBe('I had a lovely coffee here')
+      expect(reviews[0].comment).toContain('I had a lovely coffee here')
     })
   })
   it('tests for Null names in reviews', () => {
     expect.assertions(1)
     return getReviews(testDb).then((reviews) => {
       expect(reviews).not.toBeNull()
+    })
+  })
+})
+
+describe('edit reviews', () => {
+  it('edit review selected by id', () => {
+    expect.assertions(1)
+    const newData = {
+      comment: 'great coffee',
+    }
+    return editReviews(2, newData, testDb).then((newReview) => {
+      expect(newReview).toBe(1)
     })
   })
 })
@@ -58,16 +69,11 @@ describe('add reviews', () => {
 describe('delete review by id', () => {
   it('delete review and return updated record', () => {
     expect.assertions(1)
-    return getReviews(testDb)
-      .then(() => {
-        const id = 2
-        deleteReview(id)
-      })
-      .then(() => {
-        getReviews()
-      })
-      .then((reviews) => {
-        expect(reviews).toHaveLength(1)
-      })
+
+    return deleteReview(2, testDb).then((reviews) => {
+      console.log(reviews)
+      expect(reviews).toBe(1)
+      return null
+    })
   })
 })

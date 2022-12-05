@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for client/actions/cafes.js</title>
+    <title>Code coverage report for server/db/reviews.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">client/actions</a> cafes.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">server/db</a> reviews.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">71.42% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>5/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/7</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">71.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>5/7</span>
             </div>
         
             
@@ -89,57 +89,63 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { addCafe, getCafes } from '../apis/cafes'
-&nbsp;
-export const SET_CAFES = 'SET_CAFES'
-&nbsp;
-export function setCafes(cafes) {
-  return {
-    type: SET_CAFES,
-    payload: cafes,
-  }
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const connection = require('./connection')
+module.exports = {
+  getReviews,
+  getReviewById,
+  addReviews,
+  editReviews,
+  deleteReview,
 }
 &nbsp;
-export function fetchCafes() {
-  return (dispatch) =&gt; {
-    return getCafes().then((cafes) =&gt; {
-      dispatch(setCafes(cafes))
-    })
-  }
+function getReviews(db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  return db('reviews').select()
 }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >addMoreCafe(</span>newCafe) {
-<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return addCafe(newCafe).then(<span class="fstat-no" title="function not covered" >(c</span>afes) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      dispatch(setCafes(cafes))</span>
-    })
-  }
+function <span class="fstat-no" title="function not covered" >getReviewById(</span>id, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+<span class="cstat-no" title="statement not covered" >  return db('reviews').where({ id }).select()</span>
+}
+&nbsp;
+function addReviews(newReview, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  return db('reviews').insert(newReview)
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >editReviews(</span>id, newContent, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+<span class="cstat-no" title="statement not covered" >  return db('reviews').where({ id }).update(newContent)</span>
+}
+&nbsp;
+function deleteReview(id, db = <span class="branch-0 cbranch-no" title="branch not covered" >connection)</span> {
+  return db('reviews').where({ id }).del()
 }
 &nbsp;</pre></td></tr></table></pre>
 
