@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -120,30 +120,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,31 +169,31 @@ import { Link } from 'react-router-dom'
 import styles from './Roasters.module.scss'
 import { useSelector } from 'react-redux'
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Roasters(</span>) {
-  let roasters = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.roasters)</span></span>
+export default function Roasters() {
+  let roasters = useSelector((state) =&gt; state.roasters)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!roasters) {</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!roasters) {
 <span class="cstat-no" title="statement not covered" >    return &lt;div&gt;Loading Roasters... ps. David is best&lt;/div&gt;</span>
   }
 &nbsp;
-  const cities = <span class="cstat-no" title="statement not covered" >new Set()</span>
-<span class="cstat-no" title="statement not covered" >  roasters.map(<span class="fstat-no" title="function not covered" >(r</span>oaster) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >    roaster.location.split(',').map(<span class="fstat-no" title="function not covered" >(l</span>ocation) =&gt; <span class="cstat-no" title="statement not covered" >cities.add(location.trim()))</span></span>
+  const cities = new Set()
+  roasters.map((roaster) =&gt;
+    roaster.location.split(',').map((location) =&gt; cities.add(location.trim()))
   )
-  const locations = <span class="cstat-no" title="statement not covered" >Array.from(cities)</span>
+  const locations = Array.from(cities)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div&gt;
       &lt;h2&gt;Welcome to Roasters&lt;/h2&gt;
-      {locations.map(<span class="fstat-no" title="function not covered" >(l</span>ocation) =&gt; {
-<span class="cstat-no" title="statement not covered" >        return (</span>
+      {locations.map((location) =&gt; {
+        return (
           &lt;&gt;
             &lt;h3 key={location.id}&gt;{location}&lt;/h3&gt;
             &lt;ul className={styles.flexcontainer}&gt;
               {roasters
-                ?.filter(<span class="fstat-no" title="function not covered" >(r</span>oaster) =&gt; <span class="cstat-no" title="statement not covered" >roaster.location.includes(location))</span>
-                .map(<span class="fstat-no" title="function not covered" >(r</span>oaster) =&gt; {
-<span class="cstat-no" title="statement not covered" >                  return (</span>
+                ?.filter((roaster) =&gt; roaster.location.includes(location))
+                .map((roaster) =&gt; {
+                  return (
                     &lt;div key={roaster.id} className={styles.beanItem}&gt;
                       &lt;Link to={`/roasters/${roaster.id}`}&gt;
                         {roaster.name}
@@ -220,7 +220,7 @@ export default function <span class="fstat-no" title="function not covered" >Roa
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-12-05T00:08:55.817Z
+                at 2022-12-05T01:59:59.463Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
