@@ -1,5 +1,5 @@
-import { fetchReviews } from '../../actions/iveBean'
-import reviews from '../iveBean'
+import { fetchReviews } from '../../actions/userpage'
+import reviews from '../userpage'
 
 const mockData = [
   {

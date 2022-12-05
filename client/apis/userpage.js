@@ -18,6 +18,7 @@ export function addReview(newReview) {
     .post(`${rootUrl}/reviews/add`)
     .send(newReview)
     .then((res) => {
+      console.log(res)
       return res.body
     })
     .catch(console.error)

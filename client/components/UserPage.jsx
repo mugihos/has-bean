@@ -13,6 +13,10 @@ export default function UserPage() {
     dispatch(fetchReviews())
   }, [])
 
+  if (!allReviews) {
+    return <div></div>
+  }
+
   return (
     <>
       <div>

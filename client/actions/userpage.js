@@ -1,5 +1,5 @@
-import { getReviews } from '../apis/userpage'
-import * as api from '../apis/userpage'
+import { getReviews, addReview } from '../apis/userpage'
+// import * as api from '../apis/userpage'
 
 export const SET_REVIEWS = 'SET_REVIEWS'
 export const ADD_REVIEW = 'ADD_REVIEW'
@@ -28,7 +28,7 @@ export function fetchReviews() {
 }
 
 // -- simple action add new review --
-export function addReview(newReview) {
+export function submitReview(newReview) {
   return {
     type: ADD_REVIEW,
     payload: newReview,
@@ -38,11 +38,10 @@ export function addReview(newReview) {
 // -- add new review and get new id returned thunk --
 export function sendReview(newReview) {
   return (dispatch) => {
-    return api
-      .addReview(newReview)
+    return addReview(newReview)
       .then((newId) => {
-        dispatch(addReview({ ...newReview, id: newId }))
-        return newReview
+        console.log(newId)
+        dispatch(submitReview({ ...newReview, id: newId }))
       })
       .catch((error) => {
         console.error(error.message)

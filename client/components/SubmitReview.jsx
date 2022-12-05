@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { addReview } from '../actions/userpage'
+import { sendReview } from '../actions/userpage'
 
 export default function SubmitReview() {
   const dispatch = useDispatch()
@@ -29,7 +29,7 @@ export default function SubmitReview() {
   function handleSubmit(event) {
     event.preventDefault()
     console.log(input)
-    dispatch(addReview(input))
+    dispatch(sendReview(input))
     setInput('')
     navigate('/reviews')
   }

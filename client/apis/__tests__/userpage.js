@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getReviews } from '../iveBean'
+import { getReviews } from '../userpage'
 
 const mockData = [
   {

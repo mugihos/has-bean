@@ -10,10 +10,10 @@ const reviews = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case SET_REVIEWS:
-      console.log(payload)
       return payload
 
     case ADD_REVIEW:
+      console.log(payload)
       return payload
 
     case UPDATE_REVIEW:
