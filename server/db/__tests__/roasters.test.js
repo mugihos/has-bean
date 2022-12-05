@@ -25,12 +25,15 @@ describe('get roasters', () => {
       expect(roasters[0].location).toBe('Wellington, Auckland, Christchurch')
       expect(roasters[2].name).toBe('Kōkako Organic Coffee')
     })
-  })
-  it('test for Null names in roasters', () => {
-    expect.assertions(1)
-    return getRoasters(testDb).then((roasters) => {
-      expect(roasters).not.toBeNull()
-    })
+  }),
+    it('test for Null names in roasters', () => {
+      return getRoasters(testDb).then((roasters) => {
+        //console.log(cafes)
+        expect(roasters).not.toBeNull()
+        roasters.map((roaster) => {
+          expect(roaster.url).not.toBeNull()
+        })
+      })
   })
   it('add a new roaster to the roatser table in db', () => {
     expect.assertions(1)
