@@ -15,8 +15,6 @@ export default function NotFound() {
       })
   }, [])
 
-  console.log('funImage', funImage);
-
   return (
     <>
       <div className={styles.container}>
