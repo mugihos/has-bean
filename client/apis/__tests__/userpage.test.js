@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getReviews } from '../iveBean'
+import { getReviews } from '../userpage'
 
 const mockData = [
   {
@@ -22,10 +22,10 @@ const mockData = [
   },
 ]
 
-describe('GET /api/v1/ivebean', () => {
+describe('GET /api/v1/reviews', () => {
   it('gets reviews from api', async () => {
     const scope1 = nock('http://localhost')
-      .get('/api/v1/ivebean')
+      .get('/api/v1/reviews')
       .reply(200, mockData)
 
     return getReviews().then((reviews) => {

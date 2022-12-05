@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchReviews } from '../actions/iveBean'
+import { fetchReviews } from '../actions/userpage'
 import { Radar } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -83,7 +84,9 @@ export default function IveBean() {
             </div>
           )
         })}
-        <button>Add a review</button>
+        <Link to="/reviews/add">
+          <button>Add a review</button>
+        </Link>
       </div>
     </>
   )

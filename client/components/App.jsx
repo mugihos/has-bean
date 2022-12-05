@@ -6,6 +6,7 @@ import { fetchRoasters } from '../actions/roasters'
 import { fetchCafes } from '../actions/cafes'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
 import { fetchBeans } from '../actions/beans'
+import { fetchReviews } from '../actions/userpage'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
@@ -18,7 +19,7 @@ import AddCafe from './AddCafe'
 import OurStory from './OurStory'
 import OurTeam from './OurTeam'
 import ContactUs from './ContactUs'
-import IveBean from './IveBean'
+import UserPage from './UserPage'
 import AddRoaster from './AddRoaster'
 import Drinks from './Drinks'
 import SubmitReview from './SubmitReview'
@@ -31,6 +32,7 @@ export default function App() {
     dispatch(fetchCafes())
     dispatch(fetchSearchRoasters())
     dispatch(fetchBeans())
+    dispatch(fetchReviews())
   }, [])
 
   return (
@@ -42,12 +44,12 @@ export default function App() {
             {/* <Route path="/map" element={<MapShow />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="/roasters" element={<Roasters />} />
+            <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/beans" element={<Beans />} />
             <Route path="/beans/:id" element={<Bean />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
-            <Route path="/ivebeen" element={<IveBean />} />
-            <Route path="/whereivebeen" element={<SubmitReview />} />
-            <Route path="/roasters/:id" element={<Roaster />} />
+            <Route path="/reviews" element={<UserPage />} />
+            <Route path="/reviews/add" element={<SubmitReview />} />
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />
             <Route path="/contact" element={<ContactUs />} />
