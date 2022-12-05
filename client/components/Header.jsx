@@ -30,6 +30,7 @@ export default function Header() {
           <Link to="/roasters">Roasters</Link>
           <Link to="/beans">Beans</Link>
           <Link to="/reviews">Ive Bean</Link>
+          <Link to="/drinks">Drinks</Link>
         </div>
 
         <div className={styles.auth}>

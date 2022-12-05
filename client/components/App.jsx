@@ -14,12 +14,14 @@ import Roasters from './Roasters'
 import Roaster from './Roaster'
 import NotFound from './NotFound'
 import Beans from './Beans'
+import Bean from './Bean'
 import AddCafe from './AddCafe'
 import OurStory from './OurStory'
 import OurTeam from './OurTeam'
 import ContactUs from './ContactUs'
 import UserPage from './UserPage'
 import AddRoaster from './AddRoaster'
+import Drinks from './Drinks'
 import SubmitReview from './SubmitReview'
 
 export default function App() {
@@ -43,6 +45,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/roasters" element={<Roasters />} />
             <Route path="/beans" element={<Beans />} />
+            <Route path="/beans/:id" element={<Bean />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
             <Route path="/reviews" element={<UserPage />} />
             <Route path="/reviews/add" element={<SubmitReview />} />
@@ -51,6 +54,7 @@ export default function App() {
             <Route path="/team" element={<OurTeam />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/addroaster" element={<AddRoaster />} />
+            <Route path="/drinks" element={<Drinks />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
