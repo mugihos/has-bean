@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-
+import { useNavigate } from 'react-router-dom'
 import { setSearchResult } from '../actions/searchResult'
 
 export default function Search() {
@@ -15,7 +15,7 @@ export default function Search() {
   const citiesArr = Array.from(cities)
 
   const handleOnSelect = (item) => {
-    dispatch(setSearchResult(item))
+    dispatch(setSearchResult([item]))
   }
 
   const onSelectRoaster = (e) => {
