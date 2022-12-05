@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-
+import { useNavigate } from 'react-router-dom'
 import { setSearchResult } from '../actions/searchResult'
 
 export default function Search() {
@@ -11,7 +11,7 @@ export default function Search() {
 
   //this is the dispatch for redux setting the selected result to state
   const handleOnSelect = (item) => {
-    dispatch(setSearchResult(item))
+    dispatch(setSearchResult([item]))
   }
   const onSelectRoaster = (e) => {
     const id = e.target.value
