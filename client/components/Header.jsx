@@ -32,7 +32,7 @@ export default function Header() {
           {/* change to buttons! so we can remove prevent default  */}
           <Link to="/roasters">Roasters</Link>
           <Link to="/beans">Beans</Link>
-          <Link to="/reviews">Ive Bean</Link>
+          <Link to="/reviews">I&apos;ve Bean</Link>
           <Link to="/drinks">Drinks</Link>
         </div>
 
