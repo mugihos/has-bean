@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { fetchBeans } from '../actions/beans'
 import styles from './Beans.module.scss'
 
@@ -21,7 +22,8 @@ export default function Beans() {
         <ul className={styles.ul}>
           {beans?.map((bean) => {
             return (
-              <div key={bean.id} className={styles.beanItem}>
+              <Link to={`/beans/${bean.id}`} key={bean.id} >
+              <div className={styles.beanItem}>
                 <h2 className={styles.h2}>{bean.beanName}</h2>
                 <li>REGION: {bean.region}</li>
                 <li>PROCESS: {bean.process}</li>
@@ -29,6 +31,7 @@ export default function Beans() {
                 <li>FLAVOR: {bean.flavour_profile}</li>
                 <li>THE ROASTER: {bean.roasterName}</li>
               </div>
+              </Link>
             )
           })}
         </ul>
