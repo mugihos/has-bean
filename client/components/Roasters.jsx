@@ -22,14 +22,17 @@ export default function Roasters() {
       <h2>Welcome to Roasters</h2>
       {locations.map((location) => {
         return (
-          <>
-            <h3 key={location.id}>{location}</h3>
+          <div key={location}>
+            <h3>{location}</h3>
             <ul className={styles.flexcontainer}>
               {roasters
                 ?.filter((roaster) => roaster.location.includes(location))
                 .map((roaster) => {
                   return (
-                    <div key={roaster.id} className={styles.beanItem}>
+                    <div
+                      key={location + roaster.id}
+                      className={styles.beanItem}
+                    >
                       <Link to={`/roasters/${roaster.id}`}>
                         {roaster.name}
                         <img
@@ -42,7 +45,7 @@ export default function Roasters() {
                   )
                 })}
             </ul>
-          </>
+          </div>
         )
       })}
     </div>
