@@ -55,11 +55,11 @@ export default function Home() {
             <Link to={`/addNewCafe`}>
               <button>ADD NEW CAFE</button>
             </Link>
+            <Link to="/addroaster">
+              <button>Add Roaster</button>
+            </Link>
           </div>
         </div>
-        <Link to="/addroaster">
-          <button>Add Roaster</button>
-        </Link>
       </div>
     </>
   )
