@@ -21,7 +21,8 @@ import ContactUs from './ContactUs'
 import IveBean from './IveBean'
 import AddRoaster from './AddRoaster'
 import Drinks from './Drinks'
-import WhereIveBean from './WhereIveBean'
+import SubmitReview from './SubmitReview'
+import { fetchReviews } from '../actions/iveBean'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -31,6 +32,7 @@ export default function App() {
     dispatch(fetchCafes())
     dispatch(fetchSearchRoasters())
     dispatch(fetchBeans())
+    dispatch(fetchReviews())
   }, [])
 
   return (
@@ -46,7 +48,7 @@ export default function App() {
             <Route path="/beans/:id" element={<Bean />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
             <Route path="/ivebeen" element={<IveBean />} />
-            <Route path="/whereivebeen" element={<WhereIveBean />} />
+            <Route path="/whereivebeen" element={<SubmitReview />} />
             <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />

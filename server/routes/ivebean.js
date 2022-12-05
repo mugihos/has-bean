@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('../db/reviews.js')
 const router = express.Router()
 
-// GET api/v1/reviews
+// GET api/v1/ivebean
 router.get('/', (req, res) => {
   db.getReviews()
     .then((result) => {
@@ -14,10 +14,10 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET api/v1/reviews/:id
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  db.getReviewById(id)
+// GET api/v1/ivebean/:user_id
+router.get('/:user_id', (req, res) => {
+  const user_id = req.params.user_id
+  db.getReviewById(user_id)
     .then((result) => {
       res.json(result)
     })
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// Get api/v1/reviews/:bean_id/bean
+// Get api/v1/ivebean/:bean_id/bean
 router.get('/:bean_id/bean', (req, res) => {
   const bean_id = req.params.id
   db.getReviewByBeanId(bean_id)
@@ -40,7 +40,7 @@ router.get('/:bean_id/bean', (req, res) => {
     })
 })
 
-// POST api/v1/reviews/add
+// POST api/v1/ivebean/add
 router.post('/add', (req, res) => {
   const newReview = req.body
   db.addReviews(newReview)
@@ -53,7 +53,7 @@ router.post('/add', (req, res) => {
     })
 })
 
-//UPDATE api/v1/reviews/:id/edit
+//UPDATE api/v1/ivebean/:id/edit
 router.patch('/:id/edit', (req, res) => {
   const id = req.params.id
   const newInfo = req.body
@@ -70,7 +70,7 @@ router.patch('/:id/edit', (req, res) => {
     })
 })
 
-//DELETE api/v1/reviews/:id
+//DELETE api/v1/ivebean/:id
 router.delete('/:id', (req, res) => {
   const id = req.params.id
   db.deleteReview(id)

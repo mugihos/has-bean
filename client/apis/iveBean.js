@@ -1,9 +1,9 @@
 import request from 'superagent'
 
-const rootUrl = '/api/v1'
+const rootUrl = '/api/v1/ivebean'
 
 export function getReviews() {
-  return request.get(rootUrl + '/ivebean').then((res) => {
+  return request.get(rootUrl).then((res) => {
     return res.body
   })
 }
