@@ -6,7 +6,6 @@ import Map, { Marker } from 'react-map-gl'
 import styles from './MapShow.module.scss'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-
 export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
   const searchResult = useSelector((state) => state.searchResult)
   return (
@@ -27,7 +26,7 @@ export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
         }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
-        {searchResult.length > 1 ? (
+        {searchResult.length >= 1 ? (
           <div>
             {searchResult?.map(({ id, lat, lng }) => {
               return (
@@ -37,8 +36,8 @@ export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
                   latitude={lat || ''}
                   onClick={() => moreInfo(id)}
                 >
-                 <img src={imageIcon} alt="img_lost" className={styles.icon} />
-                 </Marker>
+                  <img src={imageIcon} alt="img_lost" className={styles.icon} />
+                </Marker>
               )
             })}
           </div>
@@ -48,9 +47,9 @@ export default function MapShow({ coOrds, moreInfo, viewInfo, imageIcon }) {
             longitude={searchResult?.lng || ''}
             latitude={searchResult?.lat || ''}
             onClick={() => moreInfo(searchResult.id)}
-            >
+          >
             <img src={imageIcon} alt="img_lost" className={styles.icon} />
-            </Marker>
+          </Marker>
         )}
       </Map>
     </div>
