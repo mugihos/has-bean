@@ -9,7 +9,7 @@ export function setReviews(reviews) {
   }
 }
 
-export function fetchReviewss() {
+export function fetchReviews() {
   return (dispatch) => {
     return getReviews().then((reviews) => {
       dispatch(setReviews(reviews))
