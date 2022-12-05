@@ -42,6 +42,7 @@ exports.seed = async function (knex) {
       location: 'Wellington',
       details:
         'Flight Coffee is a family of driven people that work together to produce amazing coffee, while always aiming to have the best impact we can on the industry and the lives it connects',
+      url: 'https://flightcoffee.co.nz/collections/coffee',
       image_url:
         'https://cdn.shopify.com/s/files/1/0104/2682/files/logo_gold-06_395x.png?v=1638386421',
     },

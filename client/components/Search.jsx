@@ -7,12 +7,17 @@ import { setSearchResult } from '../actions/searchResult'
 export default function Search() {
   const dispatch = useDispatch()
   const searchRoasters = useSelector((state) => state.searchRoasters)
-  let roasters = useSelector((state) => state.roasters)
+  const roasters = useSelector((state) => state.roasters)
+  const cafes = useSelector((state) => state.cafes)
 
-  //this is the dispatch for redux setting the selected result to state
+  const cities = new Set()
+  cafes.map((cafe) => cities.add(cafe.city))
+  const citiesArr = Array.from(cities)
+
   const handleOnSelect = (item) => {
     dispatch(setSearchResult([item]))
   }
+
   const onSelectRoaster = (e) => {
     const id = e.target.value
     const cafes = searchRoasters.filter(
@@ -20,6 +25,16 @@ export default function Search() {
     )
     dispatch(setSearchResult(cafes))
   }
+
+  const onSelectCity = (e) => {
+    const city = e.target.value
+    console.log('target', city)
+    const cafes = searchRoasters.filter(
+      (searchRoaster) => city == searchRoaster.city
+    )
+    dispatch(setSearchResult(cafes))
+  }
+
   return (
     <>
       <div>
@@ -55,11 +70,24 @@ export default function Search() {
         <div>
           <label htmlFor="id">Roaster:</label>
           <select id="id" onChange={onSelectRoaster} name="id">
-            <option value="0">--Please select--</option>
+            <option value="0">--Select the roaster--</option>
             {roasters.map(({ id, name }) => {
               return (
                 <option key={id} value={id}>
                   {name}
+                </option>
+              )
+            })}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="city">City:</label>
+          <select id="city" onChange={onSelectCity} name="city">
+            <option value="0">--Select the city--</option>
+            {citiesArr.map((city) => {
+              return (
+                <option key={city.id} value={city}>
+                  {city}
                 </option>
               )
             })}

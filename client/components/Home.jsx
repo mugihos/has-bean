@@ -34,18 +34,31 @@ export default function Home() {
           <div>
             {selectedResult == '' ? (
               <div></div>
-            ) : (
+            ) : selectedResult.length >= 1 ? (
               <div className={styles.detail}>
-                <h2>{selectedResult.cafeName}</h2>
-                <p>{selectedResult.address}</p>
-                <p>Roaster: {selectedResult.roasterName}</p>
+                {selectedResult?.map(
+                  ({ id, cafeName, address, roasterName }) => {
+                    return (
+                      <div key={id}>
+                        <h2>{cafeName}</h2>
+                        <p>{address}</p>
+                        <p>Roaster: {roasterName}</p>
+                      </div>
+                    )
+                  }
+                )}
               </div>
+            ) : (
+              <div></div>
             )}
             <Link to={`/addNewCafe`}>
               <button>ADD NEW CAFE</button>
             </Link>
           </div>
         </div>
+        <Link to="/addroaster">
+          <button>Add Roaster</button>
+        </Link>
       </div>
     </>
   )
