@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { setSearchResult } from '../actions/searchResult'
 // import { useDispatch } from 'react-redux'
 // import { fetchRoasters } from '../actions/roasters'
 // import { fetchCafes } from '../actions/cafes'
@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
 
 import MapShow from './MapShow'
 import Search from './Search'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
 // import Result from './Result'
@@ -15,11 +15,12 @@ import styles from './Home.module.scss'
 export default function Home() {
   //useSelector to use the result redux
   //will use hardcoded info for now to make this state work
-  const selectedResult = useSelector((state) => state.searchResult)
+  let selectedResult = useSelector((state) => state.searchResult)
 
   // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
-  function moreInfo(id) {
-    console.log('New Cords ', id)
+  const dispatch = useDispatch()
+  function moreInfo(item) {
+    dispatch(setSearchResult([item]))
   }
 
   return (
@@ -54,11 +55,11 @@ export default function Home() {
             <Link to={`/addNewCafe`}>
               <button>ADD NEW CAFE</button>
             </Link>
+            <Link to="/addroaster">
+              <button>Add Roaster</button>
+            </Link>
           </div>
         </div>
-        <Link to="/addroaster">
-          <button>Add Roaster</button>
-        </Link>
       </div>
     </>
   )

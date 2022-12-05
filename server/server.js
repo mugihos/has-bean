@@ -29,6 +29,18 @@ server.get('/api/v1/coffeeimage', (req, res) => {
       res.sendStatus(500)
     })
 })
+// server.get('/api/v1/drinks', (req, res) => {
+//   const option = req.params
+//   request
+//     .get(`https://api.sampleapis.com/coffee/${option}`)
+//     .then((response) => {
+//       res.json(response.body)
+//     })
+//     .catch((err) => {
+//       console.log(err)
+//       res.sendStatus(500)
+//     })
+// })
 
 server.get('*', (req, res) => {
   res.sendFile(path.resolve('server/public/index.html'))

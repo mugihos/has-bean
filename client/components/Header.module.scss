@@ -6,7 +6,7 @@
   align-items: center;
   gap: 8px; 
   padding: 24px; 
-  background-color: #463727;
+  background-color: theme.$white;
   color: theme.$black;
   font-size: 1.2rem; 
   font-weight: bolder; 
@@ -17,7 +17,7 @@
 
 .title { 
   font-size: 2rem;
-  color: white; 
+  // color: white; 
   margin-left: 2vw;
 }
 
@@ -29,11 +29,11 @@
 
 .links a {
   text-decoration: none;
-  color: white
+  // color: white
 }
 
 .auth {
-  color: white; 
+  // color: white; 
   position: absolute;
   top: 0;
   right: 0;

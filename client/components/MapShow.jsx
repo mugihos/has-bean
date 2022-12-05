@@ -20,7 +20,6 @@ export default function MapShow({ moreInfo }) {
   const imageIcon = '/img/coffee.png'
 
   function zoomAndCenterInfo(coOrds) {
-    console.log(coOrds, 'Coords')
     // add if statement if there is length =1 for coOrds to set zoom
     // around the marker and cet centre
     //Find center of all points by finding half of max long and lat
@@ -38,12 +37,11 @@ export default function MapShow({ moreInfo }) {
       const lngDist = lngRange * 40075 * (Math.cos(latRange) / 360) // Dist in km
 
       // Find zoom by...
-      const tileSize = 512 //px !!! Dunno how many tiles ffs
-      const ratio = 30 // km/px at zoom level 1 for values at -40 latitude
+      const ratioTileSize = 26700 // km at zoom level 1 for values at -40 latitude
       const zoomLevel =
         Math.log10(
-          (tileSize * ratio) / Math.max(Math.abs(lngDist), Math.abs(latDist))
-        ) / Math.log10(1.9) // Dimesnionless exponential equation to find zoom
+          ratioTileSize / Math.max(Math.abs(lngDist), Math.abs(latDist))
+        ) / Math.log10(2) // Dimesnionless exponential equation to find zoom
       console.log(zoomLevel, 'zoom level')
       return {
         longitude: lngCentre,
@@ -54,11 +52,11 @@ export default function MapShow({ moreInfo }) {
       return {
         longitude: lngCentre,
         latitude: latCentre,
-        zoom: 11,
+        zoom: 17,
       }
     }
   }
-
+  console.log(searchResult)
   return (
     <div id="map">
       <Map
@@ -75,18 +73,44 @@ export default function MapShow({ moreInfo }) {
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         <div>
-          {searchResult?.map(({ id, lat, lng }) => {
-            return (
-              <Marker
-                key={id}
-                longitude={lng || ''}
-                latitude={lat || ''}
-                onClick={() => moreInfo(id)}
-              >
-                <img src={imageIcon} alt="img_lost" className={styles.icon} />
-              </Marker>
-            )
-          })}
+          {searchResult?.map(
+            ({
+              address,
+              cafeName,
+              city,
+              details,
+              id,
+              lat,
+              lng,
+              location,
+              roasterId,
+              roasterName,
+            }) => {
+              return (
+                <Marker
+                  key={id}
+                  longitude={lng || ''}
+                  latitude={lat || ''}
+                  onClick={() =>
+                    moreInfo({
+                      address,
+                      cafeName,
+                      city,
+                      details,
+                      id,
+                      lat,
+                      lng,
+                      location,
+                      roasterId,
+                      roasterName,
+                    })
+                  }
+                >
+                  <img src={imageIcon} alt="img_lost" className={styles.icon} />
+                </Marker>
+              )
+            }
+          )}
         </div>
       </Map>
     </div>
