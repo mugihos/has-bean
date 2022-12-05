@@ -5,12 +5,13 @@ import {
   UPDATE_REVIEW,
 } from '../actions/userpage'
 
-const initialRequestState = []
-const reviews = (state = initialRequestState, action) => {
+const initialState = []
+const reviews = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case SET_REVIEWS:
-      return [...payload]
+      console.log(payload)
+      return payload
 
     case ADD_REVIEW:
       return payload

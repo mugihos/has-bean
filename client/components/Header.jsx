@@ -29,7 +29,7 @@ export default function Header() {
         <div className={styles.links}>
           <Link to="/roasters">Roasters</Link>
           <Link to="/beans">Beans</Link>
-          <Link to="/userpage">I've Bean</Link>
+          <Link to="/reviews">Ive Bean</Link>
         </div>
 
         <div className={styles.auth}>

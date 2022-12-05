@@ -41,7 +41,7 @@ export default function App() {
             <Route path="/roasters" element={<Roasters />} />
             <Route path="/beans" element={<Beans />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
-            <Route path="/userpage" element={<UserPage />} />
+            <Route path="/reviews" element={<UserPage />} />
             <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />
