@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchReviews } from '../actions/userpage'
 
@@ -24,7 +25,9 @@ export default function UserPage() {
             </ul>
           </div>
         ))}
-        <button>Add a review</button>
+        <Link to="/reviews/add">
+          <button>Add a review</button>
+        </Link>
       </div>
     </>
   )

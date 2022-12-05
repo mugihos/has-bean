@@ -6,6 +6,7 @@ import { fetchRoasters } from '../actions/roasters'
 import { fetchCafes } from '../actions/cafes'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
 import { fetchBeans } from '../actions/beans'
+import { fetchReviews } from '../actions/userpage'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
@@ -19,6 +20,7 @@ import OurTeam from './OurTeam'
 import ContactUs from './ContactUs'
 import UserPage from './UserPage'
 import AddRoaster from './AddRoaster'
+import SubmitReview from './SubmitReview'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -28,6 +30,7 @@ export default function App() {
     dispatch(fetchCafes())
     dispatch(fetchSearchRoasters())
     dispatch(fetchBeans())
+    dispatch(fetchReviews())
   }, [])
 
   return (
@@ -42,6 +45,7 @@ export default function App() {
             <Route path="/beans" element={<Beans />} />
             <Route path="/addNewCafe" element={<AddCafe />} />
             <Route path="/reviews" element={<UserPage />} />
+            <Route path="/reviews/add" element={<SubmitReview />} />
             <Route path="/roasters/:id" element={<Roaster />} />
             <Route path="/story" element={<OurStory />} />
             <Route path="/team" element={<OurTeam />} />
