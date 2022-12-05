@@ -1,6 +1,7 @@
 const connection = require('./connection')
 module.exports = {
   getReviews,
+  getReviewById,
   addReviews,
   editReviews,
   deleteReview,
@@ -8,6 +9,10 @@ module.exports = {
 
 function getReviews(db = connection) {
   return db('reviews').select()
+}
+
+function getReviewById(id, db = connection) {
+  return db('reviews').where({ id }).select()
 }
 
 function addReviews(newReview, db = connection) {
