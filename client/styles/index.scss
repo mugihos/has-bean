@@ -5,6 +5,19 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
 .pageWrapper {
   margin: 3vw;
   display: flex;

@@ -1,4 +1,4 @@
-import { getReviews, addReview } from '../apis/userpage'
+import { getReviews, addReview, delReview } from '../apis/userpage'
 // import * as api from '../apis/userpage'
 
 export const SET_REVIEWS = 'SET_REVIEWS'
@@ -60,8 +60,7 @@ export function deleteReview(id) {
 // -- delete review by id thunk --
 export function removeReview(id) {
   return (dispatch) => {
-    return api
-      .delReview(id)
+    return delReview(id)
       .then(() => {
         dispatch(deleteReview(id))
       })
@@ -80,15 +79,15 @@ export function updateReview(reviewData) {
 }
 
 // -- edit review by id review --
-export function editReview(id, newInfo) {
-  return (dispatch) => {
-    return api
-      .editReview(id, newInfo)
-      .then(() => {
-        dispatch(updateReview(newInfo))
-      })
-      .catch((error) => {
-        console.error(error.message)
-      })
-  }
-}
+// export function editReview(id, newInfo) {
+//   return (dispatch) => {
+//     return api
+//       .editReview(id, newInfo)
+//       .then(() => {
+//         dispatch(updateReview(newInfo))
+//       })
+//       .catch((error) => {
+//         console.error(error.message)
+//       })
+//   }
+// }

@@ -9,11 +9,13 @@ export default function Header() {
   const { logout, loginWithRedirect, user } = useAuth0()
 
   const handleLogOff = (e) => {
+    // change links to buttons to remove prevent default
     e.preventDefault()
     logout()
   }
 
   const handleSignIn = (e) => {
+    // change links to buttons to remove prevent default
     e.preventDefault()
     loginWithRedirect()
   }
@@ -27,18 +29,11 @@ export default function Header() {
           </Link>
         </div>
         <div className={styles.links}>
-          <Link key="header-roasters" to="/roasters">
-            Roasters
-          </Link>
-          <Link key="header-beans" to="/beans">
-            Beans
-          </Link>
-          <Link key="header-reviews" to="/reviews">
-            Ive Bean
-          </Link>
-          <Link key="header-drinks" to="/drinks">
-            Drinks
-          </Link>
+          {/* change to buttons! so we can remove prevent default  */}
+          <Link to="/roasters">Roasters</Link>
+          <Link to="/beans">Beans</Link>
+          <Link to="/reviews">I&apos;ve Bean</Link>
+          <Link to="/drinks">Drinks</Link>
         </div>
 
         <div className={styles.auth}>

@@ -56,7 +56,7 @@ export default function MapShow({ moreInfo }) {
       }
     }
   }
-  console.log(searchResult)
+
   return (
     <div id="map">
       <Map
