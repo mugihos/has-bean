@@ -8,18 +8,15 @@ export default function Drinks() {
   const [option, setOption] = useState(INITIAL_OPTION)
   const [radio, setRadio] = useState('hot')
 
-  console.log('radio', radio)
   useEffect(() => {
     getDrinks(radio)
       .then((response) => {
-        console.log(response)
         setDrinks(response)
       })
       .catch((e) => e.message)
   }, [radio])
 
   function handleChange(evt) {
-    console.log(evt.target.value, 'handleChange')
     setOption(evt.target.value)
   }
 

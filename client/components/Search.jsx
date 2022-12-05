@@ -86,7 +86,7 @@ export default function Search() {
             <option value="0">--Select the city--</option>
             {citiesArr.map((city) => {
               return (
-                <option key={city.id} value={city}>
+                <option key={city} value={city}>
                   {city}
                 </option>
               )

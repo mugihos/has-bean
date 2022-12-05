@@ -13,7 +13,6 @@ export function addCafe(newCafe) {
     .post(rootUrl + '/cafes')
     .send(newCafe)
     .then((res) => {
-      console.log('api', res)
       return res.body
     })
 }
