@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">64.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>9/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>4/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>7/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -141,22 +141,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,7 +193,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,23 +211,23 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 &nbsp;
 import { setSearchResult } from '../actions/searchResult'
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Search(</span>) {
-  const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch()</span>
-  const searchRoasters = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.searchRoasters)</span></span>
-  let roasters = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.roasters)</span></span>
+export default function Search() {
+  const dispatch = useDispatch()
+  const searchRoasters = useSelector((state) =&gt; state.searchRoasters)
+  let roasters = useSelector((state) =&gt; state.roasters)
 &nbsp;
   //this is the dispatch for redux setting the selected result to state
-  const handleOnSelect = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {</span>
+  const handleOnSelect = <span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {
 <span class="cstat-no" title="statement not covered" >    dispatch(setSearchResult(item))</span>
   }
-  const onSelectRoaster = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
+  const onSelectRoaster = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
     const id = <span class="cstat-no" title="statement not covered" >e.target.value</span>
     const cafes = <span class="cstat-no" title="statement not covered" >searchRoasters.filter(</span>
 <span class="fstat-no" title="function not covered" >      (s</span>earchRoaster) =&gt; <span class="cstat-no" title="statement not covered" >id == searchRoaster.roasterId</span>
     )
 <span class="cstat-no" title="statement not covered" >    dispatch(setSearchResult(cafes))</span>
   }
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;div&gt;
         &lt;div style={{ width: 250, margin: 10 }}&gt;
@@ -263,8 +263,8 @@ export default function <span class="fstat-no" title="function not covered" >Sea
           &lt;label htmlFor="id"&gt;Roaster:&lt;/label&gt;
           &lt;select id="id" onChange={onSelectRoaster} name="id"&gt;
             &lt;option value="0"&gt;--Please select--&lt;/option&gt;
-            {roasters.map(<span class="fstat-no" title="function not covered" >({</span> id, name }) =&gt; {
-<span class="cstat-no" title="statement not covered" >              return (</span>
+            {roasters.map(({ id, name }) =&gt; {
+              return (
                 &lt;option key={id} value={id}&gt;
                   {name}
                 &lt;/option&gt;
@@ -283,7 +283,7 @@ export default function <span class="fstat-no" title="function not covered" >Sea
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-12-04T23:15:09.574Z
+                at 2022-12-05T00:03:32.123Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
