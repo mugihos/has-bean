@@ -26,6 +26,7 @@ export default function userPage() {
             </ul>
           </div>
         ))} */}
+        <button>Add a review</button>
       </div>
     </>
   )
