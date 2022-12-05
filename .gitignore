@@ -6,4 +6,7 @@ server/public/bundle.js.map
 server/public/styles.css
 server/public/styles.css.map
 .env
+coverage
 tags
+*.bundle.js
+*.bundle.js.map
