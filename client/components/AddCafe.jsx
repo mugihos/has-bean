@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addMoreCafe, fetchCafes } from '../actions/cafes'
 import { useNavigate } from 'react-router-dom'
+import { fetchSearchRoasters } from '../actions/searchRoasters'
 //import styles from './AddCafe.module.scss'
 
 export default function AddCafe() {
@@ -28,6 +29,7 @@ export default function AddCafe() {
   function handleSubmit(event) {
     event.preventDefault()
     dispatch(addMoreCafe(newCafe))
+    dispatch(fetchSearchRoasters())
     setNewCafe('')
     navigate('/')
   }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchReviews } from '../actions/userpage'
+import { fetchReviews, removeReview } from '../actions/userpage'
 import { Radar } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -25,6 +25,7 @@ ChartJS.register(
 
 export default function IveBean() {
   const dispatch = useDispatch()
+  const navigate = useNavigate
   let reviews = useSelector((state) => state.reviews)
 
   useEffect(() => {
@@ -41,7 +42,17 @@ export default function IveBean() {
       },
     },
   }
-  console.log(reviews)
+
+  function handleDelete(e, id) {
+    dispatch(removeReview(id))
+    navigate('/review')
+  }
+
+  function handleDelete(e, id) {
+    dispatch(removeReview(id))
+    navigate('/review')
+  }
+
   return (
     <>
       <div>
@@ -81,6 +92,13 @@ export default function IveBean() {
                 <li>Roasters Name: {review.roasterName}</li>
                 <li>Roasters Notes: {review.flavourDesc}</li>
               </ul>
+              <button
+                onClick={(e) => {
+                  handleDelete(e, review.id)
+                }}
+              >
+                Delete comment
+              </button>
             </div>
           )
         })}
