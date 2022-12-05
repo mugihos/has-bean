@@ -1,6 +1,7 @@
 const connection = require('./connection')
 module.exports = {
   getCafes,
+  addCafe,
 }
 
 function getCafes(db = connection) {
@@ -18,4 +19,8 @@ function getCafes(db = connection) {
       'cafes.lat as lat',
       'cafes.lng as lng'
     )
+}
+
+function addCafe(newCafe, db = connection) {
+  return db('cafes').insert(newCafe)
 }
