@@ -1,9 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchReviews } from '../actions/iveBean'
 
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-import { useAuth0 } from '@auth0/auth0-react'
+// import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+// import { useAuth0 } from '@auth0/auth0-react'
 
-export default function User() {
-  return <h1>I've Bean</h1>
+export default function userPage() {
+  // const dispatch = useDispatch()
+  // let reviews = useSelector((state) => state.reviews)
+
+  // useEffect(() => {
+  //   dispatch(fetchReviews())
+  // }, [])
+
+  return (
+    <>
+      <div>
+        <h1>I've Bean</h1>
+        {/* {reviews.map((review) => (
+          <div key={review.id}>
+            <ul>
+              <li>{review.id}</li>
+              <li>Comment: {review.comment}</li>
+              <li>Rating: {review.rating}</li>
+            </ul>
+          </div>
+        ))} */}
+      </div>
+    </>
+  )
 }
