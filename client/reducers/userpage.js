@@ -14,7 +14,7 @@ const reviews = (state = initialState, action) => {
 
     case ADD_REVIEW:
       console.log(payload)
-      return payload
+      return [...state, payload]
 
     case UPDATE_REVIEW:
       return state.map((review) => {
