@@ -58,7 +58,7 @@ export default function UserPage() {
       <div>
         <h1>I&apos;ve Bean</h1>
         { isAuthenticated == false ? 
-        <div><button onClick={handleSignIn}>Login / register</button> to see your reviews.</div>
+        <div><button onClick={handleSignIn}>Register | Login</button> to see your reviews.</div>
         :
         <div>
         <Link to="/reviews/add">
