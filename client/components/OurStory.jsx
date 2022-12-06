@@ -6,8 +6,8 @@ export default function OurStory() {
 
   return (
     <>
-    <h2>Our Story</h2>
-    <p>We&apos;re a team of 6 passionate junior devs on a coffee journey!</p>
+    <h2 className={styles.branchFont}>Our Story</h2>
+    <h4>We&apos;re a team of 6 passionate junior devs on a coffee journey.</h4>
     </>
   )
 }

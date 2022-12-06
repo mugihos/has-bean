@@ -13,7 +13,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
-import { IfAuthenticated } from './Authenticated'
 ChartJS.register(
   RadialLinearScale,
   PointElement,

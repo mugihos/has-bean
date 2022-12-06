@@ -1,1 +1,12 @@
 @use '../styles/theme';
+
+.branchFont {
+  font-family: "branch";
+  font-size: 200px;
+}
+
+.branchFont:hover {
+  opacity: 0.9;
+  transform: translateY(-5px); transition-duration: 500ms;
+  text-shadow: 5px 5px rgb(190, 190, 190);
+}

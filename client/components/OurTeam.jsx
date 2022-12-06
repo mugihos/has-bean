@@ -6,9 +6,9 @@ export default function OurTeam() {
 
   return (
     <>
-    <h2>Our Team</h2>
-    <h3>Meet us! We are...</h3>
-    <h1>Mugi, Gus, Ingrid, Clinton, Sarah and Eq</h1>
+    <h2 className={styles.branchFont}>Our Team</h2>
+    <h4>Meet us! We are...</h4>
+    <h2>Mugi, Gus, Ingrid, Clinton, Sarah and Eq</h2>
     </>
   )
 }

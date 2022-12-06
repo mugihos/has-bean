@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
+@font-face {
+  font-family: "branch";
+  src: url("../../server/public/fonts/Branch.ttf");
+}
+
 html, 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -76,4 +81,6 @@ li{
 
 .fa:hover {
   opacity: 0.7;
+  transform: translateY(-3px); transition-duration: 500ms;
+  text-shadow: 3px 3px rgb(190, 190, 190);
 }
