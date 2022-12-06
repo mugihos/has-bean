@@ -43,9 +43,9 @@ export function fetchRoasters() {
 }
 
 // POST new roasters
-export function submitRoaster(newRoaster) {
+export function submitRoaster(newRoaster, token) {
   return (dispatch) => {
-    return postRoaster(newRoaster)
+    return postRoaster(newRoaster, token)
       .then((newId) => {
         dispatch(addRoaster({ ...newRoaster, id: newId }))
       })
