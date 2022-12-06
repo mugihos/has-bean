@@ -1,5 +1,5 @@
-import { fetchReviews, SET_REVIEWS } from '../iveBean'
-import { getReviews } from '../../apis/iveBean'
+import { fetchReviews, SET_REVIEWS } from '../userpage'
+import { getReviews } from '../../apis/userpage'
 
 const mockData = [
   {
@@ -22,7 +22,7 @@ const mockData = [
   },
 ]
 
-jest.mock('../../apis/iveBean')
+jest.mock('../../apis/userpage')
 const fakeDispatch = jest.fn()
 
 beforeEach(() => {
