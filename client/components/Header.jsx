@@ -32,9 +32,9 @@ export default function Header() {
           {/* change to buttons! so we can remove prevent default  */}
           <Link to="/roasters">Roasters</Link>
           <Link to="/beans">Beans</Link>
-          <IfAuthenticated><Link to="/reviews">I&apos;ve Bean</Link></IfAuthenticated>
           <Link to="/drinks">Drinks</Link>
           <Link to="/quiz">Coffee Quiz</Link>
+          <Link to="/reviews">I&apos;ve Bean</Link>
         </div>
 
         <div className={styles.auth}>

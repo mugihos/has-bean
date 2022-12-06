@@ -13,6 +13,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
+import { IfAuthenticated } from './Authenticated'
 ChartJS.register(
   RadialLinearScale,
   PointElement,
@@ -23,7 +24,7 @@ ChartJS.register(
 )
 
 export default function UserPage() {
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0()
+  const { getAccessTokenSilently, isAuthenticated, loginWithRedirect } = useAuth0()
   const dispatch = useDispatch()
   let reviews = useSelector((state) => state.reviews)
 
@@ -48,10 +49,18 @@ export default function UserPage() {
     dispatch(removeReview(id, token))
   }
 
+  const handleSignIn = (e) => {
+    loginWithRedirect()
+  }
+
   return (
     <>
       <div>
         <h1>I&apos;ve Bean</h1>
+        { isAuthenticated == false ? 
+        <div> Please <button onClick={handleSignIn}>login / register</button> to see your reviews.</div>
+        :
+        <div>
         <Link to="/reviews/add">
           <button>Add a review</button>
         </Link>
@@ -99,7 +108,10 @@ export default function UserPage() {
               </button>
             </div>
           )
-        })}
+          })
+        }
+        </div>
+        }
       </div>
     </>
   )
