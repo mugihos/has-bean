@@ -47,7 +47,7 @@ export default function AddCafe() {
             <input
               id="name"
               onChange={handleChange}
-              value={newCafe.name}
+              value={newCafe?.name || ''}
               name="name"
               required
             />
@@ -59,7 +59,7 @@ export default function AddCafe() {
             <input
               id="address"
               onChange={handleChange}
-              value={newCafe.address}
+              value={newCafe?.address || ''}
               name="address"
             />
           </label>
@@ -70,7 +70,7 @@ export default function AddCafe() {
             <input
               id="city"
               onChange={handleChange}
-              value={newCafe.city}
+              value={newCafe?.city || ''}
               name="city"
             />
           </label>
@@ -79,7 +79,7 @@ export default function AddCafe() {
           <label htmlFor="roaster_id">Roaster:</label>
           <select id="roaster_id" onChange={handleChange} name="roaster_id">
             <option value="0">--Please select--</option>
-            {roasters.map(({ id, name }) => {
+            {roasters?.map(({ id, name }) => {
               return (
                 <option key={id} value={id}>
                   {name}
@@ -95,7 +95,7 @@ export default function AddCafe() {
             <input
               id="lat"
               onChange={handleChange}
-              value={newCafe.lat}
+              value={newCafe?.lat || ''}
               name="lat"
             />
           </label>
@@ -106,7 +106,7 @@ export default function AddCafe() {
             <input
               id="lng"
               onChange={handleChange}
-              value={newCafe.lng}
+              value={newCafe?.lng || ''}
               name="lng"
             />
           </label>

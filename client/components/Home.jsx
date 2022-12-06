@@ -22,7 +22,7 @@ export default function Home() {
   function moreInfo(item) {
     dispatch(setSearchResult([item]))
   }
-  console.log(selectedResult)
+
   return (
     <>
       <div className={styles.container}>
