@@ -1,7 +1,7 @@
 @use '../styles/theme';
 
 .branchFont {
-  font-family: "branch";
+  font-family: theme.$font-header;
   font-size: 200px;
 }
 
