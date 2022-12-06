@@ -11,6 +11,7 @@ export default function SubmitReview() {
 
   const cafes = useSelector((state) => state.cafes)
   const beans = useSelector((state) => state.beans)
+  const roasters = useSelector((state) => state.roasters)
 
   const [input, setInput] = useState({
     roaster_id: '',
@@ -55,10 +56,10 @@ export default function SubmitReview() {
           <label htmlFor="roasters">Roaster</label>
           <select onChange={handleRoasterChange} name="roaster_id" required>
             <option value="0">-- Please select --</option>
-            {cafes?.map((cafe) => {
+            {roasters?.map((roaster) => {
               return (
-                <option key={cafe.id} value={cafe.roasterId}>
-                  {cafe.roasterName}
+                <option key={roaster.id} value={roaster.id}>
+                  {roaster.name}
                 </option>
               )
             })}
