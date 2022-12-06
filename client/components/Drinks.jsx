@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getDrinks } from '../apis/drinks'
+import styles from './Drinks.module.scss'
 
 const INITIAL_OPTION = 'hot'
 
@@ -39,18 +40,23 @@ export default function Drinks() {
         </div>
       </form>
 
-      <div>
-        <ul>
+      <div >
+        <ul className={styles.container}>
+
           {drinks.map((drink) => {
-            const { id, title, image, description, ingredients } = drink
+            const { id, title, description, ingredients } = drink
             const ingredientsString = ingredients.join(', ')
+            const image = `img/drinks/${title.toLowerCase()}.png`
+            console.log(image, 'image');
             return (
-              <li key={id}>
+              <div className={styles.item} key={id}>
+              <li>
                 <h2>{title}</h2>
                 <img src={image} alt="#" width="200" />
-                <p>description: {description}</p>
-                <p>Ingredients: {ingredientsString}</p>
+                <p>{description}</p>
+                <p><b>Ingredients:</b><br></br>  {ingredientsString}</p>
               </li>
+              </div>
             )
           })}
         </ul>
