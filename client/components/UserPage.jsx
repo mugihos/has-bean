@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchReviews, removeReview } from '../actions/userpage'
-
+import { useAuth0 } from '@auth0/auth0-react'
 // import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-// import { useAuth0 } from '@auth0/auth0-react'
+
 
 export default function UserPage() {
+  const { getAccessTokenSilently } = useAuth0()
   const dispatch = useDispatch()
   const navigate = useNavigate
   const allReviews = useSelector((state) => state.reviews)
@@ -18,8 +19,9 @@ export default function UserPage() {
     return <div></div>
   }
 
-  function handleDelete(e, id) {
-    dispatch(removeReview(id))
+  const handleDelete = async (e, id) => {
+    const token = await getAccessTokenSilently()
+    dispatch(removeReview(id, token))
     navigate('/review')
   }
 

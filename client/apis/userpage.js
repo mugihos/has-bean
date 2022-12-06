@@ -13,9 +13,10 @@ export function getReviewById(id) {
   })
 }
 
-export function addReview(newReview) {
+export function addReview(newReview, token) {
   return request
     .post(`${rootUrl}/reviews/add`)
+    .set('Authorization', `Bearer ${token}`)
     .send(newReview)
     .then((res) => {
       console.log(res)
@@ -33,6 +34,7 @@ export function editReview(id, newInfo) {
     })
 }
 
-export function delReview(id) {
+export function delReview(id, token) {
   return request.delete(`${rootUrl}/reviews/${id}`)
+  .set('Authorization', `Bearer ${token}`)
 }

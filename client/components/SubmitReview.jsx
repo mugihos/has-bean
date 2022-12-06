@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { sendReview } from '../actions/userpage'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function SubmitReview() {
+  const { getAccessTokenSilently } = useAuth0()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -26,10 +28,10 @@ export default function SubmitReview() {
     })
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(input)
-    dispatch(sendReview(input))
+    const token = await getAccessTokenSilently()
+    dispatch(sendReview(input, token))
     setInput('')
     navigate('/reviews')
   }
