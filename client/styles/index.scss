@@ -22,6 +22,7 @@ a:visited {
 a:hover {
   opacity: 0.7;
   transform: translateY(-2px); transition-duration: 700ms;
+  // transform: scale3d(0.8, 1, 1); transition-duration: 700ms;
 }
 
 form {
