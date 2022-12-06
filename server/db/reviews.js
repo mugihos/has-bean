@@ -9,7 +9,20 @@ module.exports = {
 }
 
 function getReviews(db = connection) {
-  return db('reviews').select()
+  console.log('db query')
+  return db('reviews')
+    .join('beans', 'reviews.bean_id', 'beans.id')
+    .join('cafes', 'reviews.cafe_id', 'cafes.id')
+    .join('roasters', 'reviews.roaster_id', 'roasters.id')
+    .select(
+      'beans.flavour_profile as flavourProfile',
+      'beans.name as beansName',
+      'beans.flavour_profile as flavourDesc',
+      'cafes.name as cafesName',
+      'cafes.city as cafesCity',
+      'roasters.name as roasterName',
+      'reviews.*'
+    )
 }
 
 function getReviewById(id, db = connection) {
