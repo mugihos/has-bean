@@ -40,7 +40,6 @@ export default function App() {
       <div className="pageWrapper">
         <div className={styles.base}>
           <Routes>
-            {/* <Route path="/map" element={<MapShow />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="/roasters" element={<Roasters />} />
             <Route path="/roasters/:id" element={<Roaster />} />

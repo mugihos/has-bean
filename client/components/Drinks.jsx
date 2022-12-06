@@ -28,18 +28,14 @@ export default function Drinks() {
     <>
       <form onSubmit={handleSubmit}>
         <div className="radio">
-          <label>
             <button value="hot" onClick={handleChange}>
               Hot
             </button>
-          </label>
         </div>
         <div className="radio">
-          <label>
             <button value="iced" onClick={handleChange}>
               Iced
             </button>
-          </label>
         </div>
       </form>
 

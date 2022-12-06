@@ -6,7 +6,7 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Footer() {
-  const { logout, loginWithRedirect, user } = useAuth0()
+  const { logout, loginWithRedirect } = useAuth0()
 
   const handleLogOff = (e) => {
    // change links to buttons to remove prevent default
