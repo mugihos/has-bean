@@ -2,10 +2,11 @@ const express = require('express')
 const db = require('../db/reviews.js')
 const router = express.Router()
 
-// GET api/v1/ivebean
+// GET api/v1/reviews
 router.get('/', (req, res) => {
   db.getReviews()
     .then((result) => {
+      console.log(result, 'result');
       res.json(result)
     })
     .catch((err) => {
@@ -14,10 +15,10 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET api/v1/ivebean/:user_id
-router.get('/:user_id', (req, res) => {
-  const user_id = req.params.user_id
-  db.getReviewById(user_id)
+// GET api/v1/reviews/:id
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getReviewById(id)
     .then((result) => {
       res.json(result)
     })
@@ -27,10 +28,10 @@ router.get('/:user_id', (req, res) => {
     })
 })
 
-// Get api/v1/ivebean/:bean_id/bean
+// Get api/v1/reviews/beanid/bean
 router.get('/:bean_id/bean', (req, res) => {
-  const bean_id = req.params.id
-  db.getReviewByBeanId(bean_id)
+  const beanId = req.params.beanid
+  db.getReviewByBeanId(beanId)
     .then((result) => {
       res.json(result)
     })
@@ -40,7 +41,7 @@ router.get('/:bean_id/bean', (req, res) => {
     })
 })
 
-// POST api/v1/ivebean/add
+// POST api/v1/reviews/add
 router.post('/add', (req, res) => {
   const newReview = req.body
   db.addReviews(newReview)

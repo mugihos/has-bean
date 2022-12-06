@@ -16,7 +16,6 @@ export default function Home() {
   //useSelector to use the result redux
   //will use hardcoded info for now to make this state work
   let selectedResult = useSelector((state) => state.searchResult)
-  console.log('selectedResult', selectedResult)
   // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
   const dispatch = useDispatch()
   function moreInfo(item) {
