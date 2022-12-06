@@ -6,6 +6,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getReviews()
     .then((result) => {
+      console.log(result, 'result');
       res.json(result)
     })
     .catch((err) => {

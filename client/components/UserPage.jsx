@@ -27,7 +27,7 @@ export default function UserPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate
   let reviews = useSelector((state) => state.reviews)
-
+console.log(reviews, 'reviews');
   useEffect(() => {
     dispatch(fetchReviews())
   }, [])

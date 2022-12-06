@@ -33,6 +33,8 @@ export default function SubmitReview() {
       ...input,
       [event.target.name]: event.target.value,
     })
+    console.log(event.target, 'event.target');
+    console.log(input, 'input handleChange');
   }
 
   function handleRoasterChange(event) {
@@ -41,6 +43,7 @@ export default function SubmitReview() {
 
   function handleSubmit(event) {
     event.preventDefault()
+    console.log(input, 'input');
     dispatch(sendReview(input))
     setInput('')
     navigate('/reviews')
@@ -74,6 +77,7 @@ export default function SubmitReview() {
                     return bean.roaster_id === Number(selectedRoasterId)
                   })
                   .map((bean) => {
+                    console.log(bean.id, 'bean');
                     return (
                       <option key={bean.id} value={bean.id}>
                         {bean.beanName}
@@ -166,7 +170,7 @@ export default function SubmitReview() {
         </div>
         <div>
           <label htmlFor="rating">Overall Rating</label>
-          <select onChange={handleChange} name="bean_id">
+          <select onChange={handleChange} name="rating">
             <option value="0">-- Please select --</option>
             <option value="1">-- 1: okay --</option>
             <option value="2">-- 2: average --</option>
