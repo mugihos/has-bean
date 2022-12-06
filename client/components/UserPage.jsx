@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchReviews, removeReview } from '../actions/userpage'
 import { useAuth0 } from '@auth0/auth0-react'
-// import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function UserPage() {
   const { getAccessTokenSilently, isAuthenticated } = useAuth0()
@@ -15,15 +14,7 @@ export default function UserPage() {
     if (isAuthenticated) {dispatch(fetchReviews(token))}
   }, [isAuthenticated])
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     getAccessTokenSilently()
-  //       .then((token) => dispatch(fetchReviews(token)))
-  //       .catch((err) => console.error(err))
-  //   }
-  // }, [isAuthenticated])
-
-  if (!allReviews) {
+   if (!allReviews) {
     return <div></div>
   }
 

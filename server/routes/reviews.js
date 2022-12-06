@@ -6,7 +6,6 @@ const checkJwt = require('../auth0')
 // GET api/v1/reviews
 router.get('/', checkJwt, (req, res) => {
   const auth0Id = req.auth?.sub
-  console.log(auth0Id, 'auth0Id');
   db.getReviews(auth0Id)
     .then((result) => {
       res.json(result)
