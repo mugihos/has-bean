@@ -24,27 +24,46 @@ export default function Roasters() {
         return (
           <div key={location}>
             <h3>{location}</h3>
-            <ul className={styles.flexcontainer}>
+            <section className={styles.cardList}>
+              {/* <ul className={styles.flexcontainer}> */}
               {roasters
                 ?.filter((roaster) => roaster.location.includes(location))
                 .map((roaster) => {
                   return (
                     <div
                       key={location + roaster.id}
-                      className={styles.beanItem}
+                      // className={styles.beanItem}
                     >
-                      <Link to={`/roasters/${roaster.id}`}>
-                        {roaster.name}
-                        <img
-                          className={styles.roasterImg}
-                          src={roaster.image_url}
-                          alt={roaster.name}
-                        />
-                      </Link>
+                      <article className={styles.card}>
+                        <header className={styles.cardHeader}>
+                          <p>{location}</p>
+                          <Link to={`/roasters/${roaster.id}`}>
+                            {roaster.name}
+                            <h2>{roaster.name}</h2>
+                          </Link>
+                        </header>
+
+                        <div className={styles.cardAuthor}>
+                          <a className={styles.authorAvatar} href="#">
+                            <img src={roaster.image_url} />
+                          </a>
+
+                          <div className={styles.authorName}>
+                            <div className={styles.authorNamePrefix}>
+                              Roaster
+                            </div>
+                            {roaster.name}
+                          </div>
+                          <div className={styles.tags}>
+                            <a href="#">thing1</a>
+                            <a href="#">thing2</a>
+                          </div>
+                        </div>
+                      </article>
                     </div>
                   )
                 })}
-            </ul>
+            </section>
           </div>
         )
       })}
