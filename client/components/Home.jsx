@@ -22,7 +22,7 @@ export default function Home() {
   function moreInfo(item) {
     dispatch(setSearchResult([item]))
   }
-
+  console.log(selectedResult)
   return (
     <>
       <div className={styles.container}>
@@ -38,12 +38,14 @@ export default function Home() {
             ) : selectedResult.length >= 1 ? (
               <div className={styles.detail}>
                 {selectedResult?.map(
-                  ({ id, cafeName, address, roasterName }) => {
+                  ({ id, cafeName, address, roasterName, roasterId }) => {
                     return (
                       <div key={id}>
                         <h2>{cafeName}</h2>
                         <p>{address}</p>
-                        <p>Roaster: {roasterName}</p>
+                        <Link to={`/roasters/${roasterId}`}>
+                          <p>View Roaster: {roasterName}</p>
+                        </Link>
                       </div>
                     )
                   }
