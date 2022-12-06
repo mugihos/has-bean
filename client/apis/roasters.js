@@ -16,9 +16,10 @@ export function getRoasterById(id) {
 }
 
 //POST add new roaster
-export function postRoaster(newRoaster) {
+export function postRoaster(newRoaster, token) {
   return request
     .post(rootUrl + '/roasters/add')
+    .set('Authorization', `Bearer ${token}`)
     .send(newRoaster)
     .then((res) => {
       return res.body

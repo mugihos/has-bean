@@ -15,9 +15,9 @@ export function setReviews(reviews) {
 }
 
 // -- get reviews thunk --
-export function fetchReviews() {
+export function fetchReviews(token) {
   return (dispatch) => {
-    return getReviews()
+    return getReviews(token)
       .then((reviews) => {
         dispatch(setReviews(reviews))
       })
@@ -36,9 +36,9 @@ export function submitReview(newReview) {
 }
 
 // -- add new review and get new id returned thunk --
-export function sendReview(newReview) {
+export function sendReview(newReview, token) {
   return (dispatch) => {
-    return addReview(newReview)
+    return addReview(newReview, token)
       .then((newId) => {
         dispatch(submitReview({ ...newReview, id: newId }))
       })
@@ -57,9 +57,9 @@ export function deleteReview(id) {
 }
 
 // -- delete review by id thunk --
-export function removeReview(id) {
+export function removeReview(id, token) {
   return (dispatch) => {
-    return delReview(id)
+    return delReview(id, token)
       .then(() => {
         dispatch(deleteReview(id))
       })

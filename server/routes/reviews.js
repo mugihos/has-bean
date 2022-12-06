@@ -1,10 +1,12 @@
 const express = require('express')
 const db = require('../db/reviews.js')
 const router = express.Router()
+const checkJwt = require('../auth0') 
 
 // GET api/v1/reviews
-router.get('/', (req, res) => {
-  db.getReviews()
+router.get('/', checkJwt, (req, res) => {
+  const auth0Id = req.auth?.sub
+  db.getReviews(auth0Id)
     .then((result) => {
       console.log(result, 'result');
       res.json(result)
@@ -42,8 +44,14 @@ router.get('/:bean_id/bean', (req, res) => {
 })
 
 // POST api/v1/reviews/add
-router.post('/add', (req, res) => {
-  const newReview = req.body
+router.post('/add', checkJwt, (req, res) => {
+  const review = req.body
+  const auth0Id = req.auth?.sub
+  const newReview = {
+    ...review,
+    auth_user_id: auth0Id,
+  }
+
   db.addReviews(newReview)
     .then((ids) => {
       res.json(ids[0])
@@ -71,19 +79,27 @@ router.patch('/:id/edit', (req, res) => {
     })
 })
 
-//DELETE api/v1/ivebean/:id
-router.delete('/:id', (req, res) => {
+//DELETE api/v1/reviews/:id
+router.delete('/:id', checkJwt, (req, res) => {
   const id = req.params.id
-  db.deleteReview(id)
+  const auth0Id = req.auth?.sub
+  db.userCanEdit(id, auth0Id)
+    .then(() => db.deleteReview(id))
     .then(() => {
-      return db.getReviews()
+      return db.getReviews(auth0Id)
     })
     .then((reviews) => {
       res.json(reviews)
     })
     .catch((err) => {
-      console.log(err)
-      res.status(500).json({ message: 'Something went wrong' })
+      console.error(err)
+      if (err.message === 'Unauthorized') {
+        res
+          .status(403)
+          .send('Unauthorized: Only the user who added the fruit may update it')
+      } else {
+        res.status(500).send('Something went wrong')
+      }
     })
 })
 

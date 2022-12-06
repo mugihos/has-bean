@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { submitRoaster } from '../actions/roasters'
+import { useAuth0 } from '@auth0/auth0-react'
 import styles from './AddRoaster.module.scss'
 
 export default function AddRoaster() {
+  const { getAccessTokenSilently } = useAuth0()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -33,9 +35,10 @@ export default function AddRoaster() {
     })
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    dispatch(submitRoaster(input))
+    const token = await getAccessTokenSilently()
+    dispatch(submitRoaster(input, token))
     setInput({
       name: '',
       location: '',

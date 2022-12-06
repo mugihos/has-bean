@@ -6,7 +6,6 @@ import { fetchRoasters } from '../actions/roasters'
 import { fetchCafes } from '../actions/cafes'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
 import { fetchBeans } from '../actions/beans'
-import { fetchReviews } from '../actions/userpage'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
@@ -33,7 +32,6 @@ export default function App() {
     dispatch(fetchCafes())
     dispatch(fetchSearchRoasters())
     dispatch(fetchBeans())
-    dispatch(fetchReviews())
   }, [])
 
   return (

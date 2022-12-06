@@ -5,6 +5,7 @@ import { screen, render, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import AddRoaster from '../AddRoaster'
 import { submitRoaster } from '../../actions/roasters'
+import { Auth0Provider } from '@auth0/auth0-react'
 
 const fakeGetData = [
   {
@@ -55,11 +56,13 @@ describe('<AddRoaster />', () => {
     const addRoasterThunkResult = () => 'mockReturnFunctionsReturnValue'
     submitRoaster.mockReturnValue(addRoasterThunkResult)
     render(
-      <Provider store={fakeStore}>
-        <BrowserRouter>
-          <AddRoaster />
-        </BrowserRouter>
-      </Provider>
+      <Auth0Provider>
+        <Provider store={fakeStore}>
+          <BrowserRouter>
+            <AddRoaster />
+          </BrowserRouter>
+        </Provider>
+      </Auth0Provider>
     )
     const result = screen.getAllByRole('button')[0]
     fireEvent.click(result, { target: { value: fakeNewData } })

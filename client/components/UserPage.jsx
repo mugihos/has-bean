@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchReviews, removeReview } from '../actions/userpage'
 import { Radar } from 'react-chartjs-2'
@@ -19,20 +19,20 @@ ChartJS.register(
   Filler,
   Tooltip,
   Legend
-)
-// import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-// import { useAuth0 } from '@auth0/auth0-react'
+)import { useAuth0 } from '@auth0/auth0-react'
 
 export default function UserPage() {
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0()
   const dispatch = useDispatch()
-  const navigate = useNavigate
   let reviews = useSelector((state) => state.reviews)
+
 console.log(reviews, 'reviews');
-  useEffect(() => {
-    dispatch(fetchReviews())
-  }, [])
+  useEffect( async () => {
+    const token = await getAccessTokenSilently()
+    if (isAuthenticated) {dispatch(fetchReviews(token))}
+  }, [isAuthenticated])
   const options = {
-    scales: {
+     scales: {
       r: {
         max: 5.0,
         min: 0,
@@ -43,9 +43,9 @@ console.log(reviews, 'reviews');
     },
   }
 
-  function handleDelete(e, id) {
-    dispatch(removeReview(id))
-    navigate('/review')
+  const handleDelete = async (e, id) => {
+    const token = await getAccessTokenSilently()
+    dispatch(removeReview(id, token))
   }
 
   return (

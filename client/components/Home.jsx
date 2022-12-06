@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { setSearchResult } from '../actions/searchResult'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 // import { useDispatch } from 'react-redux'
 // import { fetchRoasters } from '../actions/roasters'
 // import { fetchCafes } from '../actions/cafes'
@@ -53,12 +54,14 @@ export default function Home() {
             ) : (
               <div></div>
             )}
+            <IfAuthenticated>
             <Link to={`/addNewCafe`}>
               <button>ADD NEW CAFE</button>
             </Link>
             <Link to="/addroaster">
               <button>Add Roaster</button>
             </Link>
+            </IfAuthenticated>
           </div>
         </div>
       </div>

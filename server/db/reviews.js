@@ -6,9 +6,10 @@ module.exports = {
   editReviews,
   deleteReview,
   getReviewByBeanId,
+  userCanEdit,
 }
 
-function getReviews(db = connection) {
+function getReviews(auth0Id, db = connection) {
   return db('reviews')
     .join('beans', 'reviews.bean_id', 'beans.id')
     .join('cafes', 'reviews.cafe_id', 'cafes.id')
@@ -22,6 +23,7 @@ function getReviews(db = connection) {
       'roasters.name as roasterName',
       'reviews.*'
     )
+    .where('auth_user_id', auth0Id)
 }
 
 function getReviewById(id, db = connection) {
@@ -41,4 +43,15 @@ function editReviews(id, newContent, db = connection) {
 
 function deleteReview(id, db = connection) {
   return db('reviews').where({ id }).del()
+}
+
+function userCanEdit(id, auth0Id, db = connection) {
+  return db('reviews')
+    .where('id', id)
+    .first()
+    .then((review) => {
+      if (review.auth_user_id !== auth0Id) {
+        throw new Error('Unauthorized')
+      }
+    })
 }

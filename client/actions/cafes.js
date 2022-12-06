@@ -17,9 +17,9 @@ export function fetchCafes() {
   }
 }
 
-export function addMoreCafe(newCafe) {
+export function addMoreCafe(newCafe, token) {
   return (dispatch) => {
-    return addCafe(newCafe).then((cafes) => {
+    return addCafe(newCafe, token).then((cafes) => {
       dispatch(setCafes(cafes))
     })
   }

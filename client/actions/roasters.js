@@ -1,4 +1,4 @@
-import { getRoasters, postRoaster, editRoaster } from '../apis/roasters'
+import { getRoasters, postRoaster } from '../apis/roasters'
 
 export const SET_ROASTERS = 'SET_ROASTERS'
 export const ADD_ROASTER = 'ADD_ROASTER'
@@ -43,9 +43,9 @@ export function fetchRoasters() {
 }
 
 // POST new roasters
-export function submitRoaster(newRoaster) {
+export function submitRoaster(newRoaster, token) {
   return (dispatch) => {
-    return postRoaster(newRoaster)
+    return postRoaster(newRoaster, token)
       .then((newId) => {
         dispatch(addRoaster({ ...newRoaster, id: newId }))
       })

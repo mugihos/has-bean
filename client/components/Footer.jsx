@@ -29,7 +29,7 @@ export default function Footer() {
           <h3>HasBean</h3>
           <p><Link to="/roasters">Roasters</Link></p>
           <p><Link to="/beans">Beans</Link></p>
-          <p><Link to="/ivebeen">I&apos;ve Bean</Link></p>
+          <p><IfAuthenticated><Link to="/reviews">I&apos;ve Bean</Link></IfAuthenticated></p>
      {/* change to buttons! so we can remove prevent default  */}
           <IfAuthenticated>
             <Link to='/' onClick={handleLogOff}>
