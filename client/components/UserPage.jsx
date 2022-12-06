@@ -27,7 +27,6 @@ export default function UserPage() {
   const dispatch = useDispatch()
   let reviews = useSelector((state) => state.reviews)
 
-console.log(reviews, 'reviews');
   useEffect( async () => {
     const token = await getAccessTokenSilently()
     if (isAuthenticated) {dispatch(fetchReviews(token))}

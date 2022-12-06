@@ -11,8 +11,6 @@ export default function SubmitReview() {
 
   const cafes = useSelector((state) => state.cafes)
   const beans = useSelector((state) => state.beans)
-  console.log(beans)
-  console.log(cafes)
 
   const [input, setInput] = useState({
     roaster_id: '',
@@ -35,8 +33,6 @@ export default function SubmitReview() {
       ...input,
       [event.target.name]: event.target.value,
     })
-    console.log(event.target, 'event.target');
-    console.log(input, 'input handleChange');
   }
 
   function handleRoasterChange(event) {
@@ -79,7 +75,6 @@ export default function SubmitReview() {
                     return bean.roaster_id === Number(selectedRoasterId)
                   })
                   .map((bean) => {
-                    console.log(bean.id, 'bean');
                     return (
                       <option key={bean.id} value={bean.id}>
                         {bean.beanName}
