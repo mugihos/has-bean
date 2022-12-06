@@ -1,22 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
-
-@font-face {
-  font-family: "branch";
-  src: url("../../server/public/fonts/Branch.ttf");
-}
+@use '../styles/theme';
 
 html, 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: theme.$font-body;
 }
 
 a:link {
-  color: black;
+  color: theme.$black;
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: theme.$black;
 }
 
 a:hover {
