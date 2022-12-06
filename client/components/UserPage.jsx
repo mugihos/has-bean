@@ -52,6 +52,9 @@ export default function UserPage() {
     <>
       <div>
         <h1>I've Bean</h1>
+        <Link to="/reviews/add">
+          <button>Add a review</button>
+        </Link>
         {reviews?.map((review) => {
           const data = {
             type: 'radar',
@@ -97,9 +100,6 @@ export default function UserPage() {
             </div>
           )
         })}
-        <Link to="/reviews/add">
-          <button>Add a review</button>
-        </Link>
       </div>
     </>
   )
