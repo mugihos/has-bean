@@ -51,7 +51,7 @@ export default function UserPage() {
   return (
     <>
       <div>
-        <h1>I've Bean</h1>
+        <h1>I&apos;ve Bean</h1>
         <Link to="/reviews/add">
           <button>Add a review</button>
         </Link>

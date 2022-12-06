@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { setSearchResult } from '../actions/searchResult'
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-// import { useDispatch } from 'react-redux'
-// import { fetchRoasters } from '../actions/roasters'
-// import { fetchCafes } from '../actions/cafes'
-// import { fetchSearchRoasters } from '../actions/searchRoasters'
+import { IfAuthenticated } from './Authenticated'
 
 import MapShow from './MapShow'
 import Search from './Search'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
-// import Result from './Result'
 
 export default function Home() {
-  //useSelector to use the result redux
-  //will use hardcoded info for now to make this state work
   let selectedResult = useSelector((state) => state.searchResult)
-  // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
   const dispatch = useDispatch()
   function moreInfo(item) {
     dispatch(setSearchResult([item]))
@@ -69,7 +61,3 @@ export default function Home() {
   )
 }
 
-//can change where selectedResult to a map function once we introduce search via roaster
-{
-  /* <MapShow coOrds={coOrds} moreInfo={moreInfo} viewInfo={viewInfo} /> */
-}

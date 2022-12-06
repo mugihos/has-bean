@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-import { useNavigate } from 'react-router-dom'
 import { setSearchResult } from '../actions/searchResult'
 
 export default function Search() {
@@ -28,7 +27,6 @@ export default function Search() {
 
   const onSelectCity = (e) => {
     const city = e.target.value
-    console.log('target', city)
     const cafes = searchRoasters.filter(
       (searchRoaster) => city == searchRoaster.city
     )
@@ -39,14 +37,14 @@ export default function Search() {
     <>
       <div>
         <div style={{ width: 250, margin: 10 }}>
-          <label>Search</label>
+          <label htmlFor="search">Search</label>
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{
               threshold: '0.3',
               keys: ['cafeName', 'roasterName'],
             }}
-            resultStringKeyName="cafeName" // String to display in the results
+            resultStringKeyName="cafeName" 
             onSelect={handleOnSelect}
             showIcon={false}
             placeholder="Search your favourite coffee"

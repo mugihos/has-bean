@@ -17,16 +17,6 @@ router.get('/', (req, res) => {
 
 router.post('/', checkJwt, (req, res) => {
   const newCafe  = req.body
-  // const auth0Id = req.auth?.sub
-  // const newNewCafe = {
-  //   name: newCafe.name,
-  //   address: newCafe.address,
-  //   city: newCafe.city,
-  //   roaster_id: newCafe.roasterId,
-  //   lat: newCafe.lat,
-  //   lng: newCafe.lng
-  // }
-
   db.addCafe(newCafe)
     .then(() => {
       return db.getCafes()

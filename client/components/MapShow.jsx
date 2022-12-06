@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-// import ReactMapGL from 'react-map-gl'
 import { useSelector } from 'react-redux'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Map, { Marker } from 'react-map-gl'

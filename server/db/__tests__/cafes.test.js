@@ -19,7 +19,6 @@ afterAll(() => {
 describe('get cafes', () => {
   it('gat all cafes', () => {
     return getCafes(testDb).then((cafes) => {
-      //console.log(cafes)
       expect(cafes).toHaveLength(cafes.length)
       expect(cafes[0].name).toBe('Thunderbird Cafe')
     })

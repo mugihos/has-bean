@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchBeans } from '../actions/beans'
 import styles from './Beans.module.scss'
 
-//this is where we have individual informaion of the roaster
 export default function Roaster() {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -13,12 +12,10 @@ export default function Roaster() {
   const params = useParams()
 
   const roasterId = Number(params.id)
-  //this is where we access the global redux state to access the single roaster
   const roasters = useSelector((state) => state.roasters)
   const beans = useSelector((state) => state.beans)
   const beansByRoaster = beans.filter((bean) => bean.roaster_id == roasterId)
   const searchRoasters = useSelector((state) => state.searchRoasters)
-  //select the single roaster by filter
   const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
 
   function mapRoasterCafes(query) {

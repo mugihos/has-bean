@@ -13,7 +13,6 @@ const reviews = (state = initialState, action) => {
       return payload
 
     case ADD_REVIEW:
-      console.log(payload)
       return [...state, payload]
 
     case UPDATE_REVIEW:
