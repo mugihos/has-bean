@@ -44,6 +44,12 @@ export default function Footer() {
           </div>
 
           <div className={styles.vertical}>
+          <h3>Fun</h3>
+          <p><Link to="/drinks">Drinks</Link></p>
+          <p><Link to="/quiz">Coffee Quiz</Link></p>
+          </div>
+
+          <div className={styles.vertical}>
           <h3>About</h3>
           <p><Link to="/story">Our Story</Link></p>
           <p><Link to="/team">Our Team</Link></p>
