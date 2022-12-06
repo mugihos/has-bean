@@ -46,15 +46,13 @@ export default function SubmitReview() {
     navigate('/reviews')
   }
 
-  console.log(selectedRoasterId)
-
   return (
     <>
       <h1>Submit a Review</h1>
       <form>
         <div>
           <label htmlFor="roasters">Roaster</label>
-          <select onChange={handleRoasterChange} name="roaster_id">
+          <select onChange={handleRoasterChange} name="roaster_id" required>
             <option value="0">-- Please select --</option>
             {cafes?.map((cafe) => {
               return (
@@ -69,11 +67,10 @@ export default function SubmitReview() {
           {selectedRoasterId && (
             <>
               <label htmlFor="beans">Beans</label>
-              <select onChange={handleChange} name="bean_id">
+              <select onChange={handleChange} name="bean_id" required>
                 <option value="0">-- Please select --</option>
                 {beans
                   ?.filter((bean) => {
-                    console.log(bean.roaster_id, selectedRoasterId)
                     return bean.roaster_id === Number(selectedRoasterId)
                   })
                   .map((bean) => {
