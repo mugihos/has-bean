@@ -3,7 +3,6 @@ import request from 'superagent'
 const rootUrl = '/api/v1'
 
 export function getReviews() {
-  console.log('api call sent')
   return request.get(`${rootUrl}/reviews`).then((res) => {
     return res.body
   })
@@ -19,7 +18,6 @@ export function addReview(newReview) {
     .post(`${rootUrl}/reviews/add`)
     .send(newReview)
     .then((res) => {
-      console.log(res)
       return res.body
     })
     .catch(console.error)

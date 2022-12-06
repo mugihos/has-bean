@@ -9,6 +9,8 @@ export default function SubmitReview() {
 
   const cafes = useSelector((state) => state.cafes)
   const beans = useSelector((state) => state.beans)
+  console.log(beans)
+  console.log(cafes)
 
   const [input, setInput] = useState({
     roaster_id: '',
@@ -24,6 +26,8 @@ export default function SubmitReview() {
     aftertaste: '',
   })
 
+  const selectedRoasterId = input.roaster_id || null
+
   function handleChange(event) {
     setInput({
       ...input,
@@ -31,13 +35,18 @@ export default function SubmitReview() {
     })
   }
 
+  function handleRoasterChange(event) {
+    setInput({ ...input, roaster_id: event.target.value, bean_id: '' })
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(input)
     dispatch(sendReview(input))
     setInput('')
     navigate('/reviews')
   }
+
+  console.log(selectedRoasterId)
 
   return (
     <>
@@ -45,7 +54,7 @@ export default function SubmitReview() {
       <form>
         <div>
           <label htmlFor="roasters">Roaster</label>
-          <select onChange={handleChange} name="roaster_id">
+          <select onChange={handleRoasterChange} name="roaster_id">
             <option value="0">-- Please select --</option>
             {cafes?.map((cafe) => {
               return (
@@ -57,6 +66,28 @@ export default function SubmitReview() {
           </select>
         </div>
         <div>
+          {selectedRoasterId && (
+            <>
+              <label htmlFor="beans">Beans</label>
+              <select onChange={handleChange} name="bean_id">
+                <option value="0">-- Please select --</option>
+                {beans
+                  ?.filter((bean) => {
+                    console.log(bean.roaster_id, selectedRoasterId)
+                    return bean.roaster_id === Number(selectedRoasterId)
+                  })
+                  .map((bean) => {
+                    return (
+                      <option key={bean.id} value={bean.id}>
+                        {bean.beanName}
+                      </option>
+                    )
+                  })}
+              </select>
+            </>
+          )}
+        </div>
+        <div>
           <label htmlFor="cafes">Cafe</label>
           <select onChange={handleChange} name="cafe_id">
             <option value="0">-- Please select --</option>
@@ -64,19 +95,6 @@ export default function SubmitReview() {
               return (
                 <option key={cafe.id} value={cafe.id}>
                   {cafe.name}
-                </option>
-              )
-            })}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="beans">Beans</label>
-          <select onChange={handleChange} name="bean_id">
-            <option value="0">-- Please select your bean --</option>
-            {beans?.map((bean) => {
-              return (
-                <option key={bean.id} value={bean.id}>
-                  {bean.name}
                 </option>
               )
             })}

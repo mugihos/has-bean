@@ -17,7 +17,6 @@ export function setReviews(reviews) {
 // -- get reviews thunk --
 export function fetchReviews() {
   return (dispatch) => {
-    console.log('reviews renders')
     return getReviews()
       .then((reviews) => {
         dispatch(setReviews(reviews))
@@ -41,7 +40,6 @@ export function sendReview(newReview) {
   return (dispatch) => {
     return addReview(newReview)
       .then((newId) => {
-        console.log(newId)
         dispatch(submitReview({ ...newReview, id: newId }))
       })
       .catch((error) => {
