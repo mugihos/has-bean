@@ -1,22 +1,58 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import Roatser from '../Roaster'
-import { BrowserRouter } from 'react-router-dom'
-import { INTERNAL } from 'sqlite3'
+import '@testing-library/jest-dom'
+import { Provider } from 'react-redux'
+import { screen, render } from '@testing-library/react'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import Roaster from '../Roaster'
 
-const singleRoaster = {
-  id: 1,
-  name: 'Supreme',
-  location: 'Wellington, Auckland, Christchurch',
-  details:
-    "Better coffee for all is a constant. It's matter of doing things better than the time before and ensuring it's a better experience for all involved.",
-}
+const singleRoaster = [
+  {
+    id: 1,
+    name: 'Supreme',
+    location: 'Wellington, Auckland, Christchurch',
+    details:
+      "Better coffee for all is a constant. It's matter of doing things better than the time before and ensuring it's a better experience for all involved.",
+  },
+]
+
+const cafeData = [
+  {
+    id: 1,
+    cafeName: 'Thunderbird Cafe',
+    address: '154 Featherston Street, CBD, Wellington 6011',
+    city: 'Wellington',
+    roaster_id: 1,
+    roasterName: 'Supreme',
+    lat: '-41.2835619',
+    lng: '174.7766539',
+  },
+  {
+    id: 2,
+    cafeName: 'Meshino',
+    address: '75 Rutland Street, St Albans, Chirstchurch, 8014',
+    city: 'Christchurch',
+    roaster_id: 2,
+    roasterName: 'Supreme',
+    lat: '-43.50606418686944',
+    lng: '172.62842349325345',
+  },
+  {
+    id: 3,
+    cafeName: 'Shore Road Cafe',
+    address: '13 Shore Road, Remuera, Auckland, 1050',
+    city: 'Auckland',
+    roaster_id: 2,
+    roasterName: 'Allpress',
+    lat: '-36.86518025285166',
+    lng: '174.78895079325343',
+  },
+]
 
 const fakeStore = {
   subscribe: jest.fn(),
   dispatch: jest.fn(),
   getState: jest.fn(() => {
-    return { roaster: fakeRoaster }
+    return { roasters: singleRoaster, searchRoasters: cafeData }
   }),
 }
 
@@ -24,19 +60,32 @@ beforeEach(() => {
   jest.clearAllMocks()
 })
 
-describe('<Roaster />', () => {
-  it('display the roaster name, location and detail', () => {
-    expect.assertions(2)
-    render(
-      <Provider store={fakeStore}>
-        <BrowserRouter>
-          <Roaster />
-        </BrowserRouter>
-      </Provider>
-    )
-    const roasterName = screen.getByText(singleRoaster.name, { expect: false })
-    expect(roasterName).toBeTruthy()
-    const roasterLocation = screen.getByRole('heading')
-    expect(roasterLocation.textContent).toBe('Roaster')
+function AppProvider({ children }) {
+  return (
+    <Provider store={fakeStore}>
+      <MemoryRouter initialEntries={['/roasters/1']}>
+        <Routes>{children}</Routes>
+      </MemoryRouter>
+    </Provider>
+  )
+}
+
+describe('/Roaster', () => {
+  it('renders without crashing and displays the roaster name', () => {
+    render(<Route path="/roasters/:id" element={<Roaster />} />, {
+      wrapper: AppProvider,
+    })
+    expect(screen.getByText(/location:/i)).toBeInTheDocument()
+    const roasterName = screen.getAllByRole('heading')
+    expect(roasterName[0].textContent).toBe('Roastery Supreme')
+  })
+
+  it('filters and displays cafes correctly', () => {
+    render(<Route path="/roasters/:id" element={<Roaster />} />, {
+      wrapper: AppProvider,
+    })
+    const cafeName = screen.getAllByRole('heading')
+    expect(cafeName[1].textContent).toBe('Thunderbird Cafe')
+    expect(cafeName[2].textContent).toContain('Meshino')
   })
 })

@@ -7,3 +7,13 @@ export function getCafes() {
     return res.body
   })
 }
+
+export function addCafe(newCafe, token) {
+  return request
+    .post(rootUrl + '/cafes')
+    .set('Authorization', `Bearer ${token}`)
+    .send(newCafe)
+    .then((res) => {
+      return res.body
+    })
+}

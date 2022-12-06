@@ -2,57 +2,56 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Header.module.scss'
 
-
-// import { IfAuthenticated, IfNotAuthenticated } from './isAuthenticated'
-// import { useAuth0 } from '@auth0/auth0-react'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Header() {
-  // const { logout, loginWithRedirect, user } = useAuth0()
+  const { logout, loginWithRedirect, user } = useAuth0()
 
-  // const handleLogOff = (e) => {
-  //   e.preventDefault()
-  //   logout()
-  // }
+  const handleLogOff = (e) => {
+    // change links to buttons to remove prevent default
+    e.preventDefault()
+    logout()
+  }
 
-  // const handleSignIn = (e) => {
-  //   e.preventDefault()
-  //   loginWithRedirect()
+  const handleSignIn = (e) => {
+    // change links to buttons to remove prevent default
+    e.preventDefault()
+    loginWithRedirect()
+  }
 
   return (
     <>
-    <nav className={styles.navbar}>
-      
-      <div>
-        <Link to='/'>
-        <h1 className={styles.title}>HAS BEAN</h1>
-        </Link>
-      </div>
-      <div className={styles.links}>
-        <Link to='/roasters'>Roasters</Link>
-        <Link to='/beans'>Beans</Link>
-        <Link to='/ivebeen'>I've Bean</Link>
-        </div>
-        {/* <div>
-        <IfAuthenticated>
-          <div className={styles.auth}>
-            <div>Hello {user?.nickname}</div>
-            <div>
-              <Link to='/' onClick={handleLogOff}>
-                Sign out
-              </Link>
-            </div>
-          </div>
-        </IfAuthenticated>
-
-        <IfNotAuthenticated>
-          <Link className={styles.auth} to='/' onClick={handleSignIn}>
-            Register | Login
+      <nav className={styles.navbar}>
+        <div>
+          <Link to="/">
+            <h1 className={styles.title}>HAS BEAN</h1>
           </Link>
-        </IfNotAuthenticated>
-      </div> */}
+        </div>
+        <div className={styles.links}>
+          {/* change to buttons! so we can remove prevent default  */}
+          <Link to="/roasters">Roasters</Link>
+          <Link to="/beans">Beans</Link>
+          <Link to="/drinks">Drinks</Link>
+          <Link to="/quiz">Coffee Quiz</Link>
+          <Link to="/reviews">I&apos;ve Bean</Link>
+        </div>
 
-    </nav>
+        <div className={styles.auth}>
+          <IfAuthenticated>
+            Hello {user?.nickname} &nbsp;|&nbsp;
+            <Link to="/" onClick={handleLogOff}>
+              Sign out
+            </Link>
+          </IfAuthenticated>
+
+          <IfNotAuthenticated>
+            <Link to="/" onClick={handleSignIn}>
+              Register | Login
+            </Link>
+          </IfNotAuthenticated>
+        </div>
+      </nav>
     </>
   )
 }
-

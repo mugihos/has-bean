@@ -1,36 +1,18 @@
-# Boilerplate: Fullstack with Sass
+# HasBean <img src='server/public/img/coffee-beans-icon.png' width=40>
 
-## Setup
+## **Aihe-Ahoaho group project 2022**
 
 ### What's included
 
 This repo includes:
 
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Jest and testing library
-* configuration for server-side debugging in VS Code
-* configuration for preprocessing Sass
-* a single client-side test (`client/components/App.test.js`)
+* sleep deprivation
+* so lots of caffeine
+* an amazing coffee gang
 
-### Installation
+## **What is HasBean?**
+A website to track your favourite coffee roasters in New Zealand.
 
-#### **From the Github UI**
+### **Our Team** <img src='server/public/img/coffee.png' width=25>
 
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
-
-#### **From the command line**
-
-```
-git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
-
-You can find the server running on [http://localhost:3000](http://localhost:3000).
-
----
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack-scss)
+Mugi, Gus, Ingrid, Clinton, Sarah and Eq 
