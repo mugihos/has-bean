@@ -11,7 +11,7 @@ export default function ContactUs() {
 
   return (
     <>
-    <h2>Get in touch</h2>
+    <h2 className={styles.branchFont}>Get in touch</h2>
     <h3>Drop us a line</h3>
     <p>Email us with any questions you have and we&apos;ll get back to you as soon as we can.</p>
     <button>
