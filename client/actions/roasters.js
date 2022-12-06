@@ -1,4 +1,4 @@
-import { getRoasters, postRoaster, editRoaster } from '../apis/roasters'
+import { getRoasters, postRoaster } from '../apis/roasters'
 
 export const SET_ROASTERS = 'SET_ROASTERS'
 export const ADD_ROASTER = 'ADD_ROASTER'

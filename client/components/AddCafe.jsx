@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addMoreCafe, fetchCafes } from '../actions/cafes'
+import { addMoreCafe} from '../actions/cafes'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
