@@ -14,7 +14,6 @@ export function addCafe(newCafe, token) {
     .set('Authorization', `Bearer ${token}`)
     .send(newCafe)
     .then((res) => {
-      console.log('api', res)
       return res.body
     })
 }
