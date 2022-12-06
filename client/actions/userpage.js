@@ -15,9 +15,9 @@ export function setReviews(reviews) {
 }
 
 // -- get reviews thunk --
-export function fetchReviews() {
+export function fetchReviews(token) {
   return (dispatch) => {
-    return getReviews()
+    return getReviews(token)
       .then((reviews) => {
         dispatch(setReviews(reviews))
       })

@@ -5,15 +5,23 @@ import { fetchReviews, removeReview } from '../actions/userpage'
 import { useAuth0 } from '@auth0/auth0-react'
 // import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
-
 export default function UserPage() {
-  const { getAccessTokenSilently } = useAuth0()
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0()
   const dispatch = useDispatch()
-  const navigate = useNavigate
   const allReviews = useSelector((state) => state.reviews)
-  useEffect(() => {
-    dispatch(fetchReviews())
-  }, [])
+
+  useEffect( async () => {
+    const token = await getAccessTokenSilently()
+    if (isAuthenticated) {dispatch(fetchReviews(token))}
+  }, [isAuthenticated])
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     getAccessTokenSilently()
+  //       .then((token) => dispatch(fetchReviews(token)))
+  //       .catch((err) => console.error(err))
+  //   }
+  // }, [isAuthenticated])
 
   if (!allReviews) {
     return <div></div>
@@ -22,7 +30,6 @@ export default function UserPage() {
   const handleDelete = async (e, id) => {
     const token = await getAccessTokenSilently()
     dispatch(removeReview(id, token))
-    navigate('/review')
   }
 
   return (

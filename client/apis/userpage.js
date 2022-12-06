@@ -2,8 +2,10 @@ import request from 'superagent'
 
 const rootUrl = '/api/v1'
 
-export function getReviews() {
-  return request.get(`${rootUrl}/reviews`).then((res) => {
+export function getReviews(token) {
+  return request.get(`${rootUrl}/reviews`)
+  .set('Authorization', `Bearer ${token}`)
+  .then((res) => {
     return res.body
   })
 }

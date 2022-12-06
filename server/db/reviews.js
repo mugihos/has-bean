@@ -10,7 +10,7 @@ module.exports = {
 }
 
 function getReviews(auth0Id, db = connection) {
-  return db('reviews').select().where('auth0_id', auth0Id)
+  return db('reviews').select().where('auth_user_id', auth0Id)
 }
 
 function getReviewById(id, db = connection) {

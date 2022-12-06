@@ -6,6 +6,7 @@ const checkJwt = require('../auth0')
 // GET api/v1/reviews
 router.get('/', checkJwt, (req, res) => {
   const auth0Id = req.auth?.sub
+  console.log(auth0Id, 'auth0Id');
   db.getReviews(auth0Id)
     .then((result) => {
       res.json(result)
@@ -85,7 +86,7 @@ router.delete('/:id', checkJwt, (req, res) => {
   db.userCanEdit(id, auth0Id)
     .then(() => db.deleteReview(id))
     .then(() => {
-      return db.getReviews()
+      return db.getReviews(auth0Id)
     })
     .then((reviews) => {
       res.json(reviews)
