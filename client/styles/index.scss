@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+@use '../styles/theme';
 
 html, 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: theme.$font-body;
 }
 
 a:link {
-  color: black;
+  color: theme.$black;
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: theme.$black;
 }
 
 a:hover {
   opacity: 0.7;
+  transform: translateY(-2px); transition-duration: 700ms;
+  // transform: scale3d(0.8, 1, 1); transition-duration: 700ms;
 }
 
 form {
@@ -76,4 +78,6 @@ li{
 
 .fa:hover {
   opacity: 0.7;
+  transform: translateY(-3px); transition-duration: 500ms;
+  text-shadow: 3px 3px rgb(190, 190, 190);
 }
