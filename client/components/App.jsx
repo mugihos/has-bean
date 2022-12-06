@@ -21,7 +21,7 @@ import ContactUs from './ContactUs'
 import IveBean from './IveBean'
 import AddRoaster from './AddRoaster'
 import Drinks from './Drinks'
-
+import Quiz from './Quiz'
 export default function App() {
   const dispatch = useDispatch()
 
@@ -51,6 +51,7 @@ export default function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/addroaster" element={<AddRoaster />} />
             <Route path="/drinks" element={<Drinks />} />
+            <Route path="/quiz" element={<Quiz />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
