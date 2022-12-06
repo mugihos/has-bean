@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchReviews, removeReview } from '../actions/userpage'
+import { useAuth0 } from '@auth0/auth0-react'
 import { Radar } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
@@ -19,7 +20,7 @@ ChartJS.register(
   Filler,
   Tooltip,
   Legend
-)import { useAuth0 } from '@auth0/auth0-react'
+)
 
 export default function UserPage() {
   const { getAccessTokenSilently, isAuthenticated } = useAuth0()
