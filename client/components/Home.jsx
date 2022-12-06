@@ -44,7 +44,7 @@ export default function Home() {
                         <h2>{cafeName}</h2>
                         <p>{address}</p>
                         <Link to={`/roasters/${roasterId}`}>
-                          <p>>> Roaster: {roasterName}</p>
+                          <p>View Roaster: {roasterName}</p>
                         </Link>
                       </div>
                     )
