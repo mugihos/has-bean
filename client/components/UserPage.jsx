@@ -23,7 +23,7 @@ ChartJS.register(
 // import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 // import { useAuth0 } from '@auth0/auth0-react'
 
-export default function IveBean() {
+export default function UserPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate
   let reviews = useSelector((state) => state.reviews)
@@ -41,11 +41,6 @@ export default function IveBean() {
         },
       },
     },
-  }
-
-  function handleDelete(e, id) {
-    dispatch(removeReview(id))
-    navigate('/review')
   }
 
   function handleDelete(e, id) {

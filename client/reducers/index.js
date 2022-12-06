@@ -5,7 +5,6 @@ import cafes from './cafes'
 import searchRoasters from './searchRoasters'
 import searchResult from './searchResult'
 import beans from './beans'
-import reviews from './iveBean'
 import reviews from './userpage'
 
 export default combineReducers({

@@ -9,6 +9,7 @@ module.exports = {
 }
 
 function getReviews(db = connection) {
+  console.log('db query')
   return db('reviews')
     .join('beans', 'reviews.bean_id', 'beans.id')
     .join('cafes', 'reviews.cafe_id', 'cafes.id')
