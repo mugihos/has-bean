@@ -8,6 +8,7 @@ router.get('/', checkJwt, (req, res) => {
   const auth0Id = req.auth?.sub
   db.getReviews(auth0Id)
     .then((result) => {
+      console.log(result, 'result');
       res.json(result)
     })
     .catch((err) => {
@@ -29,10 +30,10 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// Get api/v1/reviews/:bean_id/bean
+// Get api/v1/reviews/beanid/bean
 router.get('/:bean_id/bean', (req, res) => {
-  const bean_id = req.params.id
-  db.getReviewByBeanId(bean_id)
+  const beanId = req.params.beanid
+  db.getReviewByBeanId(beanId)
     .then((result) => {
       res.json(result)
     })
@@ -61,7 +62,7 @@ router.post('/add', checkJwt, (req, res) => {
     })
 })
 
-//UPDATE api/v1/reviews/:id/edit
+//UPDATE api/v1/ivebean/:id/edit
 router.patch('/:id/edit', (req, res) => {
   const id = req.params.id
   const newInfo = req.body

@@ -21,7 +21,6 @@ export function addReview(newReview, token) {
     .set('Authorization', `Bearer ${token}`)
     .send(newReview)
     .then((res) => {
-      console.log(res)
       return res.body
     })
     .catch(console.error)

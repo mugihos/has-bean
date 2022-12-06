@@ -21,6 +21,7 @@ import ContactUs from './ContactUs'
 import UserPage from './UserPage'
 import AddRoaster from './AddRoaster'
 import Drinks from './Drinks'
+import Quiz from './Quiz'
 import SubmitReview from './SubmitReview'
 
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/addroaster" element={<AddRoaster />} />
             <Route path="/drinks" element={<Drinks />} />
+            <Route path="/quiz" element={<Quiz />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

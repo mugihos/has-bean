@@ -40,7 +40,6 @@ export function sendReview(newReview, token) {
   return (dispatch) => {
     return addReview(newReview, token)
       .then((newId) => {
-        console.log(newId)
         dispatch(submitReview({ ...newReview, id: newId }))
       })
       .catch((error) => {

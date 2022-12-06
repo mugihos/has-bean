@@ -17,13 +17,12 @@ export default function Home() {
   //useSelector to use the result redux
   //will use hardcoded info for now to make this state work
   let selectedResult = useSelector((state) => state.searchResult)
-  console.log('selectedResult', selectedResult)
   // Function for onClick for markers on map, this will be used once we start the search Roaster > all cafes related > click on one marker
   const dispatch = useDispatch()
   function moreInfo(item) {
     dispatch(setSearchResult([item]))
   }
-
+  console.log(selectedResult)
   return (
     <>
       <div className={styles.container}>
@@ -39,12 +38,14 @@ export default function Home() {
             ) : selectedResult.length >= 1 ? (
               <div className={styles.detail}>
                 {selectedResult?.map(
-                  ({ id, cafeName, address, roasterName }) => {
+                  ({ id, cafeName, address, roasterName, roasterId }) => {
                     return (
                       <div key={id}>
                         <h2>{cafeName}</h2>
                         <p>{address}</p>
-                        <p>Roaster: {roasterName}</p>
+                        <Link to={`/roasters/${roasterId}`}>
+                          <p>View Roaster: {roasterName}</p>
+                        </Link>
                       </div>
                     )
                   }
