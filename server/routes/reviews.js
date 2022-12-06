@@ -8,7 +8,6 @@ router.get('/', checkJwt, (req, res) => {
   const auth0Id = req.auth?.sub
   db.getReviews(auth0Id)
     .then((result) => {
-      console.log(result, 'result');
       res.json(result)
     })
     .catch((err) => {
