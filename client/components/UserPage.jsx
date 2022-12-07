@@ -37,6 +37,8 @@ export default function UserPage() {
     }
   }, [isAuthenticated])
   const options = {
+    maintainAspectRatio: false,
+    aspectRatio: 1,
     scales: {
       r: {
         max: 5.0,
@@ -58,6 +60,12 @@ export default function UserPage() {
     plugins: {
       legend: {
         display: false,
+        padding: 0,
+        labels: {
+          boxWidth: 200,
+          boxHeight: 200,
+          usePointStyle: true,
+        },
       },
     },
   }
@@ -76,15 +84,17 @@ export default function UserPage() {
       <div>
         <h1 className={styles.heading}>I&apos;ve Bean</h1>
         {isAuthenticated == false ? (
-          <div>
+          <div className={styles.notAuth}>
             <button onClick={handleSignIn}>Register | Login</button> to see your
             reviews.
           </div>
         ) : (
-          <div>
-            <Link to="/reviews/add">
-              <button>Add a review</button>
-            </Link>
+          <div className={styles.container}>
+            <div>
+              <Link to="/reviews/add">
+                <h2 className={styles.addReview}>Click here to add review✍🏼</h2>
+              </Link>
+            </div>
             <section className={styles.cardList}>
               {reviews?.map((review) => {
                 const data = {
@@ -109,15 +119,15 @@ export default function UserPage() {
                 return (
                   <div key={review.id}>
                     <article className={styles.card}>
-                      <header className={styles.cardHeader}>
+                      <div className={styles.cardHeader}>
                         <h1>{review.beansName}</h1>
                         <Link to={`/roasters/${review.roaster_id}`}>
                           <h2>{review.roasterName}</h2>
                         </Link>
-                      </header>
+                      </div>
 
                       <div className={styles.cardAuthor}>
-                        <Radar data={data} options={options} />
+                        <Radar data={data} options={options} width={'10%'} />
                       </div>
                       <div className={styles.authorName}>
                         <div className={styles.authorNamePrefix}>
@@ -130,16 +140,16 @@ export default function UserPage() {
                           <li>Coffee Type: {review.coffee_type}</li>
                           <li>Cafe Name: {review.cafesName}</li>
                           <li>Roasters Notes: {review.flavourDesc}</li>
-                          <li>
-                            <button
-                              onClick={(e) => {
-                                handleDelete(e, review.id)
-                              }}
-                            >
-                              Delete Review
-                            </button>
-                          </li>
                         </ul>
+
+                        <button
+                          className={styles.buttonDesign}
+                          onClick={(e) => {
+                            handleDelete(e, review.id)
+                          }}
+                        >
+                          Delete Review
+                        </button>
                       </div>
                     </article>
                   </div>

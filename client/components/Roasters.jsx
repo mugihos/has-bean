@@ -23,7 +23,7 @@ export default function Roasters() {
       {locations.map((location) => {
         return (
           <div key={location}>
-            <h3>{location}</h3>
+            <h3 className={styles.locationName}>{location}</h3>
             <div className={styles.roastersBackground}>
               <section className={styles.cardList}>
                 {/* <ul className={styles.flexcontainer}> */}
