@@ -6,6 +6,12 @@
 
 .map, .right {
   flex: 1;
+  margin: 10px;
+  h1 {
+    font-family: theme.$font-header;
+    font-size:42px;
+    color: theme.$brown;
+  }
 }
 
 .detail {
@@ -18,4 +24,7 @@
 
 .map {
   margin-left: 4rem;
+}
+.search {
+  color:theme.$orange;
 }
