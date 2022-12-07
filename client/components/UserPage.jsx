@@ -67,7 +67,7 @@ export default function UserPage() {
     dispatch(removeReview(id, token))
   }
 
-  const handleSignIn = (e) => {
+  const handleSignIn = () => {
     loginWithRedirect()
   }
 
