@@ -121,6 +121,9 @@ a {
 
 .card:hover {
     transform: translateY(-1.5rem);
+    img {
+      filter: grayscale(0%);
+    }
 
 }
 
