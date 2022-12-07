@@ -47,12 +47,12 @@ export default function Home() {
               <div></div>
             )}
             <IfAuthenticated>
-            <Link to={`/addNewCafe`}>
-              <button>ADD NEW CAFE</button>
-            </Link>
-            <Link to="/addroaster">
-              <button>Add Roaster</button>
-            </Link>
+              <Link to={`/addNewCafe`}>
+                <button>Add New Cafe</button>
+              </Link>
+              <Link to="/addroaster">
+                <button>Add Roaster</button>
+              </Link>
             </IfAuthenticated>
           </div>
         </div>
@@ -60,4 +60,3 @@ export default function Home() {
     </>
   )
 }
-

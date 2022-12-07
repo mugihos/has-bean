@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addMoreCafe} from '../actions/cafes'
+import { addMoreCafe } from '../actions/cafes'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
-//import styles from './AddCafe.module.scss'
+import styles from './AddCafe.module.scss'
 
 export default function AddCafe() {
   const { getAccessTokenSilently } = useAuth0()
@@ -39,12 +39,13 @@ export default function AddCafe() {
 
   return (
     <div>
-      <h2>ADD NEW CAFE</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className={styles.heading}>Add new cafe☕</h2>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">
-            Cafe Name:
+            Cafe:
             <input
+              type="text"
               id="name"
               onChange={handleChange}
               value={newCafe?.name || ''}
@@ -56,7 +57,8 @@ export default function AddCafe() {
         <div>
           <label htmlFor="address">
             Address:
-            <input
+            <textarea
+              type="text"
               id="address"
               onChange={handleChange}
               value={newCafe?.address || ''}
@@ -68,6 +70,7 @@ export default function AddCafe() {
           <label htmlFor="city">
             City:
             <input
+              type="text"
               id="city"
               onChange={handleChange}
               value={newCafe?.city || ''}
@@ -77,7 +80,12 @@ export default function AddCafe() {
         </div>
         <div>
           <label htmlFor="roaster_id">Roaster:</label>
-          <select id="roaster_id" onChange={handleChange} name="roaster_id">
+          <select
+            className={styles.selector}
+            id="roaster_id"
+            onChange={handleChange}
+            name="roaster_id"
+          >
             <option value="0">--Please select--</option>
             {roasters?.map(({ id, name }) => {
               return (
@@ -91,8 +99,9 @@ export default function AddCafe() {
 
         <div>
           <label htmlFor="lat">
-            lat:
+            Latitude:
             <input
+              type="text"
               id="lat"
               onChange={handleChange}
               value={newCafe?.lat || ''}
@@ -102,8 +111,9 @@ export default function AddCafe() {
         </div>
         <div>
           <label htmlFor="lng">
-            lng:
+            Longitude:
             <input
+              type="text"
               id="lng"
               onChange={handleChange}
               value={newCafe?.lng || ''}
@@ -111,7 +121,9 @@ export default function AddCafe() {
             />
           </label>
         </div>
-        <button>Submit :p</button>
+        <div className={styles.buttonCenter}>
+          <button className={styles.addButton}>Submit</button>
+        </div>
       </form>
     </div>
   )
