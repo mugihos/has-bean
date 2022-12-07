@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addMoreCafe} from '../actions/cafes'
+import { addMoreCafe } from '../actions/cafes'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { fetchSearchRoasters } from '../actions/searchRoasters'
-//import styles from './AddCafe.module.scss'
+import styles from './AddCafe.module.scss'
 
 export default function AddCafe() {
   const { getAccessTokenSilently } = useAuth0()
@@ -39,45 +39,47 @@ export default function AddCafe() {
 
   return (
     <div>
-      <h2>ADD NEW CAFE</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className={styles.heading}>Add your new favourite cafe☕</h2>
+      <form>
         <div>
-          <label htmlFor="name">
-            Cafe Name:
-            <input
-              id="name"
-              onChange={handleChange}
-              value={newCafe?.name || ''}
-              name="name"
-              required
-            />
-          </label>
+          <label htmlFor="name">Cafe:</label>
+          <input
+            type="text"
+            id="name"
+            onChange={handleChange}
+            value={newCafe?.name || ''}
+            name="name"
+            required
+          />
         </div>
         <div>
-          <label htmlFor="address">
-            Address:
-            <input
-              id="address"
-              onChange={handleChange}
-              value={newCafe?.address || ''}
-              name="address"
-            />
-          </label>
+          <label htmlFor="address">Address:</label>
+          <textarea
+            type="text"
+            id="address"
+            onChange={handleChange}
+            value={newCafe?.address || ''}
+            name="address"
+          />
         </div>
         <div>
-          <label htmlFor="city">
-            City:
-            <input
-              id="city"
-              onChange={handleChange}
-              value={newCafe?.city || ''}
-              name="city"
-            />
-          </label>
+          <label htmlFor="city">City:</label>
+          <input
+            type="text"
+            id="city"
+            onChange={handleChange}
+            value={newCafe?.city || ''}
+            name="city"
+          />
         </div>
         <div>
           <label htmlFor="roaster_id">Roaster:</label>
-          <select id="roaster_id" onChange={handleChange} name="roaster_id">
+          <select
+            className={styles.selector}
+            id="roaster_id"
+            onChange={handleChange}
+            name="roaster_id"
+          >
             <option value="0">--Please select--</option>
             {roasters?.map(({ id, name }) => {
               return (
@@ -90,29 +92,31 @@ export default function AddCafe() {
         </div>
 
         <div>
-          <label htmlFor="lat">
-            lat:
-            <input
-              id="lat"
-              onChange={handleChange}
-              value={newCafe?.lat || ''}
-              name="lat"
-            />
-          </label>
+          <label htmlFor="lat">Latitude:</label>
+          <input
+            type="text"
+            id="lat"
+            onChange={handleChange}
+            value={newCafe?.lat || ''}
+            name="lat"
+          />
         </div>
         <div>
-          <label htmlFor="lng">
-            lng:
-            <input
-              id="lng"
-              onChange={handleChange}
-              value={newCafe?.lng || ''}
-              name="lng"
-            />
-          </label>
+          <label htmlFor="lng">Longitude:</label>
+          <input
+            type="text"
+            id="lng"
+            onChange={handleChange}
+            value={newCafe?.lng || ''}
+            name="lng"
+          />
         </div>
-        <button>Submit :p</button>
       </form>
+      <div className={styles.buttonCenter}>
+        <button onClick={handleSubmit} className={styles.addButton}>
+          Submit
+        </button>
+      </div>
     </div>
   )
 }
