@@ -33,7 +33,9 @@ export default function Home() {
                   ({ id, cafeName, address, roasterName, roasterId }) => {
                     return (
                       <div key={id}>
-                        <h2>{cafeName}</h2>
+                        <h2 id="cafeNameClick" className={styles.head}>
+                          {cafeName}
+                        </h2>
                         <p>{address}</p>
                         <Link to={`/roasters/${roasterId}`}>
                           <p>View Roaster: {roasterName}</p>
@@ -47,12 +49,12 @@ export default function Home() {
               <div></div>
             )}
             <IfAuthenticated>
-            <Link to={`/addNewCafe`}>
-              <button>ADD NEW CAFE</button>
-            </Link>
-            <Link to="/addroaster">
-              <button>Add Roaster</button>
-            </Link>
+              <Link to={`/addNewCafe`}>
+                <button>Add New Cafe</button>
+              </Link>
+              <Link to="/addroaster">
+                <button>Add Roaster</button>
+              </Link>
             </IfAuthenticated>
           </div>
         </div>
@@ -60,4 +62,3 @@ export default function Home() {
     </>
   )
 }
-

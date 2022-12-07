@@ -1,5 +1,11 @@
 @use '../styles/theme';
 
+.heading {
+  font-family: theme.$font-header;
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 0;
+}
 
 .ul {
   display: flex;

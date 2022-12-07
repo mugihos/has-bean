@@ -4,6 +4,7 @@ html,
 body {
   font-family: theme.$font-body;
   margin: auto;
+  color: theme.$text-black;
 }
 
 a:link {
@@ -44,26 +45,31 @@ input[type=text], select, textarea{
   font-family: theme.$font-body;
 }
 
+::placeholder {
+  font-family: theme.$font-body;
+}
+
 label {
-  padding: 12px 12px 12px 0;
+  padding: 12px;
   display: inline-block;
 }
 
 button {
-  border-radius: 45px;
+  border-radius: 10px;
   position: relative;
   background-color: theme.$bright;
-  border: 1px solid theme.$black;
+  border: 2px solid theme.$black;
   cursor:pointer;
-  // -webkit-border-radius: 5px;
   align-items: center;
-  font-family: theme.$font-header;
+  // font-family: theme.$font-header;
+  font-family: theme.$font-body;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 1500;
   line-height: 20px;
-  // margin: 0;
+  padding: 5px;
+  margin: 10px;
   width: 8rem;
-  height: 3.5rem;
+  height: 2.5rem;
 }
 
 select {
@@ -80,9 +86,9 @@ li{
 }
 
 .pageWrapper {
-  margin: 3vw;
+  margin: 3rem;
   display: flex;
-  min-height: 50vh;
+  min-height: 75vh;
   flex-direction: column;
   justify-content: space-between;
 }

@@ -23,9 +23,13 @@ export default function Header() {
   return (
     <>
       <nav className={styles.navbar}>
-        <div>
+        <div className={styles.logo}>
           <Link to="/">
-            <h1 className={styles.title}>HAS BEAN</h1>
+            <img
+              width="150"
+              src="../../img/logo-dark.svg"
+              alt="hasBean logo"
+            ></img>
           </Link>
         </div>
         <div className={styles.links}>

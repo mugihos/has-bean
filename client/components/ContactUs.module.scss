@@ -1,12 +1,70 @@
 @use '../styles/theme';
 
-.branchFont {
+.branch {
   font-family: theme.$font-header;
-  font-size: 200px;
+  font-size: 2.8rem;
+  text-align: center;
 }
 
-.branchFont:hover {
+.smallBranch {
+  font-size: 2rem; 
+  font-family: theme.$font-header;
+}
+
+.branch:hover {
   opacity: 0.9;
   transform: translateY(-5px); transition-duration: 500ms;
   text-shadow: 5px 5px rgb(190, 190, 190);
+}
+
+.contact {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto  ;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 50px;
+  grid-column: 1 / 2;
+  border: 4px solid theme.$bright; 
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+}
+.buttonEmail {
+  border: none;
+  outline: none;
+}
+.contact {
+  font-family: theme.$font-body;
+}
+
+.submitForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+.singleInput { 
+  align-content: stretch;
+  padding: 10px;
+  border-width: 1px;
+  width: 100%;
+}
+
+.submit {
+  text-align: center;
+}
+
+.photo {
+  width: 400px;
+  height: auto;
 }
