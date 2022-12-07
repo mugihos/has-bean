@@ -89,10 +89,12 @@ export default function UserPage() {
             reviews.
           </div>
         ) : (
-          <div className={styles.buttonDesign}>
-            <Link to="/reviews/add">
-              <button>Add a review</button>
-            </Link>
+          <div className={styles.container}>
+            <div>
+              <Link to="/reviews/add">
+                <h2 className={styles.addReview}>Click here to add review✍🏼</h2>
+              </Link>
+            </div>
             <section className={styles.cardList}>
               {reviews?.map((review) => {
                 const data = {
@@ -125,7 +127,7 @@ export default function UserPage() {
                       </div>
 
                       <div className={styles.cardAuthor}>
-                        <Radar data={data} options={options} />
+                        <Radar data={data} options={options} width={'10%'} />
                       </div>
                       <div className={styles.authorName}>
                         <div className={styles.authorNamePrefix}>
@@ -138,25 +140,16 @@ export default function UserPage() {
                           <li>Coffee Type: {review.coffee_type}</li>
                           <li>Cafe Name: {review.cafesName}</li>
                           <li>Roasters Notes: {review.flavourDesc}</li>
-                          {/* <li>
-                            <button
-                              onClick={(e) => {
-                                handleDelete(e, review.id)
-                              }}
-                            >
-                              Delete Review
-                            </button>
-                          </li> */}
                         </ul>
-                        <div className={styles.buttonDesign}>
-                          <button
-                            onClick={(e) => {
-                              handleDelete(e, review.id)
-                            }}
-                          >
-                            Delete Review
-                          </button>
-                        </div>
+
+                        <button
+                          className={styles.buttonDesign}
+                          onClick={(e) => {
+                            handleDelete(e, review.id)
+                          }}
+                        >
+                          Delete Review
+                        </button>
                       </div>
                     </article>
                   </div>
