@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import styles from './Quiz.module.scss'
+import styles from './Bean.module.scss'
 
 export default function Bean() {
   const params = useParams()
@@ -13,14 +13,18 @@ export default function Bean() {
     <>
       <div>
         {singleBean && (
-          <div>
-            <h2>{singleBean.beanName}</h2>
-            <h3>Roaster: {singleBean.roasterName}</h3>
+          <div className={styles.beanContainer}>
+            <h2 className={styles.heading}>{singleBean.beanName}</h2>
             <img
+              className={styles.BeanImg}
               src={singleBean.roaster_image}
               alt={singleBean.roasterName}
               width="200"
             />
+            <h3 className={styles.headingTwo}>
+              Roaster: {singleBean.roasterName}
+            </h3>
+
             <p>Region: {singleBean.region}</p>
             <p>Process: {singleBean.process}</p>
             <p>Roast: {singleBean.roast_degree}</p>

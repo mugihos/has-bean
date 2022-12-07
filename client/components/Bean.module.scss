@@ -1,0 +1,20 @@
+@use '../styles/theme';
+
+.heading {
+  font-family: theme.$font-header;
+  text-align: center;
+  font-size: 40px;
+}
+.headingTwo {
+  //font-family: theme.$font-header;
+  text-align: center;
+  font-size: 20px;
+}
+
+.beanContainer {
+  text-align: center;
+}
+// .BeanImg{
+//   width:100px;
+//   height:100px;
+// }
