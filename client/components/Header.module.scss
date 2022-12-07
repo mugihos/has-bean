@@ -50,5 +50,11 @@
 .logo {
   margin-left: 2rem;
   margin-top: 1.5rem;
-  padding: 0;
+  padding: 0; 
+  transition-duration: 1000ms;
+}
+
+.logo:hover {
+  transform: translateY(-5px); 
+  transition-duration: 500ms;
 }

@@ -6,7 +6,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
- 
 }
 
 .item {
@@ -34,8 +33,16 @@
   margin-left:50%;
   margin-top: auto;
 }
+
 .answerContainer{
   align-items: baseline;
   justify-content: center;
   align-content: flex-end;
+}
+
+.headingh2 {
+  font-family: theme.$font-header;
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 0;
 }
