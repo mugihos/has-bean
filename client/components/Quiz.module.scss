@@ -40,9 +40,18 @@
   align-content: flex-end;
 }
 
-.headingh2 {
+.heading2 {
   font-family: theme.$font-header;
   font-size: 2.8rem;
   text-align: center;
   margin: 0;
+}
+
+.headPlus {
+  display: flex;
+  flex-direction: row;
+  font-family: theme.$font-header;
+  text-align: center;
+  justify-content: center;
+
 }
