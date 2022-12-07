@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Quiz.module.scss'
 
 export default function Quiz() {
   const quiz = [
@@ -106,7 +107,7 @@ export default function Quiz() {
   return (
     <>
       <div>
-        <h1>Coffee Quiz</h1>
+        <h2 className={styles.heading}>Coffee Quiz</h2>
         <ol>
           {quiz.map((quiz) => {
             return (
