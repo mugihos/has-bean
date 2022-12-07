@@ -10,6 +10,7 @@ body {
 a:link {
   color: theme.$black;
   text-decoration: none;
+  transition-duration: 700ms;
 }
 
 a:visited {
