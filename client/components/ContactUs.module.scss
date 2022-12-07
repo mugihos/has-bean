@@ -32,10 +32,12 @@
   display: flex;
   flex-direction: column;
 }
+
 .buttonEmail {
   border: none;
   outline: none;
 }
+
 .contact {
   font-family: theme.$font-body;
 }
@@ -67,4 +69,8 @@
 .photo {
   width: 400px;
   height: auto;
+}
+
+.image {
+  width: 95%;
 }
