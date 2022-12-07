@@ -1,6 +1,46 @@
 @use '../styles/theme';
 
+.container {
+  display: flex;
+  // flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  color: theme.$black;
+  margin: 1rem;
+  width: 18rem;
+  padding: 2rem; 
+
+}
 .heading {
+  font-family: theme.$font-header;
+  font-size: 25px;
+  text-align: left;
+}
+
+.choice {
+  font-size: 20px;
+  text-align:left;
+  // margin-left:35%;
+}
+
+.answer{
+  margin-left:50%;
+  margin-top: auto;
+}
+
+.answerContainer{
+  align-items: baseline;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.headingh2 {
   font-family: theme.$font-header;
   font-size: 2.8rem;
   text-align: center;

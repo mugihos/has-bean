@@ -107,17 +107,23 @@ export default function Quiz() {
   return (
     <>
       <div>
-        <h2 className={styles.heading}>Coffee Quiz</h2>
-        <ol>
+        <h2 className={styles.headingh2}>Coffee Quiz</h2>
+        <ol className={styles.container}>
           {quiz.map((quiz) => {
             return (
-              <div key={quiz.Question}>
-                <h3>{quiz.Question}</h3>
-                <li>{quiz.Option}</li>
-                <li>{quiz.Option2}</li>
-                <li>{quiz.Option3}</li>
-                <li>{quiz.Option4}</li>
-                <button onClick={() => alert(quiz.Answer)}>Answer</button>
+              <div className={styles.item} key={quiz.Question}>
+                <h3 className={styles.heading}>{quiz.Question}</h3>
+                <li className={styles.choice}>- {quiz.Option}</li>
+                <li className={styles.choice}>- {quiz.Option2}</li>
+                <li className={styles.choice}>- {quiz.Option3}</li>
+                <li className={styles.choice}>- {quiz.Option4}</li>
+
+                <button
+                  className={styles.answer}
+                  onClick={() => alert(quiz.Answer)}
+                >
+                  Answer
+                </button>
               </div>
             )
           })}
