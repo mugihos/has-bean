@@ -5,9 +5,11 @@
   justify-content: space-between; 
   align-items: center;
   gap: 8px; 
-  padding: 24px; 
+  padding: 0.4rem 0.4rem;
+  // padding: 1rem 1rem 24px; 
   background-color: theme.$bright;
   color: theme.$black;
+  font-family: theme.$font-header;
   font-size: 1.2rem; 
   font-weight: bolder; 
   white-space: nowrap;  
@@ -25,6 +27,7 @@
   display: flex; justify-content: space-around; gap: 48px;
   margin-left: 48px;
   margin-right: 2vw;
+  font-size: 1.7rem;
 }
 
 .links a {
@@ -34,12 +37,25 @@
 
 .auth {
   // color: white; 
-  position: absolute;
+  position: relative;
+  // position: absolute;
   top: 0;
   right: 0;
-  font-size: 10px;
+  font-size: 1rem;
   margin-left: 0;
   margin-right: 2vw;
   margin-top: 10px;
   // padding-right: 24px;
+}
+
+.logo {
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+  padding: 0; 
+  transition-duration: 1000ms;
+}
+
+.logo:hover {
+  transform: translateY(-5px); 
+  transition-duration: 500ms;
 }

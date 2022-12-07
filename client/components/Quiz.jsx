@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Quiz.module.scss'
 
 export default function Quiz() {
   const quiz = [
@@ -102,21 +103,31 @@ export default function Quiz() {
         'Depending on the variety, it will take approximately 3 to 4 years for the newly planted coffee trees to bear fruit.',
     },
   ]
+  const image = `img/beans.png`
 
   return (
     <>
       <div>
-        <h1>Coffee Quiz</h1>
-        <ol>
+        <div className={styles.headPlus}>
+          <h2 className={styles.heading2}>Coffee Quiz</h2>
+          <img src={image} alt="beans" width="70" />
+        </div>
+        <ol className={styles.container}>
           {quiz.map((quiz) => {
             return (
-              <div key={quiz.Question}>
-                <h3>{quiz.Question}</h3>
-                <li>{quiz.Option}</li>
-                <li>{quiz.Option2}</li>
-                <li>{quiz.Option3}</li>
-                <li>{quiz.Option4}</li>
-                <button onClick={() => alert(quiz.Answer)}>Answer</button>
+              <div className={styles.item} key={quiz.Question}>
+                <h3 className={styles.heading}>{quiz.Question}</h3>
+                <li className={styles.choice}>- {quiz.Option}</li>
+                <li className={styles.choice}>- {quiz.Option2}</li>
+                <li className={styles.choice}>- {quiz.Option3}</li>
+                <li className={styles.choice}>- {quiz.Option4}</li>
+
+                <button
+                  className={styles.answer}
+                  onClick={() => alert(quiz.Answer)}
+                >
+                  Answer
+                </button>
               </div>
             )
           })}

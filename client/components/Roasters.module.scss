@@ -1,5 +1,17 @@
 @use '../styles/theme';
 
+.heading {
+  font-family: theme.$font-header;
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 0;
+}
+
+.locationName {
+  text-align: center;
+  font-family: theme.$font-header;
+  font-size: 2rem;
+}
 
 .ul {
   display: flex;
@@ -239,7 +251,8 @@ a {
 }
 
 .roastersBackground {
-   background-image: url("/server/public/img/roasters-bg.png");
+  background-image:url("/server/public/img/noise.svg");
+  //  background-image: url("/server/public/img/roasters-bg.png");
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
