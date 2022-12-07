@@ -54,7 +54,7 @@ export default function Drinks() {
                 <h2>{title}</h2>
                 <img src={image} alt="#" width="200" />
                 <p>{description}</p>
-                <p><b>Ingredients:</b><br></br>  {ingredientsString}</p>
+                <p><b>Ingredients</b><br></br>  {ingredientsString}</p>
               </li>
               </div>
             )
