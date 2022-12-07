@@ -51,9 +51,9 @@ export default function AddRoaster() {
 
   return (
     <>
-      <div>
+      <div className={styles.heading}>
         <h2>Add your favourite coffee roaster</h2>
-        <p>please fill in the below information</p>
+        <p>Please fill in the below information</p>
       </div>
       <form>
         <div>
@@ -95,7 +95,9 @@ export default function AddRoaster() {
           />
         </div>
       </form>
-      <button onClick={handleSubmit}>Add roaster</button>
+      <div className={styles.buttonLocation}>
+        <button onClick={handleSubmit}>Add roaster</button>
+      </div>
     </>
   )
 }
