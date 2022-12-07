@@ -39,44 +39,38 @@ export default function AddCafe() {
 
   return (
     <div>
-      <h2 className={styles.heading}>Add new cafe☕</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <h2 className={styles.heading}>Add your new favourite cafe☕</h2>
+      <form>
         <div>
-          <label htmlFor="name">
-            Cafe:
-            <input
-              type="text"
-              id="name"
-              onChange={handleChange}
-              value={newCafe?.name || ''}
-              name="name"
-              required
-            />
-          </label>
+          <label htmlFor="name">Cafe:</label>
+          <input
+            type="text"
+            id="name"
+            onChange={handleChange}
+            value={newCafe?.name || ''}
+            name="name"
+            required
+          />
         </div>
         <div>
-          <label htmlFor="address">
-            Address:
-            <textarea
-              type="text"
-              id="address"
-              onChange={handleChange}
-              value={newCafe?.address || ''}
-              name="address"
-            />
-          </label>
+          <label htmlFor="address">Address:</label>
+          <textarea
+            type="text"
+            id="address"
+            onChange={handleChange}
+            value={newCafe?.address || ''}
+            name="address"
+          />
         </div>
         <div>
-          <label htmlFor="city">
-            City:
-            <input
-              type="text"
-              id="city"
-              onChange={handleChange}
-              value={newCafe?.city || ''}
-              name="city"
-            />
-          </label>
+          <label htmlFor="city">City:</label>
+          <input
+            type="text"
+            id="city"
+            onChange={handleChange}
+            value={newCafe?.city || ''}
+            name="city"
+          />
         </div>
         <div>
           <label htmlFor="roaster_id">Roaster:</label>
@@ -98,33 +92,31 @@ export default function AddCafe() {
         </div>
 
         <div>
-          <label htmlFor="lat">
-            Latitude:
-            <input
-              type="text"
-              id="lat"
-              onChange={handleChange}
-              value={newCafe?.lat || ''}
-              name="lat"
-            />
-          </label>
+          <label htmlFor="lat">Latitude:</label>
+          <input
+            type="text"
+            id="lat"
+            onChange={handleChange}
+            value={newCafe?.lat || ''}
+            name="lat"
+          />
         </div>
         <div>
-          <label htmlFor="lng">
-            Longitude:
-            <input
-              type="text"
-              id="lng"
-              onChange={handleChange}
-              value={newCafe?.lng || ''}
-              name="lng"
-            />
-          </label>
-        </div>
-        <div className={styles.buttonCenter}>
-          <button className={styles.addButton}>Submit</button>
+          <label htmlFor="lng">Longitude:</label>
+          <input
+            type="text"
+            id="lng"
+            onChange={handleChange}
+            value={newCafe?.lng || ''}
+            name="lng"
+          />
         </div>
       </form>
+      <div className={styles.buttonCenter}>
+        <button onClick={handleSubmit} className={styles.addButton}>
+          Submit
+        </button>
+      </div>
     </div>
   )
 }

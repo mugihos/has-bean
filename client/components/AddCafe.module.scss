@@ -2,44 +2,10 @@
 
 .heading {
   font-family: theme.$font-header;
-  // text-align: center;
-  text-align: left;
-  margin-left:50px;
-  font-size: 50px;
-  font-weight: bold;
-}
-.form{
-  background-color:#2e8b566f;
-  width:100%;
-  color: theme.$black;;
-  text-align:left;
-}
-.selector{
-  padding-left: 12px;
-  margin-left: 12px;
+  text-align: center;
+  font-size: 40px;
 }
 
 .buttonCenter {
-  bottom: 120px;
-  position: absolute;
-  margin:0 auto;
-  left:0;
-  right:0;
-  // text-align:center
-  text-align:left;
-  margin-left: 50px;
-}
-
-.addButton {
-  border-radius: 5px;
-  position: relative;
-  border: none;
-  cursor:pointer;
-  align-items: center;
-  font-family: theme.$font-body;
-  font-size: 13px;
-  width: 7rem;
-  height: 2rem;
-  background-color: theme.$black;
-  color: theme.$bright;
-}
+  text-align: center;
+ }
