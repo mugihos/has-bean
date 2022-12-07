@@ -19,22 +19,42 @@ export default function Beans() {
     <div>
       <h2 className={styles.heading}>Bean Collection</h2>
       <div>
-        <ul className={styles.ul}>
+        <section className={styles.cardList}>
           {beans?.map((bean) => {
             return (
-              <Link to={`/beans/${bean.id}`} key={bean.id}>
-                <div className={styles.beanItem}>
-                  <h2 className={styles.h2}>{bean.beanName}</h2>
-                  <li>REGION: {bean.region}</li>
-                  <li>PROCESS: {bean.process}</li>
-                  <li>RANGE OF ROAST: {bean.roast_degree}</li>
-                  <li>FLAVOR: {bean.flavour_profile}</li>
-                  <li>THE ROASTER: {bean.roasterName}</li>
-                </div>
-              </Link>
+              <div key={bean.id}>
+                <article className={styles.card}>
+                  <header className={styles.cardHeader}>
+                    <p>Beans</p>
+                    <div className={styles.cleanH2}>
+                      <Link to={`/beans/${bean.id}`} key={bean.id}>
+                        <h2>{bean.beanName}</h2>
+                      </Link>
+                    </div>
+                    <div className={styles.authorAvatar}>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/440px-Roasted_coffee_beans.jpg" />
+                    </div>
+                    <div className={styles.tags}>
+                      <li>
+                        REGION: <br />
+                        {bean.region}
+                      </li>
+                      <li>PROCESS: {bean.process}</li>
+                      <li>RANGE OF ROAST: {bean.roast_degree}</li>
+                      <li>FLAVOR: {bean.flavour_profile}</li>
+                      <a
+                        className="cleanLink"
+                        href={`/roasters/${bean.roaster_id}`}
+                      >
+                        Roaster:{bean.roasterName}
+                      </a>
+                    </div>
+                  </header>
+                </article>
+              </div>
             )
           })}
-        </ul>
+        </section>
       </div>
     </div>
   )
