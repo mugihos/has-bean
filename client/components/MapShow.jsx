@@ -41,7 +41,7 @@ export default function MapShow({ moreInfo }) {
         Math.log10(
           ratioTileSize / Math.max(Math.abs(lngDist), Math.abs(latDist))
         ) / Math.log10(2) // Dimesnionless exponential equation to find zoom
-      console.log(zoomLevel, 'zoom level')
+
       return {
         longitude: lngCentre,
         latitude: latCentre,
