@@ -47,12 +47,13 @@ export default function Drinks() {
             const { id, title, description, ingredients } = drink
             const ingredientsString = ingredients.join(', ')
             const image = `img/drinks/${title.toLowerCase()}.png`
-            console.log(image, 'image');
             return (
               <div className={styles.item} key={id}>
               <li>
-                <h2>{title}</h2>
+                <h2 className={styles.title}>{title}</h2>
+                <div className={styles.image}>
                 <img src={image} alt="#" width="200" />
+                </div>
                 <p>{description}</p>
                 <p><b>Ingredients</b><br></br>  {ingredientsString}</p>
               </li>

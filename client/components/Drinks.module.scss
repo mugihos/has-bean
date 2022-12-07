@@ -13,6 +13,15 @@
   // border-color: theme.$brown;
   color: theme.$black;
   margin: 1rem;
-  width: 15rem;
+  width: 18rem;
   padding: 2rem; 
+}
+
+.title {
+  font-family: theme.$font-header;
+}
+
+.image {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
