@@ -37,7 +37,7 @@ export default function Search() {
   return (
     <>
       <div>
-        <div style={{ width: 250, margin: 0 }}>
+        <div>
           <label htmlFor="search" className={styles.search}>
             Search
           </label>
@@ -52,7 +52,8 @@ export default function Search() {
             showIcon={false}
             placeholder="Search your favourite coffee"
             styling={{
-              height: '34px',
+              height: '40px',
+              borderColor: '#2f2c28',
               borderRadius: '4px',
               backgroundColor: 'white',
               boxShadow: 'none',

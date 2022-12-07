@@ -2,6 +2,7 @@
 
 .container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .map, .right {
@@ -15,16 +16,26 @@
 }
 
 .detail {
-  border: solid;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid theme.$orange;
+  border-radius: 4px;
+    h2 {
+      font-family: theme.$font-header;
+    }
 }
 
 .right {
-  margin-right: 4rem;
+  margin-right: 4vw;
 }
 
 .map {
-  margin-left: 4rem;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  min-width: 290px;
+  max-width:500px;
 }
 .search {
   color:theme.$orange;
+  border-color: theme.$black;
 }
