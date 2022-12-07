@@ -53,10 +53,14 @@
   margin-top: 1.5rem;
   padding: 0; 
   transition-duration: 1000ms;
+  a:hover {
+    opacity: 1;
+  }
 }
 
 .logo:hover {
-  filter: saturate(175%) brightness(50%);
-  transform: translateY(-5px); 
+  filter: saturate(100%);
+  transform: translateY(-3px); 
   transition-duration: 500ms;
+  text-shadow: 5px 5px rgb(110, 110, 110);
 }
