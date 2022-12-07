@@ -55,6 +55,7 @@
 }
 
 .logo:hover {
+  filter: saturate(175%) brightness(50%);
   transform: translateY(-5px); 
   transition-duration: 500ms;
 }
