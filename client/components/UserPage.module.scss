@@ -1,5 +1,12 @@
 @use '../styles/theme';
 
+.heading {
+  font-family: theme.$font-header;
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 0;
+}
+
 .ul {
   display: flex;
   flex-direction: row;
@@ -63,10 +70,10 @@ a {
 
 
 .card {
-    height: 850px;
-    width: 400px;
+    height: 300px;
+    width: 180px;
     min-height: 180px;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 16px;
     background: #2f2c28;
     box-shadow: -1rem 0 1.5rem #000;

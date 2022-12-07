@@ -17,20 +17,20 @@ export default function Beans() {
 
   return (
     <div>
-      <h2>Bean Collection</h2>
+      <h2 className={styles.heading}>Bean Collection</h2>
       <div>
         <ul className={styles.ul}>
           {beans?.map((bean) => {
             return (
-              <Link to={`/beans/${bean.id}`} key={bean.id} >
-              <div className={styles.beanItem}>
-                <h2 className={styles.h2}>{bean.beanName}</h2>
-                <li>REGION: {bean.region}</li>
-                <li>PROCESS: {bean.process}</li>
-                <li>RANGE OF ROAST: {bean.roast_degree}</li>
-                <li>FLAVOR: {bean.flavour_profile}</li>
-                <li>THE ROASTER: {bean.roasterName}</li>
-              </div>
+              <Link to={`/beans/${bean.id}`} key={bean.id}>
+                <div className={styles.beanItem}>
+                  <h2 className={styles.h2}>{bean.beanName}</h2>
+                  <li>REGION: {bean.region}</li>
+                  <li>PROCESS: {bean.process}</li>
+                  <li>RANGE OF ROAST: {bean.roast_degree}</li>
+                  <li>FLAVOR: {bean.flavour_profile}</li>
+                  <li>THE ROASTER: {bean.roasterName}</li>
+                </div>
               </Link>
             )
           })}
