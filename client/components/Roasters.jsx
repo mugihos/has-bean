@@ -19,7 +19,7 @@ export default function Roasters() {
 
   return (
     <div>
-      <h2>Welcome to Roasters</h2>
+      <h2 className={styles.heading}>Welcome to Roasters</h2>
       {locations.map((location) => {
         return (
           <div key={location} className={styles.roastersBackground}>

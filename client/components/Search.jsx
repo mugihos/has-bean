@@ -38,7 +38,7 @@ export default function Search() {
     <>
       <div>
         <div>
-          <label htmlFor="search" className={styles.search}>
+          <label htmlFor="search" className={styles.labels}>
             Search
           </label>
           <ReactSearchAutocomplete
@@ -62,14 +62,16 @@ export default function Search() {
               fontFamily: 'Source Serif Pro',
               iconColor: '#8b4513',
               lineColor: '#8b4513',
-              placeholderColor: '#8b4513',
+              placeholderColor: '#2f2c28',
               clearIconMargin: '3px 8px 0 0',
               zIndex: 2,
             }}
           />
         </div>
         <div className={styles.search}>
-          <label htmlFor="id">Roaster:</label>
+          <label className={styles.labels} htmlFor="id">
+            Roaster:
+          </label>
           <select id="id" onChange={onSelectRoaster} name="id">
             <option value="0">--Select the roaster--</option>
             {roasters.map(({ id, name }) => {
@@ -82,7 +84,9 @@ export default function Search() {
           </select>
         </div>
         <div className={styles.search}>
-          <label htmlFor="city">City:</label>
+          <label className={styles.labels} htmlFor="city">
+            City:
+          </label>
           <select id="city" onChange={onSelectCity} name="city">
             <option value="0">--Select the city--</option>
             {citiesArr.map((city) => {

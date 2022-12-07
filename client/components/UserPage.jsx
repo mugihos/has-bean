@@ -67,14 +67,14 @@ export default function UserPage() {
     dispatch(removeReview(id, token))
   }
 
-  const handleSignIn = (e) => {
+  const handleSignIn = () => {
     loginWithRedirect()
   }
 
   return (
     <>
       <div>
-        <h1>I&apos;ve Bean</h1>
+        <h1 className={styles.heading}>I&apos;ve Bean</h1>
         {isAuthenticated == false ? (
           <div>
             <button onClick={handleSignIn}>Register | Login</button> to see your

@@ -27,16 +27,17 @@ export default function Drinks() {
   }
   return (
     <>
+      <h2>All the coffee</h2>
       <form onSubmit={handleSubmit}>
         <div className="radio">
-            <button value="hot" onClick={handleChange}>
-              Hot
-            </button>
+          <button value="hot" onClick={handleChange}>
+            Hot
+          </button>
         </div>
         <div className="radio">
-            <button value="iced" onClick={handleChange}>
-              Iced
-            </button>
+          <button value="iced" onClick={handleChange}>
+            Iced
+          </button>
         </div>
       </form>
 
