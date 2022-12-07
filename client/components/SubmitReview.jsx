@@ -52,53 +52,78 @@ export default function SubmitReview() {
   return (
     <>
       <h1 className={styles.heading}>Submit a Review</h1>
-      <form>
-        <div className={styles.roasterBean}>
-          <label htmlFor="roasters">Roaster</label>
-          <select onChange={handleRoasterChange} name="roaster_id" required>
-            <option value="0">-- Please select --</option>
-            {roasters?.map((roaster) => {
-              return (
-                <option key={roaster.id} value={roaster.id}>
-                  {roaster.name}
-                </option>
-              )
-            })}
-          </select>
-        </div>
-        <div>
-          {selectedRoasterId && (
-            <>
-              <label htmlFor="beans">Beans</label>
-              <select onChange={handleChange} name="bean_id" required>
+      <form className={styles.reviewForm}>
+        <div className={styles.roasterForm}>
+          <h3 className={styles.heading}>Enter your coffee detail</h3>
+          <div className={styles.roasterBean}>
+            <div>
+              <label htmlFor="roasters">Roaster</label>
+              <select onChange={handleRoasterChange} name="roaster_id" required>
                 <option value="0">-- Please select --</option>
-                {beans
-                  ?.filter((bean) => {
-                    return bean.roaster_id === Number(selectedRoasterId)
-                  })
-                  .map((bean) => {
-                    return (
-                      <option key={bean.id} value={bean.id}>
-                        {bean.beanName}
-                      </option>
-                    )
-                  })}
+                {roasters?.map((roaster) => {
+                  return (
+                    <option key={roaster.id} value={roaster.id}>
+                      {roaster.name}
+                    </option>
+                  )
+                })}
               </select>
-            </>
-          )}
-        </div>
-        <div>
-          <label htmlFor="cafes">Cafe</label>
-          <select onChange={handleChange} name="cafe_id">
-            <option value="0">-- Please select --</option>
-            {cafes?.map((cafe) => {
-              return (
-                <option key={cafe.id} value={cafe.id}>
-                  {cafe.name}
-                </option>
-              )
-            })}
-          </select>
+            </div>
+            <div>
+              {selectedRoasterId && (
+                <>
+                  <label htmlFor="beans">Beans</label>
+                  <select onChange={handleChange} name="bean_id" required>
+                    <option value="0">-- Please select --</option>
+                    {beans
+                      ?.filter((bean) => {
+                        return bean.roaster_id === Number(selectedRoasterId)
+                      })
+                      .map((bean) => {
+                        return (
+                          <option key={bean.id} value={bean.id}>
+                            {bean.beanName}
+                          </option>
+                        )
+                      })}
+                  </select>
+                </>
+              )}
+            </div>
+          </div>
+          <div>
+            <label htmlFor="cafes">Cafe</label>
+            <select onChange={handleChange} name="cafe_id">
+              <option value="0">-- Please select --</option>
+              {cafes?.map((cafe) => {
+                return (
+                  <option key={cafe.id} value={cafe.id}>
+                    {cafe.name}
+                  </option>
+                )
+              })}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="comment">Comment:</label>
+            <textarea
+              type="text"
+              id="comment"
+              onChange={handleChange}
+              name="comment"
+            />
+          </div>
+          <div>
+            <label htmlFor="rating">Overall Rating</label>
+            <select onChange={handleChange} name="rating">
+              <option value="0">-- Please select --</option>
+              <option value="1">-- 1: okay --</option>
+              <option value="2">-- 2: average --</option>
+              <option value="3">-- 3: I like it--</option>
+              <option value="4">-- 4: Super --</option>
+              <option value="5">-- 5: YUM --</option>
+            </select>
+          </div>
         </div>
 
         <div className={styles.taste}>
@@ -149,7 +174,7 @@ export default function SubmitReview() {
             </select>
           </div>
           <div>
-            <label htmlFor="aftertaste">Aftertase</label>
+            <label htmlFor="aftertaste">Aftertaste</label>
             <select onChange={handleChange} name="aftertaste">
               <option value="0">-- Please select --</option>
               <option value="1">-- 1: Very clean --</option>
@@ -159,33 +184,13 @@ export default function SubmitReview() {
               <option value="5">-- 5: Heavy coffeeeee --</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="comment">
-              Comment:
-              <textarea
-                type="text"
-                id="comment"
-                onChange={handleChange}
-                name="comment"
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="rating">Overall Rating</label>
-            <select onChange={handleChange} name="rating">
-              <option value="0">-- Please select --</option>
-              <option value="1">-- 1: okay --</option>
-              <option value="2">-- 2: average --</option>
-              <option value="3">-- 3: I like it--</option>
-              <option value="4">-- 4: Super --</option>
-              <option value="5">-- 5: YUM --</option>
-            </select>
-          </div>
         </div>
       </form>
-      <button onClick={handleSubmit} className="submitButton">
-        Submit Review
-      </button>
+      <div className={styles.buttonLocation}>
+        <button onClick={handleSubmit} className="submitButton">
+          Submit Review
+        </button>
+      </div>
     </>
   )
 }
