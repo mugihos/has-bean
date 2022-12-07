@@ -19,13 +19,17 @@
 }
 .heading {
   font-family: theme.$font-header;
-  font-size: 25px;
+  font-size: 1.2rem;
   text-align: left;
+  color: theme.$black;
+  padding-bottom: 1rem;
 }
 
 .choice {
-  font-size: 20px;
+  font-size: 1.1rem;
   text-align:left;
+  color: theme.$black;
+  font-family: theme.$font-body;
   // margin-left:35%;
 }
 
