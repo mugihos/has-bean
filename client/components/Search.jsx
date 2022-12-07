@@ -53,7 +53,6 @@ export default function Search() {
             placeholder="Search your favourite coffee"
             styling={{
               height: '40px',
-              borderColor: '#2f2c28',
               borderRadius: '4px',
               backgroundColor: 'white',
               boxShadow: 'none',
