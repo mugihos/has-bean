@@ -82,18 +82,8 @@ li{
 .pageWrapper {
   margin: 3vw;
   display: flex;
-  min-height: 75vh;
+  min-height: 50vh;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.fa {
-  color: DEDEDE;
-  font-size: 30px;
-}
-
-.fa:hover {
-  opacity: 0.7;
-  transform: translateY(-3px); transition-duration: 500ms;
-  text-shadow: 3px 3px rgb(190, 190, 190);
-}

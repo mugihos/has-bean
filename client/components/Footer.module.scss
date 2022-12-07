@@ -1,21 +1,37 @@
 @use '../styles/theme';
 
 .footer {
+  background-color: theme.$black;
   display: flex;
   justify-content: space-between;
-  margin: 5rem;
-  color: black;
+  margin: 0;
+  padding: 2em;
+  color: theme.$green;
+    h3{
+      font-family: theme.$font-header;
+    }
+
 }
 
 .footerItem {
-  font-size: 1rem;
   font-weight: bold;
   list-style: none;
   display: inline-block;
   padding: 0 20px;
 }
 
+.footerItem > .icons {
+  font-size: 40px;
+  color: theme.$bright;
+}
+
 .vertical {
   display: block;
+  a:visited {
+    color:theme.$bright
+  }
+  a:link {
+    color:theme.$bright
+  }
 }
 
