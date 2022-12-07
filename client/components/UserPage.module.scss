@@ -70,7 +70,10 @@
 a {
     text-decoration: none;
 }
-
+.notAuth {
+  text-align: center;
+  padding: 2rem;
+}
 .cardList {
     display: flex;
     flex-wrap: wrap;

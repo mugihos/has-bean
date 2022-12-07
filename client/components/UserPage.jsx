@@ -84,7 +84,7 @@ export default function UserPage() {
       <div>
         <h1 className={styles.heading}>I&apos;ve Bean</h1>
         {isAuthenticated == false ? (
-          <div>
+          <div className={styles.notAuth}>
             <button onClick={handleSignIn}>Register | Login</button> to see your
             reviews.
           </div>
