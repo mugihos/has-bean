@@ -1,0 +1,26 @@
+@use '../styles/theme';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  // border: solid;
+  // border-width: 1px;
+  // border-color: theme.$brown;
+  color: theme.$black;
+  margin: 1rem;
+  width: 18rem;
+  padding: 2rem; 
+}
+
+.title {
+  font-family: theme.$font-header;
+}
+
+.image {
+  height: 10rem;
+}
