@@ -19,7 +19,7 @@ export default function Bean() {
               className={styles.BeanImg}
               src={singleBean.roaster_image}
               alt={singleBean.roasterName}
-              width="200"
+              width="230"
             />
             <h3 className={styles.headingTwo}>
               Roaster: {singleBean.roasterName}
