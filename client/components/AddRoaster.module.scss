@@ -1,1 +1,10 @@
 @use '../styles/theme';
+
+.heading {
+  font-family: theme.$font-header;
+  text-align: center;
+}
+
+.buttonLocation {
+  text-align: center;
+}

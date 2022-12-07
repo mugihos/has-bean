@@ -41,6 +41,7 @@ input[type=text], select, textarea{
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  font-family: theme.$font-body;
 }
 
 label {
@@ -49,24 +50,24 @@ label {
 }
 
 button {
-  border-radius: 40px;
+  border-radius: 45px;
   position: relative;
+  background-color: theme.$bright;
   border: 1px solid theme.$black;
   cursor:pointer;
   // -webkit-border-radius: 5px;
   align-items: center;
-  font-family: theme.$font-body;
+  font-family: theme.$font-header;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
   // margin: 0;
-  width: 10rem;
-  height: 4rem;
+  width: 8rem;
+  height: 3.5rem;
 }
 
 select {
   font-family: theme.$font-body; 
-
 }
 
 ul{
