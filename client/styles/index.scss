@@ -4,6 +4,7 @@ html,
 body {
   font-family: theme.$font-body;
   margin: auto;
+  color: theme.$text-black;
 }
 
 a:link {
@@ -41,6 +42,10 @@ input[type=text], select, textarea{
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  font-family: theme.$font-body;
+}
+
+::placeholder {
   font-family: theme.$font-body;
 }
 
