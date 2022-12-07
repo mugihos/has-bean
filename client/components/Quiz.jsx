@@ -103,11 +103,15 @@ export default function Quiz() {
         'Depending on the variety, it will take approximately 3 to 4 years for the newly planted coffee trees to bear fruit.',
     },
   ]
+  const image = `img/beans.png`
 
   return (
     <>
       <div>
-        <h2 className={styles.headingh2}>Coffee Quiz</h2>
+        <div className={styles.headPlus}>
+          <h2 className={styles.heading2}>Coffee Quiz</h2>
+          <img src={image} alt="beans" width="70" />
+        </div>
         <ol className={styles.container}>
           {quiz.map((quiz) => {
             return (
