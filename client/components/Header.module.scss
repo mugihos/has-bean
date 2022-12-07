@@ -5,7 +5,8 @@
   justify-content: space-between; 
   align-items: center;
   gap: 8px; 
-  padding: 24px; 
+  padding: 0.4rem 0.4rem 0.5rem;
+  // padding: 1rem 1rem 24px; 
   background-color: theme.$bright;
   color: theme.$black;
   font-family: theme.$font-header;
@@ -26,6 +27,7 @@
   display: flex; justify-content: space-around; gap: 48px;
   margin-left: 48px;
   margin-right: 2vw;
+  font-size: 1.7rem;
 }
 
 .links a {
@@ -46,6 +48,7 @@
 }
 
 .logo {
-  margin:0px;
-  padding:0;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+  padding: 0;
 }

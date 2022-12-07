@@ -12,17 +12,21 @@
     font-family: theme.$font-header;
     font-size:42px;
     color: theme.$brown;
+    margin: 1rem;
   }
+}
+
+.head {
+  font-family: theme.$font-header;
+  font-size:1.6rem;
+  color: theme.$black;
 }
 
 .detail {
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid theme.$orange;
-  border-radius: 4px;
-    h2 {
-      font-family: theme.$font-header;
-    }
+  // border: 1px solid theme.$orange;
+  // border-radius: 4px;
 }
 
 .right {
@@ -36,6 +40,13 @@
   min-width: 290px;
   max-width:500px;
 }
-.search {
-  color:theme.$orange;
+.labels {
+  color:theme.$black;
+  font-family: theme.$font-header;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+placeholder {
+  color: theme.$black;
 }

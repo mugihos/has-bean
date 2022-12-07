@@ -26,7 +26,7 @@ export default function Header() {
         <div className={styles.logo}>
           <Link to="/">
             <img
-              width="200"
+              width="150"
               src="../../img/logo-dark.svg"
               alt="hasBean logo"
             ></img>
