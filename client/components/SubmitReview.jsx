@@ -145,7 +145,7 @@ export default function SubmitReview() {
             <select onChange={handleChange} name="aroma">
               <option value="0">-- Please select --</option>
               <option value="1">-- 1: No aroma --</option>
-              <option value="2">-- 2: Hind of aroma --</option>
+              <option value="2">-- 2: Hint of aroma --</option>
               <option value="3">-- 3: Moderate aroma --</option>
               <option value="4">-- 4: I can smell --</option>
               <option value="5">-- 5: Aroma veil --</option>
