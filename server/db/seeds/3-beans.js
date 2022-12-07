@@ -62,7 +62,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 1007,
-      roaster_id: 1,
+      roaster_id: 2,
       region: 'Brazil | Colombia | Papua New Guiena',
       process: 'Washed',
       roast_degree: 'dark',
