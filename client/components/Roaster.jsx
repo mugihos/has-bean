@@ -57,15 +57,15 @@ export default function Roaster() {
     <>
       <div>
         {singleRoaster && (
-          <div>
-            <h2>Roastery: {singleRoaster.name}</h2>
+          <div className={styles.roasterContainer}>
+            <h2 className={styles.heading}>{singleRoaster.name}</h2>
             <img
               src={singleRoaster.image_url}
               alt=""
               className={styles.roasterImg}
             />
             <p>Location: {singleRoaster.location}</p>
-            <p>{singleRoaster.details}</p>
+            <p className={styles.roasterDetail}>{singleRoaster.details}</p>
           </div>
         )}
         <section className={styles.cardList}>

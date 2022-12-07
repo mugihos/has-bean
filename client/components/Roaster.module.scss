@@ -243,9 +243,19 @@ a {
    background-repeat: no-repeat;
    background-size: cover;
 }
+.heading {
+  font-family: theme.$font-header;
+  text-align: center;
+  font-size: 40px;
+}
 
-
-
+.roasterContainer{
+  text-align: center;
+}
+.roasterDetail{
+margin-left: 20%;
+margin-right: 20%;
+}
 
   // .container {
   //   max-width: 100vw;
