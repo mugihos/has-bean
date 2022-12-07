@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import { setSearchResult } from '../actions/searchResult'
+import styles from './Home.module.scss'
 
 export default function Search() {
   const dispatch = useDispatch()
@@ -36,36 +37,38 @@ export default function Search() {
   return (
     <>
       <div>
-        <div style={{ width: 250, margin: 10 }}>
-          <label htmlFor="search">Search</label>
+        <div>
+          <label htmlFor="search" className={styles.search}>
+            Search
+          </label>
           <ReactSearchAutocomplete
             items={searchRoasters}
             fuseOptions={{
               threshold: '0.3',
               keys: ['cafeName', 'roasterName'],
             }}
-            resultStringKeyName="cafeName" 
+            resultStringKeyName="cafeName"
             onSelect={handleOnSelect}
             showIcon={false}
             placeholder="Search your favourite coffee"
             styling={{
-              height: '34px',
+              height: '40px',
               borderRadius: '4px',
               backgroundColor: 'white',
               boxShadow: 'none',
-              hoverBackgroundColor: 'lightgreen',
-              color: 'darkgreen',
-              fontSize: '12px',
-              fontFamily: 'Courier',
-              iconColor: 'green',
-              lineColor: 'lightgreen',
-              placeholderColor: '#e8ebce',
+              hoverBackgroundColor: '#cd853f',
+              color: '#2f2c28',
+              fontSize: '14px',
+              fontFamily: 'Source Serif Pro',
+              iconColor: '#8b4513',
+              lineColor: '#8b4513',
+              placeholderColor: '#8b4513',
               clearIconMargin: '3px 8px 0 0',
               zIndex: 2,
             }}
           />
         </div>
-        <div>
+        <div className={styles.search}>
           <label htmlFor="id">Roaster:</label>
           <select id="id" onChange={onSelectRoaster} name="id">
             <option value="0">--Select the roaster--</option>
@@ -78,7 +81,7 @@ export default function Search() {
             })}
           </select>
         </div>
-        <div>
+        <div className={styles.search}>
           <label htmlFor="city">City:</label>
           <select id="city" onChange={onSelectCity} name="city">
             <option value="0">--Select the city--</option>
