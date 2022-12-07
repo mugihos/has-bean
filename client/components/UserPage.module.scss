@@ -1,5 +1,11 @@
 @use '../styles/theme';
 
+.buttonDesign {
+  text-align: center;
+  font-family: theme.$font-header;
+  background-color: none;
+}
+
 .heading {
   font-family: theme.$font-header;
   font-size: 2.8rem;
@@ -7,21 +13,24 @@
   margin: 0;
 }
 
-.ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+// .ul {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: center;
+// }
 
 .beanItem {
   // border: solid;
   // border-width: 1px;
   // border-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: antiquewhite;
   margin: 1rem;
-  width: 15rem;
-  height: 17rem;
+  width: auto;
+  height: auto;
 }
 
 
@@ -50,8 +59,8 @@ a {
 .cardList {
     display: flex;
     flex-wrap: wrap;
-    padding: 3rem;
-    overflow-x: scroll;
+    // padding: 1rem;
+    // overflow-x: scroll;
 }
 
 .cardList::-webkit-scrollbar {
@@ -70,10 +79,10 @@ a {
 
 
 .card {
-    height: 300px;
-    width: 180px;
-    min-height: 180px;
-    padding: 1rem;
+    // height: 300px;
+    // width: 180px;
+    // min-height: 180px;
+    // padding: 1rem;
     border-radius: 16px;
     background: #2f2c28;
     box-shadow: -1rem 0 1.5rem #000;
@@ -103,15 +112,15 @@ a {
     margin-bottom: auto;
 }
 
-.cardHeader p {
-    font-size: 14px;
-    margin: 0 0 1rem;
-    color: #7a7a8c;
+.cardHeader {
+    font-size: 1.6rem;
+    // margin: 0 0 1rem;
+    color: theme.$bright;
 }
 
 .cardHeader h2 {
     font-size: 20px;
-    margin: .25rem 0 auto;
+    // margin: 0 auto;
     text-decoration: none;
     color: #2e8b57;
     border: 0;
@@ -128,11 +137,12 @@ a {
 }
 
 .cardAuthor {
-    margin: 3rem 0 0;
+    // margin: 3rem 0 0;
+    position: relative; height:180px;
     display: grid;
-    grid-template-columns: 75px 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
-    position: relative;
+    margin: 0;
 }
 
 .authorAvatar {
@@ -177,10 +187,10 @@ a {
 }
 
 .tags {
-    margin: 1rem 0 2rem;
-    padding: .5rem 0 1rem;
-    line-height: 2;
-    margin-bottom: 0;
+    // margin: 1rem 0 2rem;
+    // padding: .5rem 0 1rem;
+    // line-height: 2;
+    // margin-bottom: 0;
 }
 
 .tags a {
