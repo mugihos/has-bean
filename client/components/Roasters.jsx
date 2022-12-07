@@ -22,52 +22,57 @@ export default function Roasters() {
       <h2 className={styles.heading}>Welcome to Roasters</h2>
       {locations.map((location) => {
         return (
-          <div key={location} className={styles.roastersBackground}>
+          <div key={location}>
             <h3 className={styles.locationName}>{location}</h3>
-            <section className={styles.cardList}>
-              {/* <ul className={styles.flexcontainer}> */}
-              {roasters
-                ?.filter((roaster) => roaster.location.includes(location))
-                .map((roaster) => {
-                  return (
-                    <div
-                      key={location + roaster.id}
-                      // className={styles.beanItem}
-                    >
-                      <article className={styles.card}>
-                        <header className={styles.cardHeader}>
-                          <p>{location}</p>
-                          <div className={styles.cleanH2}>
-                            <Link to={`/roasters/${roaster.id}`}>
-                              <h2>{roaster.name}</h2>
-                            </Link>
-                          </div>
-                          <div className={styles.tags}>
+            <div className={styles.roastersBackground}>
+              <section className={styles.cardList}>
+                {/* <ul className={styles.flexcontainer}> */}
+                {roasters
+                  ?.filter((roaster) => roaster.location.includes(location))
+                  .map((roaster) => {
+                    return (
+                      <div
+                        key={location + roaster.id}
+                        // className={styles.beanItem}
+                      >
+                        <article className={styles.card}>
+                          <header className={styles.cardHeader}>
+                            <p>Roaster</p>
+                            <div className={styles.cleanH2}>
+                              <Link to={`/roasters/${roaster.id}`}>
+                                <h2>{roaster.name}</h2>
+                              </Link>
+                            </div>
+                            <div className={styles.tags}>
+                              <a
+                                href={roaster.url}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Website
+                              </a>
+                              {/* <a href="#">thing2</a> */}
+                            </div>
+                          </header>
+
+                          <div className={styles.cardAuthor}>
                             <a
-                              href={roaster.url}
-                              target="_blank"
-                              rel="noreferrer"
+                              className={styles.authorAvatar}
+                              href={`/roasters/${roaster.id}`}
                             >
-                              Website
+                              <img src={roaster.image_url} />
                             </a>
-                            {/* <a href="#">thing2</a> */}
-                          </div>
-                        </header>
 
-                        <div className={styles.cardAuthor}>
-                          <a className={styles.authorAvatar} href="#">
-                            <img src={roaster.image_url} />
-                          </a>
-
-                          {/* <div className={styles.authorName}>
+                            {/* <div className={styles.authorName}>
                             {roaster.name}
                           </div> */}
-                        </div>
-                      </article>
-                    </div>
-                  )
-                })}
-            </section>
+                          </div>
+                        </article>
+                      </div>
+                    )
+                  })}
+              </section>
+            </div>
           </div>
         )
       })}

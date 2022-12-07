@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBeans } from '../actions/beans'
-import styles from './Beans.module.scss'
+import styles from './Roaster.module.scss'
 
 export default function Roaster() {
   const dispatch = useDispatch()
@@ -23,13 +23,31 @@ export default function Roaster() {
       roasterName.toLowerCase().includes(query.toLowerCase())
     )
     return filteredRoasters?.map((oneCafe) => {
-      const { id, cafeName, address } = oneCafe
+      const { id, cafeName, address, lat, lng } = oneCafe
+      const cafeUrl = 'https://www.google.com/search?q=google+' + cafeName
+      const googleMap =
+        'https://www.google.com/maps/search/' + cafeName + '/' + lat + ',' + lng
       return (
         <div key={id}>
-          <ul>
-            <h2>{cafeName}</h2>
-            <p>{address}</p>
-          </ul>
+          <article className={styles.card}>
+            <header className={styles.cardHeader}>
+              <p>Cafe</p>
+              <div className={styles.cleanH2}>
+                <h2>{cafeName}</h2>
+              </div>
+              <div className={styles.tags}>
+                <div className={styles.tags}></div>
+                <a className={styles.authorAvatar} href={cafeUrl}>
+                  Website
+                </a>{' '}
+                <a className={styles.authorAvatar} href={googleMap}>
+                  Map
+                </a>{' '}
+                <p>Address: {address}</p>
+              </div>
+            </header>
+            <div className={styles.cardAuthor}></div>
+          </article>
         </div>
       )
     })
@@ -40,28 +58,44 @@ export default function Roaster() {
       <div>
         {singleRoaster && (
           <div>
-            <h2>Roastery {singleRoaster.name}</h2>
-            <img src={singleRoaster.image_url} alt="" />
+            <h2>Roastery: {singleRoaster.name}</h2>
+            <img
+              src={singleRoaster.image_url}
+              alt=""
+              className={styles.roasterImg}
+            />
             <p>Location: {singleRoaster.location}</p>
             <p>{singleRoaster.details}</p>
           </div>
         )}
-        {beansByRoaster?.map((bean) => {
-          return (
-            <Link to={`/beans/${bean.id}`} key={bean.id}>
-              <div className={styles.beanItem}>
-                <h2 className={styles.h2}>{bean.beanName}</h2>
-                <li>REGION: {bean.region}</li>
-                <li>PROCESS: {bean.process}</li>
-                <li>RANGE OF ROAST: {bean.roast_degree}</li>
-                <li>FLAVOR: {bean.flavour_profile}</li>
-                <li>THE ROASTER: {bean.roasterName}</li>
-              </div>
-            </Link>
-          )
-        })}
+        <section className={styles.cardList}>
+          {beansByRoaster?.map((bean) => {
+            return (
+              <Link to={`/beans/${bean.id}`} key={bean.id}>
+                <article className={styles.card}>
+                  <header className={styles.cardHeader}>
+                    <p>Beans / Blends</p>
+                    <div className={styles.cleanH2}>
+                      <h2>{bean.beanName}</h2>
+                    </div>
+                    <div className={styles.tags}></div>
+                    <a className={styles.authorAvatar} href="#"></a>
+                    <h2 className={styles.h2}></h2>
+                    <li>REGION: {bean.region}</li>
+                    <li>PROCESS: {bean.process}</li>
+                    <li>RANGE OF ROAST: {bean.roast_degree}</li>
+                    <li>FLAVOR: {bean.flavour_profile}</li>
+                  </header>
+                  <div className={styles.cardAuthor}></div>
+                </article>
+              </Link>
+            )
+          })}
+        </section>
       </div>
-      {mapRoasterCafes(singleRoaster?.name)}
+      <section className={styles.cardList}>
+        {mapRoasterCafes(singleRoaster?.name)}
+      </section>
     </>
   )
 }
