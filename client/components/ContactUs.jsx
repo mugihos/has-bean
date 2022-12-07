@@ -23,8 +23,8 @@ export default function ContactUs() {
             <a href="mailto:aihe2022.coffee@gmail.com?subject=Query from HasBean">
               aihe2022.coffee@gmail.com
             </a>
-            <img src='/img/a cup of coffee.png' alt='coffeelineartwork'/>
           </div>
+          <img className={styles.image} src='/img/a cup of coffee.png' alt='coffeelineartwork'/>
           {/* <img className={styles.photo} src="/img/coffee-trio.png" alt="" /> */}
         </div>
         {/* <p>Alternatively you can fill out the form below.</p> */}
