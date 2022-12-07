@@ -64,7 +64,7 @@ export default function MapShow({ moreInfo }) {
         mapboxAccessToken="pk.eyJ1IjoiZ3JlYXNlbGluZyIsImEiOiJjbGIzZHk2ZDMwM3RwM3VzdTZyaHFsOHVsIn0.95-vdWz0ALCMh9EdrPCMuA"
         container="map"
         style={{
-          width: '500px',
+          width: '100%',
           height: '500px',
           borderRadius: '15px',
           border: '5px solid white',
