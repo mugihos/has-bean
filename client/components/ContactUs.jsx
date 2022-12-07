@@ -24,6 +24,7 @@ export default function ContactUs() {
               aihe2022.coffee@gmail.com
             </a>
           </div>
+          <img className={styles.image} src='/img/a cup of coffee.png' alt='coffeelineartwork'/>
           {/* <img className={styles.photo} src="/img/coffee-trio.png" alt="" /> */}
         </div>
         {/* <p>Alternatively you can fill out the form below.</p> */}
