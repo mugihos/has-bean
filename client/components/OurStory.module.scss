@@ -3,9 +3,13 @@
 .branchLogo {
   font-family: theme.$font-header;
   font-size: 5rem;
-  .branchSub {
-    font-size: 3rem;
-  } 
+  margin: 0;
+}
+
+.branchSub {
+  color: theme.$black;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 .branchFont:hover {
