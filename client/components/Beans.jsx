@@ -42,7 +42,12 @@ export default function Beans() {
                       <li>PROCESS: {bean.process}</li>
                       <li>RANGE OF ROAST: {bean.roast_degree}</li>
                       <li>FLAVOR: {bean.flavour_profile}</li>
-                      <li>THE ROASTER: {bean.roasterName}</li>
+                      <a
+                        className="cleanLink"
+                        href={`/roasters/${bean.roaster_id}`}
+                      >
+                        Roaster:{bean.roasterName}
+                      </a>
                     </div>
                   </header>
                 </article>
