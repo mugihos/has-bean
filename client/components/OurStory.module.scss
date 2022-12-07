@@ -1,8 +1,11 @@
 @use '../styles/theme';
 
-.branchFont {
+.branchLogo {
   font-family: theme.$font-header;
-  font-size: 200px;
+  font-size: 5rem;
+  .branchSub {
+    font-size: 3rem;
+  } 
 }
 
 .branchFont:hover {
@@ -10,3 +13,19 @@
   transform: translateY(-5px); transition-duration: 500ms;
   text-shadow: 5px 5px rgb(190, 190, 190);
 }
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+width: 300px;
+height: auto;
+}
+
