@@ -4,6 +4,7 @@ html,
 body {
   font-family: theme.$font-body;
   margin: auto;
+  color: theme.$text-black;
 }
 
 a:link {
@@ -44,6 +45,10 @@ input[type=text], select, textarea{
   font-family: theme.$font-body;
 }
 
+::placeholder {
+  font-family: theme.$font-body;
+}
+
 label {
   padding: 12px;
   display: inline-block;
@@ -57,9 +62,11 @@ button {
   cursor:pointer;
   align-items: center;
   // font-family: theme.$font-header;
+  font-family: theme.$font-body;
   font-size: 16px;
   font-weight: 1500;
   line-height: 20px;
+  padding: 5px;
   margin: 10px;
   width: 8rem;
   height: 2.5rem;
@@ -81,7 +88,7 @@ li{
 .pageWrapper {
   margin: 3vw;
   display: flex;
-  min-height: 50vh;
+  min-height: 75vh;
   flex-direction: column;
   justify-content: space-between;
 }
