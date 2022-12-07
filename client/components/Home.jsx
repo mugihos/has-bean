@@ -33,7 +33,9 @@ export default function Home() {
                   ({ id, cafeName, address, roasterName, roasterId }) => {
                     return (
                       <div key={id}>
-                        <h2 id="cafeNameClick">{cafeName}</h2>
+                        <h2 id="cafeNameClick" className={styles.head}>
+                          {cafeName}
+                        </h2>
                         <p>{address}</p>
                         <Link to={`/roasters/${roasterId}`}>
                           <p>View Roaster: {roasterName}</p>
