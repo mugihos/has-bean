@@ -22,7 +22,7 @@ export default function Roasters() {
       <h2>Welcome to Roasters</h2>
       {locations.map((location) => {
         return (
-          <div key={location}>
+          <div key={location} className={styles.roastersBackground}>
             <h3>{location}</h3>
             <section className={styles.cardList}>
               {/* <ul className={styles.flexcontainer}> */}
@@ -37,10 +37,15 @@ export default function Roasters() {
                       <article className={styles.card}>
                         <header className={styles.cardHeader}>
                           <p>{location}</p>
-                          <Link to={`/roasters/${roaster.id}`}>
-                            {roaster.name}
-                            <h2>{roaster.name}</h2>
-                          </Link>
+                          <div className={styles.cleanH2}>
+                            <Link to={`/roasters/${roaster.id}`}>
+                              <h2>{roaster.name}</h2>
+                            </Link>
+                          </div>
+                          <div className={styles.tags}>
+                            <a href={roaster.url}>Website</a>
+                            <a href="#">thing2</a>
+                          </div>
                         </header>
 
                         <div className={styles.cardAuthor}>
@@ -48,16 +53,9 @@ export default function Roasters() {
                             <img src={roaster.image_url} />
                           </a>
 
-                          <div className={styles.authorName}>
-                            <div className={styles.authorNamePrefix}>
-                              Roaster
-                            </div>
+                          {/* <div className={styles.authorName}>
                             {roaster.name}
-                          </div>
-                          <div className={styles.tags}>
-                            <a href="#">thing1</a>
-                            <a href="#">thing2</a>
-                          </div>
+                          </div> */}
                         </div>
                       </article>
                     </div>

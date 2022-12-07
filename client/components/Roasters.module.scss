@@ -63,7 +63,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     padding: 3rem;
-    overflow-x: scroll;
+    // overflow-x: scroll;
 }
 
 .cardList::-webkit-scrollbar {
@@ -82,13 +82,15 @@ a {
 
 
 .card {
-    height: 350px;
+    height: 280px;
     width: 180px;
     min-width: 180px;
     padding: 1.5rem;
     border-radius: 16px;
-    background: #17141d;
-    box-shadow: -1rem 0 1.5rem #000;
+    background: rgb(47,44,40);
+    border: 1px solid hsl(32, 19%, 62%);
+    background: linear-gradient(135deg, rgb(223, 210, 195) 20%, hsla(32, 25%, 68%, 1) 100%);
+    box-shadow: -1rem 0 1.5rem rgba(0, 0, 0, 0.161);
     display: flex;
     flex-direction: column;
     transition: .2s;
@@ -96,6 +98,7 @@ a {
     scroll-snap-align: start;
     clear: both;
     position: relative;
+    margin-top: -50px;
 }
 
 .card:focus-within~.card, .card:hover~.card {
@@ -103,11 +106,12 @@ a {
 }
 
 .card:hover {
-    transform: translateY(-1rem);
+    transform: translateY(-1.5rem);
+
 }
 
 .card:not(:first-child) {
-    margin-left: -130px;
+    margin-left: -230px;
 }
 
 
@@ -118,7 +122,7 @@ a {
 .cardHeader p {
     font-size: 14px;
     margin: 0 0 1rem;
-    color: #7a7a8c;
+    color: #d3d3d3;
 }
 
 .cardHeader h2 {
@@ -130,7 +134,10 @@ a {
     display: inline-block;
     cursor: pointer;
 }
-
+.cleanH2 {
+  height: 3.5em;
+  text-align: center;
+}
 .cardHeader h2:hover {
     background: linear-gradient(90deg,#ff8a00,#e52e71);
     text-shadow: none;
@@ -140,10 +147,10 @@ a {
 }
 
 .cardAuthor {
-    margin: 3rem 0 0;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 75px 1fr;
-    align-items: center;
+    // grid-template-columns: 75px 1fr;
+    // align-items: center;
     position: relative;
 }
 
@@ -155,14 +162,23 @@ a {
 }
 
 .authorAvatar img {
-    width: 40px;
-    height: 40px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     filter: grayscale(100%);
     display: block;
     overflow: hidden;
-    margin: 16px 10px;
+    margin: 8px 10px;
 }
+
+.authorAvatar img:hover{
+  filter: grayscale(0%);
+}
+
+.authorAvatar a {
+  opacity: 1;
+}
+
 
 .authorName {
     grid-area: auto;
@@ -217,6 +233,14 @@ a {
     background-clip: text;
     border-color: white;
 }
+
+.roastersBackground {
+   background-image: url("/server/public/img/roasters-bg.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
 
 
 
