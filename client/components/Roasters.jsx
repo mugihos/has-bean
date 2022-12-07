@@ -43,8 +43,14 @@ export default function Roasters() {
                             </Link>
                           </div>
                           <div className={styles.tags}>
-                            <a href={roaster.url}>Website</a>
-                            <a href="#">thing2</a>
+                            <a
+                              href={roaster.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Website
+                            </a>
+                            {/* <a href="#">thing2</a> */}
                           </div>
                         </header>
 
