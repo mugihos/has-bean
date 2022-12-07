@@ -137,9 +137,13 @@ export default function UserPage() {
                       </div>
                       <div className={styles.tags}>
                         <ul className={styles.beanItem}>
-                          <li>Coffee Type: {review.coffee_type}</li>
-                          <li>Cafe Name: {review.cafesName}</li>
-                          <li>Roasters Notes: {review.flavourDesc}</li>
+                          {/* <li>Coffee Type: {review.coffee_type}</li> */}
+                          <li className={styles.listItem}>
+                            Cafe Name: {review.cafesName}
+                          </li>
+                          <li className={styles.listItem}>
+                            Roasters Notes: {review.flavourDesc}
+                          </li>
                         </ul>
 
                         <button

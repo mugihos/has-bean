@@ -11,12 +11,18 @@ export default function OurTeam() {
           <h4 className={styles.name}>Clinton</h4>
           <img className={styles.photo} src="/img/bean.png" alt="" />
           <ul className={styles.profile}>
-            <li className={styles.list}>Hello hello</li>
-            <li><a
-                href='https://github.com/clinton-b-evans' 
-                target='blank'
-                className={`fa fa-github ${styles.github}`} 
-                alt="GitHub icon"> clinton-b-evans</a></li>
+            <li className={styles.list}>Flat White | Affogato</li>
+            <li>
+              <a
+                href="https://github.com/clinton-b-evans"
+                target="blank"
+                className={`fa fa-github ${styles.github}`}
+                alt="GitHub icon"
+              >
+                {' '}
+                clinton-b-evans
+              </a>
+            </li>
             <li></li>
           </ul>
         </div>
@@ -25,11 +31,17 @@ export default function OurTeam() {
           <img className={styles.photo} src="/img/bean.png" alt="" />
           <ul className={styles.profile}>
             <li className={styles.list}>Flat white</li>
-            <li><a
-                href='https://github.com/eq-hong' 
-                target='blank'
-                className={`fa fa-github ${styles.github}`} 
-                alt="GitHub icon"> eq-hong</a></li>
+            <li>
+              <a
+                href="https://github.com/eq-hong"
+                target="blank"
+                className={`fa fa-github ${styles.github}`}
+                alt="GitHub icon"
+              >
+                {' '}
+                eq-hong
+              </a>
+            </li>
             <li></li>
           </ul>
         </div>
@@ -37,12 +49,18 @@ export default function OurTeam() {
           <h4 className={styles.name}>Gus</h4>
           <img className={styles.photo} src="/img/bean.png" alt="" />
           <ul className={styles.profile}>
-            <li className={styles.list}>Hello hello</li>
-            <li><a
-                href='https://github.com/Angus-Gieseg' 
-                target='blank'
-                className={`fa fa-github ${styles.github}`} 
-                alt="GitHub icon"> Angus-Gieseg</a></li>
+            <li className={styles.list}>Espressoda</li>
+            <li>
+              <a
+                href="https://github.com/Angus-Gieseg"
+                target="blank"
+                className={`fa fa-github ${styles.github}`}
+                alt="GitHub icon"
+              >
+                {' '}
+                Angus-Gieseg
+              </a>
+            </li>
             <li></li>
           </ul>
         </div>
@@ -51,11 +69,17 @@ export default function OurTeam() {
           <img className={styles.photo} src="/img/bean.png" alt="" />
           <ul className={styles.profile}>
             <li className={styles.list}>Cappuccino</li>
-            <li><a
-                href='https://github.com/ingrid-jhang' 
-                target='blank'
-                className={`fa fa-github ${styles.github}`} 
-                alt="GitHub icon"> ingrid-jhang</a></li>
+            <li>
+              <a
+                href="https://github.com/ingrid-jhang"
+                target="blank"
+                className={`fa fa-github ${styles.github}`}
+                alt="GitHub icon"
+              >
+                {' '}
+                ingrid-jhang
+              </a>
+            </li>
             <li></li>
           </ul>
         </div>
@@ -64,11 +88,17 @@ export default function OurTeam() {
           <img className={styles.photo} src="/img/bean.png" alt="" />
           <ul className={styles.profile}>
             <li className={styles.list}>Americano</li>
-            <li><a
-                href='https://github.com/mugihos' 
-                target='blank'
-                className={`fa fa-github ${styles.github}`} 
-                alt="GitHub icon"> mugihos</a></li>
+            <li>
+              <a
+                href="https://github.com/mugihos"
+                target="blank"
+                className={`fa fa-github ${styles.github}`}
+                alt="GitHub icon"
+              >
+                {' '}
+                mugihos
+              </a>
+            </li>
             <li></li>
           </ul>
         </div>
@@ -77,11 +107,17 @@ export default function OurTeam() {
           <img className={styles.photo} src="/img/bean.png" alt="" />
           <ul className={styles.profile}>
             <li className={styles.list}>Iced coffee</li>
-            <li><a
-                href='https://github.com/Sarah-Dewbery' 
-                target='blank'
-                className={`fa fa-github ${styles.github}`} 
-                alt="GitHub icon"> Sarah-Dewbery</a></li>
+            <li>
+              <a
+                href="https://github.com/Sarah-Dewbery"
+                target="blank"
+                className={`fa fa-github ${styles.github}`}
+                alt="GitHub icon"
+              >
+                {' '}
+                Sarah-Dewbery
+              </a>
+            </li>
             <li></li>
           </ul>
         </div>
