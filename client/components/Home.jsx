@@ -48,7 +48,7 @@ export default function Home() {
             )}
             <IfAuthenticated>
               <Link to={`/addNewCafe`}>
-                <button>ADD NEW CAFE</button>
+                <button>Add New Cafe</button>
               </Link>
               <Link to="/addroaster">
                 <button>Add Roaster</button>
