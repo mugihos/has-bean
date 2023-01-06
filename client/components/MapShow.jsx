@@ -61,7 +61,7 @@ export default function MapShow({ moreInfo }) {
       <Map
         {...viewState}
         // onMove={onMove}
-        mapboxAccessToken="pk.eyJ1IjoiZ3JlYXNlbGluZyIsImEiOiJjbGIzZHk2ZDMwM3RwM3VzdTZyaHFsOHVsIn0.95-vdWz0ALCMh9EdrPCMuA"
+        mapboxAccessToken="pk.eyJ1IjoibXVzaWtvMjE5IiwiYSI6ImNsYjNnNWQ2ODA1NzkzbnM2ZG5icWUyanAifQ.9cq4dU02Qk92g3sgbxZCAg"
         container="map"
         style={{
           width: '100%',

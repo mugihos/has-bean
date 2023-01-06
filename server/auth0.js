@@ -1,7 +1,7 @@
 const { expressjwt: jwt } = require('express-jwt')
 const jwks = require('jwks-rsa')
 
-const domain = 'https://aihe-ahoaho-2022-coffee.au.auth0.com'
+const domain = 'https://ahoaho-2022-mugiho.au.auth0.com'
 const audience = 'https://coffee/api'
 
 const checkJwt = jwt({

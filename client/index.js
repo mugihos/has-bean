@@ -11,8 +11,8 @@ import ScrollToTop from './scrollToTop'
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Auth0Provider
-      domain="https://aihe-ahoaho-2022-coffee.au.auth0.com"
-      clientId="6HxJdPWldonkTeuYAFDAPRE0aI0xpSBm"
+      domain="ahoaho-2022-mugiho.au.auth0.com"
+      clientId="2a0WTZvEMhXlRPwcMt1qgSS0lgw4cqrB"
       redirectUri={window.location.origin}
       audience="https://coffee/api"
     >
