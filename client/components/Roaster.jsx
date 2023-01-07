@@ -18,6 +18,10 @@ export default function Roaster() {
   const searchRoasters = useSelector((state) => state.searchRoasters)
   const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
 
+  console.log(singleRoaster)
+  console.log(roasterId)
+  console.log(roasters)
+
   function mapRoasterCafes(query) {
     const filteredRoasters = searchRoasters.filter(({ roasterName }) =>
       roasterName.toLowerCase().includes(query.toLowerCase())

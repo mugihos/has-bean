@@ -11,6 +11,8 @@ export default function Roasters() {
     return <div>Loading Roasters... ps. David is best</div>
   }
 
+  console.log(roasters)
+
   const cities = new Set()
   roasters.map((roaster) =>
     roaster.location.split(',').map((location) => cities.add(location.trim()))
