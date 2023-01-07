@@ -7,9 +7,6 @@ module.exports = {
     connection: {
       filename: path.join(__dirname, 'dev.sqlite3'),
     },
-    pool: {
-      afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
-    },
   },
 
   test: {
@@ -19,25 +16,25 @@ module.exports = {
       filename: ':memory:',
     },
     migrations: {
-      directory: path.join(__dirname, 'migrations')
+      directory: path.join(__dirname, 'migrations'),
     },
     seeds: {
-      directory: path.join(__dirname, 'seeds')
-    },
-    pool: {
-      afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
+      directory: path.join(__dirname, 'seeds'),
     },
   },
 
   production: {
-    client: 'postgresql',
+    client: 'cockroachdb',
+    useNullAsDefault: true,
     connection: process.env.DATABASE_URL,
-    pool: {
-      min: 2,
-      max: 10,
-    },
     migrations: {
+      disableTransactions: true,
       tableName: 'knex_migrations',
+      directory: path.join(__dirname, 'migrations'),
+    },
+    seeds: {
+      disableTransactions: true,
+      directory: path.join(__dirname, 'seeds'),
     },
   },
 }

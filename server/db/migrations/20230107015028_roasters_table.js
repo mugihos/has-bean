@@ -3,8 +3,13 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.table('beans', (table) => {
+  return knex.schema.createTable('roasters', (table) => {
+    table.increments('id')
     table.string('name')
+    table.string('location')
+    table.text('details')
+    table.string('url')
+    table.string('image_url')
   })
 }
 
@@ -13,7 +18,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.table('beans', (table) => {
-    table.dropColumn('name')
-  })
+  return knex.schema.dropTable('roasters')
 }

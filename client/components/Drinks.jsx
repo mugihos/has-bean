@@ -41,23 +41,26 @@ export default function Drinks() {
         </div>
       </form>
 
-      <div >
+      <div>
         <ul className={styles.container}>
-
           {drinks.map((drink) => {
             const { id, title, description, ingredients } = drink
-            const ingredientsString = ingredients.join(', ')
+            console.log(ingredients)
+            const ingredientsString = Array.from(ingredients).join(', ')
             const image = `img/drinks/${title.toLowerCase()}.png`
             return (
               <div className={styles.item} key={id}>
-              <li>
-                <h2 className={styles.title}>{title}</h2>
-                <div className={styles.image}>
-                <img src={image} alt="#" width="200" />
-                </div>
-                <p>{description}</p>
-                <p><b>Ingredients</b><br></br>  {ingredientsString}</p>
-              </li>
+                <li>
+                  <h2 className={styles.title}>{title}</h2>
+                  <div className={styles.image}>
+                    <img src={image} alt="#" width="200" />
+                  </div>
+                  <p>{description}</p>
+                  <p>
+                    <b>Ingredients</b>
+                    <br></br> {ingredientsString}
+                  </p>
+                </li>
               </div>
             )
           })}
