@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "node server",
-    "heroku-postbuild": "webpack -p",
+    "heroku-postbuild": "webpack",
     "test": "jest",
     "test:watch": "jest --noStackTrace --watchAll",
     "dev": "run-p dev:client dev:server",
