@@ -62,7 +62,7 @@ export default function SubmitReview() {
                 <option value="0">-- Please select --</option>
                 {roasters?.map((roaster) => {
                   return (
-                    <option key={roaster.id} value={roaster.id}>
+                    <option key={roaster.id} value={Number(roaster.id)}>
                       {roaster.name}
                     </option>
                   )
@@ -77,11 +77,13 @@ export default function SubmitReview() {
                     <option value="0">-- Please select --</option>
                     {beans
                       ?.filter((bean) => {
-                        return bean.roaster_id === Number(selectedRoasterId)
+                        return (
+                          Number(bean.roaster_id) === Number(selectedRoasterId)
+                        )
                       })
                       .map((bean) => {
                         return (
-                          <option key={bean.id} value={bean.id}>
+                          <option key={bean.id} value={Number(bean.id)}>
                             {bean.beanName}
                           </option>
                         )
@@ -97,7 +99,7 @@ export default function SubmitReview() {
               <option value="0">-- Please select --</option>
               {cafes?.map((cafe) => {
                 return (
-                  <option key={cafe.id} value={cafe.id}>
+                  <option key={cafe.id} value={Number(cafe.id)}>
                     {cafe.name}
                   </option>
                 )
