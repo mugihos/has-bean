@@ -149,7 +149,7 @@ export default function UserPage() {
                         <button
                           className={styles.buttonDesign}
                           onClick={(e) => {
-                            handleDelete(e, Number(review.id))
+                            handleDelete(e, review.id)
                           }}
                         >
                           Delete Review
