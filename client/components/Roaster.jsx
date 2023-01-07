@@ -16,11 +16,9 @@ export default function Roaster() {
   const beans = useSelector((state) => state.beans)
   const beansByRoaster = beans.filter((bean) => bean.roaster_id == roasterId)
   const searchRoasters = useSelector((state) => state.searchRoasters)
-  const singleRoaster = roasters.find((roaster) => roaster.id === roasterId)
-
-  console.log(singleRoaster)
-  console.log(roasterId)
-  console.log(roasters)
+  const singleRoaster = roasters.find(
+    (roaster) => Number(roaster.id) === roasterId
+  )
 
   function mapRoasterCafes(query) {
     const filteredRoasters = searchRoasters.filter(({ roasterName }) =>

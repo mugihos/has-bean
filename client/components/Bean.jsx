@@ -7,7 +7,7 @@ export default function Bean() {
   const params = useParams()
   const beanId = Number(params.id)
   const beans = useSelector((state) => state.beans)
-  const singleBean = beans.find((beans) => beans.id === beanId)
+  const singleBean = beans.find((beans) => Number(beans.id) === beanId)
 
   return (
     <>
